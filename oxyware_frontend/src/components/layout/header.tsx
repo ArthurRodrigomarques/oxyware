@@ -4,7 +4,7 @@ import { Button } from "../ui/button";
 
 export default function Header() {
   return (
-    <div className="min-h-screen flex flex-col items-center text-center px-4">
+    <div className="min-h-screen flex flex-col items-center text-center px-4 bg-gradient-to-br from-blue-900 to-purple-600">
       <Image
         src="/logo.png"
         alt="Logo"
@@ -14,7 +14,7 @@ export default function Header() {
       />
       <h1 className="text-6xl md:text-8xl font-bold mb-6 leading-tight">
         <span className="bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent">
-          Desenvolvimento
+          OxyWare
         </span>
         <br />
         <span className="text-foreground">do Futuro</span>
@@ -45,7 +45,7 @@ export default function Header() {
 
       <div className="flex justify-center gap-12 opacity-60">
         <div className="flex flex-col items-center gap-2">
-          <Smartphone className="h-8 w-8 text-purple-600" />
+          <Smartphone className="h-8 w-8 text-purple-100" />
           <span className="text-sm">Apps</span>
         </div>
         <div className="flex flex-col items-center gap-2">

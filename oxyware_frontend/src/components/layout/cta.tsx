@@ -5,11 +5,10 @@ import { ArrowRight, MessageCircle } from "lucide-react";
 
 export default function CTA() {
   return (
-    <section className="relative py-24 px-6 overflow-hidden">
-      {/* Background Gradient */}
+    <section className="relative py-24 px-6 overflow-hidden bg-gradient-to-br from-purple-800 to-blue-800 ">
+
       <div className="absolute inset-0 bg-gradient-hero opacity-30 pointer-events-none" />
 
-      {/* Animated blur circles */}
       <div className="absolute top-10 left-1/4 w-24 h-24 bg-primary/20 rounded-full blur-xl animate-float" />
       <div
         className="absolute bottom-10 right-1/4 w-32 h-32 bg-secondary/20 rounded-full blur-xl animate-float"
