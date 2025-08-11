@@ -7,7 +7,7 @@ import { aboutItems } from "@/data/aboutItems";
 
 export default function About() {
   return (
-    <section className="py-24 px-6 relative">
+    <section className="py-24 px-6 relative bg-slate-950">
       <div className="absolute top-1/4 right-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl" />
       <div className="absolute bottom-1/4 left-10 w-32 h-32 bg-accent/10 rounded-full blur-3xl" />
 

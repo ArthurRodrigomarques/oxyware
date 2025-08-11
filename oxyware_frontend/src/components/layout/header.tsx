@@ -17,7 +17,11 @@ export default function Header() {
           OxyWare
         </span>
         <br />
-        <span className="text-foreground">do Futuro</span>
+        <div className="text-3xl md:text-6xl">
+        <span className="text-foreground ">Código inteligente,</span>
+        <br />
+        <span className="text-foreground">Impacto Real.</span>
+        </div>
       </h1>
 
       <h2 className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed text-gray-400">
