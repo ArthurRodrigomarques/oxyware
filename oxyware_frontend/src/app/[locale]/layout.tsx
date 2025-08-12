@@ -1,23 +1,23 @@
-// src/app/[locale]/layout.tsx
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
-import { ThemeProvider } from "@/components/theme-provider";
 import { routing } from "@/i18n/routing";
+import { ThemeProvider } from "@/components/theme-provider";
 import "../globals.css";
 
-interface LocaleLayoutProps {
+export default async function LocaleLayout({
+  children,
+  params
+}: {
   children: React.ReactNode;
-  params: { locale: string };
-}
-
-export default async function LocaleLayout({ children, params }: LocaleLayoutProps) {
-  const locale = params.locale; // ✅ SEM await
+  params: Promise<{ locale: string }>; // <- params é Promise
+}) {
+  // Aqui fazemos o await antes de usar
+  const { locale } = await params;
 
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
 
-  // Importa as mensagens do locale dinamicamente
   const messages = (await import(`../../locales/${locale}.json`)).default;
 
   return (
@@ -29,7 +29,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
           enableSystem
           disableTransitionOnChange
         >
-          <NextIntlClientProvider locale={locale} messages={messages}>
+          <NextIntlClientProvider messages={messages}>
             {children}
           </NextIntlClientProvider>
         </ThemeProvider>
