@@ -1,0 +1,42 @@
+{
+  "our_services": "Our Services",
+  "services_description": "We offer complete software development solutions, from conception to implementation and maintenance.",
+  "services": [
+    {
+      "title": "App Development",
+      "description": "Native and hybrid apps for iOS and Android with exceptional performance and intuitive UX."
+    },
+    {
+      "title": "Modern Websites",
+      "description": "Responsive and optimized websites with the latest web technologies for maximum performance."
+    },
+    {
+      "title": "Custom Systems",
+      "description": "Tailor-made solutions to automate processes and optimize your business operations."
+    },
+    {
+      "title": "Optimized Performance",
+      "description": "Ultra-fast applications with instant loading and smooth experience."
+    },
+    {
+      "title": "Advanced Security",
+      "description": "Implementation of enterprise-level security protocols to protect your data."
+    },
+    {
+      "title": "Deploy & Scalability",
+      "description": "Robust cloud infrastructure that grows with your business without limitations."
+    },
+    {
+      "title": "Digital Marketing",
+      "description": "Personalized digital strategies to increase your online presence and generate more leads."
+    },
+    {
+      "title": "Copywriting",
+      "description": "Persuasive texts for websites and social media that convert visitors into customers."
+    },
+    {
+      "title": "Social Media Management",
+      "description": "Complete management of your social media with engaging and strategic content."
+    }
+  ]
+}
