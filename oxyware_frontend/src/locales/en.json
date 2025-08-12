@@ -9,59 +9,77 @@
     "websites": "Websites",
     "sistemas": "Systems"
   },
-  "our_services": "Our Services",
-  "services_description": "We offer complete software development solutions, from conception to implementation and maintenance.",
-  "services": [
-    {
-      "title": "App Development",
-      "description": "Native and hybrid apps for iOS and Android with exceptional performance and intuitive UX."
-    },
-    {
-      "title": "Modern Websites",
-      "description": "Responsive and optimized websites using the latest web technologies for maximum performance."
-    },
-    {
-      "title": "Custom Systems",
-      "description": "Tailor-made solutions to automate processes and optimize your business operations."
-    },
-    {
-      "title": "Optimized Performance",
-      "description": "Ultra-fast applications with instant loading and smooth experience."
-    },
-    {
-      "title": "Advanced Security",
-      "description": "Implementation of enterprise-level security protocols to protect your data."
-    },
-    {
-      "title": "Deploy & Scalability",
-      "description": "Robust cloud infrastructure that grows alongside your business without limitations."
-    },
-    {
-      "title": "Digital Marketing",
-      "description": "Personalized digital strategies to increase your online presence and generate more leads."
-    },
-    {
-      "title": "Copywriting",
-      "description": "Persuasive texts for websites and social media that turn visitors into customers."
-    },
-    {
-      "title": "Social Media Management",
-      "description": "Complete management of your social media with engaging and strategic content."
-    }
-  ],
-  "transform_ideas": "We Turn Ideas Into",
-  "digital_reality": "Digital Reality",
-  "oxyware_description": "At OxyWare, we are passionate about technology and innovation. Our team of expert developers works with the most advanced technologies to create solutions that exceed expectations.",
-  "agile_development": "Agile development with incremental deliveries",
-  "scalable_architecture": "Scalable architecture and optimized performance",
-  "responsive_design": "Responsive design for all devices",
-  "api_integration": "Integration with APIs and existing systems",
-  "stats": [
-    { "number": "20+", "label": "Projects Delivered" },
-    { "number": "3+", "label": "Years of Experience" },
-    { "number": "24/7", "label": "Technical Support" },
-    { "number": "100%", "label": "Client Satisfaction" }
-  ],
-  "ready_to_innovate": "Ready to Innovate?",
-  "cta_description": "Let's turn your vision into an exceptional digital solution. Get in touch and find out how we can boost your business."
+
+  
+  "services_section": {
+    "our_services": "Our Services",
+    "services_description": "We offer complete software development solutions, from conception to implementation and maintenance.",
+    "services": [
+      {
+        "title": "App Development",
+        "description": "Native and hybrid apps for iOS and Android with exceptional performance and intuitive UX."
+      },
+      {
+        "title": "Modern Websites",
+        "description": "Responsive and optimized websites using the latest web technologies for maximum performance."
+      },
+      {
+        "title": "Custom Systems",
+        "description": "Tailor-made solutions to automate processes and optimize your business operations."
+      },
+      {
+        "title": "Optimized Performance",
+        "description": "Ultra-fast applications with instant loading and smooth experience."
+      },
+      {
+        "title": "Advanced Security",
+        "description": "Implementation of enterprise-level security protocols to protect your data."
+      },
+      {
+        "title": "Deploy & Scalability",
+        "description": "Robust cloud infrastructure that grows alongside your business without limitations."
+      },
+      {
+        "title": "Digital Marketing",
+        "description": "Personalized digital strategies to increase your online presence and generate more leads."
+      },
+      {
+        "title": "Copywriting",
+        "description": "Persuasive texts for websites and social media that turn visitors into customers."
+      },
+      {
+        "title": "Social Media Management",
+        "description": "Complete management of your social media with engaging and strategic content."
+      }
+    ]
+  },
+
+
+  "about_section": {
+    "transform_ideas": "We Turn Ideas Into",
+    "digital_reality": "Digital Reality",
+    "oxyware_description": "At OxyWare, we specialize in turning creative concepts into efficient and modern digital solutions.",
+    "items": [
+      "Tailor-made solutions for your business",
+      "Specialized and dedicated team",
+      "Modern and efficient technologies"
+    ],
+    "stats": [
+      { "icon": "Users", "number": "50+", "label": "Satisfied Clients" },
+      { "icon": "Code", "number": "100+", "label": "Projects Delivered" },
+      { "icon": "Globe", "number": "10+", "label": "Countries Served" },
+      { "icon": "Award", "number": "5+", "label": "Awards Received" }
+    ],
+    "button": "Meet Our Team"
+  },
+
+
+  "cta_section": {
+    "title": "Ready to",
+    "highlight": "Innovate",
+    "description": "Let's turn your vision into an exceptional digital solution. Get in touch and discover how we can boost your business.",
+    "start_project": "Start Project",
+    "contact_us": "Contact Us",
+    "contact_through": "Get in touch through:"
+  }
 }

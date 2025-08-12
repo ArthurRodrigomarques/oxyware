@@ -9,6 +9,7 @@
     "websites": "Websites",
     "sistemas": "Sistemas"
   },
+
   "services_section": {
     "our_services": "Nossos Serviços",
     "services_description": "Oferecemos soluções completas em desenvolvimento de software, desde a concepção até a implementação e manutenção.",
@@ -51,25 +52,31 @@
       }
     ]
   },
-  "about_section": {
-    "transform_ideas": "Transformamos Ideias em",
-    "digital_reality": "Realidade Digital",
-    "oxyware_description": "Na OxyWare, somos apaixonados por tecnologia e inovação. Nossa equipe de desenvolvedores especialistas trabalha com as tecnologias mais avançadas para criar soluções que superam expectativas.",
-    "agile_development": "Desenvolvimento ágil com entregas incrementais",
-    "scalable_architecture": "Arquitetura escalável e performance otimizada",
-    "responsive_design": "Design responsivo para todos os dispositivos",
-    "api_integration": "Integração com APIs e sistemas existentes"
-  },
-  "stats_section": {
-    "stats": [
-      { "number": "20+", "label": "Projetos Entregues" },
-      { "number": "3+", "label": "Anos de Experiência" },
-      { "number": "24/7", "label": "Suporte Técnico" },
-      { "number": "100%", "label": "Satisfação do Cliente" }
-    ]
-  },
+  
+"about_section": {
+  "transform_ideas": "Transformamos",
+  "digital_reality": "Ideias em Realidade Digital",
+  "oxyware_description": "A Oxyware é especializada em transformar conceitos criativos em soluções digitais eficientes e modernas.",
+  "items": [
+    "Soluções sob medida para o seu negócio",
+    "Equipe especializada e dedicada",
+    "Tecnologias modernas e eficientes"
+  ],
+  "stats": [
+    { "icon": "Users", "number": "50+", "label": "Clientes satisfeitos" },
+    { "icon": "Code", "number": "100+", "label": "Projetos entregues" },
+    { "icon": "Globe", "number": "10+", "label": "Países atendidos" },
+    { "icon": "Award", "number": "5+", "label": "Prêmios recebidos" }
+  ],
+  "button": "Conhecer Nossa Equipe"
+},
+
   "cta_section": {
-    "ready_to_innovate": "Pronto para Inovar?",
-    "cta_description": "Vamos transformar sua visão em uma solução digital excepcional. Entre em contato e descubra como podemos impulsionar seu negócio."
+    "title": "Pronto para",
+    "highlight": "Inovar",
+    "description": "Vamos transformar sua visão em uma solução digital excepcional. Entre em contato e descubra como podemos impulsionar seu negócio.",
+    "start_project": "Iniciar Projeto",
+    "contact_us": "Falar Conosco",
+    "contact_through": "Entre em contato através de:"
   }
 }
