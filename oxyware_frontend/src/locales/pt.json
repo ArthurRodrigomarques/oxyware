@@ -52,24 +52,25 @@
       }
     ]
   },
-  
-"about_section": {
-  "transform_ideas": "Transformamos",
-  "digital_reality": "Ideias em Realidade Digital",
-  "oxyware_description": "A Oxyware é especializada em transformar conceitos criativos em soluções digitais eficientes e modernas.",
-  "items": [
-    "Soluções sob medida para o seu negócio",
-    "Equipe especializada e dedicada",
-    "Tecnologias modernas e eficientes"
-  ],
-  "stats": [
-    { "icon": "Users", "number": "50+", "label": "Clientes satisfeitos" },
-    { "icon": "Code", "number": "100+", "label": "Projetos entregues" },
-    { "icon": "Globe", "number": "10+", "label": "Países atendidos" },
-    { "icon": "Award", "number": "5+", "label": "Prêmios recebidos" }
-  ],
-  "button": "Conhecer Nossa Equipe"
-},
+
+  "about_section": {
+    "transform_ideas": "Transformamos",
+    "digital_reality": "Ideias em Realidade Digital",
+    "oxyware_description": "A Oxyware é especializada em transformar conceitos criativos em soluções digitais eficientes e modernas.",
+    "aboutItems": [
+      "Desenvolvimento ágil com entregas incrementais",
+      "Arquitetura escalável e performance otimizada",
+      "Design responsivo para todos os dispositivos",
+      "Integração com APIs e sistemas existentes"
+    ],
+    "stats": [
+      { "icon": "Users", "number": "50+", "label": "Clientes satisfeitos" },
+      { "icon": "Code", "number": "100+", "label": "Projetos entregues" },
+      { "icon": "Globe", "number": "10+", "label": "Países atendidos" },
+      { "icon": "Award", "number": "5+", "label": "Prêmios recebidos" }
+    ],
+    "button": "Conhecer Nossa Equipe"
+  },
 
   "cta_section": {
     "title": "Pronto para",

@@ -1,25 +1,17 @@
+"use client"
+
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { CheckCircle, Users, Award, Globe, Clock } from "lucide-react";
+import * as Icons from "lucide-react";
 import { useTranslations } from "next-intl";
+import { ComponentType } from "react";
 
 export default function About() {
   const t = useTranslations("about_section");
 
-  const items = t.raw("items") as string[];
-  const statsData = t.raw("stats") as {
-    icon: string;
-    number: string;
-    label: string;
-  }[];
-
-  const iconMap: Record<string, any> = {
-    Users,
-    Code: Clock,
-    Globe,
-    Award,
-    CheckCircle,
-  };
+  // Busca arrays direto do JSON
+  const aboutItems = t.raw("aboutItems") as string[];
+  const stats = t.raw("stats") as { icon: string; number: string; label: string }[];
 
   return (
     <section className="py-24 px-6 relative bg-slate-950">
@@ -28,7 +20,6 @@ export default function About() {
 
       <div className="container mx-auto relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Texto principal */}
           <div>
             <h2 className="text-5xl font-bold mb-8 leading-tight">
               {t("transform_ideas")}{" "}
@@ -39,11 +30,10 @@ export default function About() {
               {t("oxyware_description")}
             </p>
 
-            {/* Itens do about */}
             <div className="space-y-4 mb-8">
-              {items.map((item, idx) => (
+              {aboutItems.map((item, idx) => (
                 <div key={idx} className="flex items-center gap-3">
-                  <CheckCircle className="h-6 w-6 text-green-400 flex-shrink-0" />
+                  <Icons.CheckCircle className="h-6 w-6 text-green-400 flex-shrink-0" />
                   <span className="text-foreground">{item}</span>
                 </div>
               ))}
@@ -54,10 +44,11 @@ export default function About() {
             </Button>
           </div>
 
-          {/* Cards de estatísticas */}
           <div className="grid grid-cols-2 gap-6">
-            {statsData.map(({ icon, number, label }, idx) => {
-              const Icon = iconMap[icon];
+            {stats.map(({ icon, number, label }, idx) => {
+              const IconComponent = (Icons[icon as keyof typeof Icons] ||
+                Icons.CheckCircle) as ComponentType<{ className?: string }>;
+
               return (
                 <Card
                   key={idx}
@@ -65,15 +56,11 @@ export default function About() {
                 >
                   <div className="flex justify-center mb-4">
                     <div className="p-4 bg-gradient-primary rounded-2xl text-white shadow-lg">
-                      <Icon className="h-8 w-8" />
+                      <IconComponent className="h-8 w-8" />
                     </div>
                   </div>
-                  <div className="text-4xl font-bold text-gradient mb-2">
-                    {number}
-                  </div>
-                  <div className="text-muted-foreground font-medium">
-                    {label}
-                  </div>
+                  <div className="text-4xl font-bold text-gradient mb-2">{number}</div>
+                  <div className="text-muted-foreground font-medium">{label}</div>
                 </Card>
               );
             })}

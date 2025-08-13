@@ -10,7 +10,6 @@
     "sistemas": "Systems"
   },
 
-  
   "services_section": {
     "our_services": "Our Services",
     "services_description": "We offer complete software development solutions, from conception to implementation and maintenance.",
@@ -54,15 +53,15 @@
     ]
   },
 
-
   "about_section": {
-    "transform_ideas": "We Turn Ideas Into",
-    "digital_reality": "Digital Reality",
-    "oxyware_description": "At OxyWare, we specialize in turning creative concepts into efficient and modern digital solutions.",
-    "items": [
-      "Tailor-made solutions for your business",
-      "Specialized and dedicated team",
-      "Modern and efficient technologies"
+    "transform_ideas": "We Transform",
+    "digital_reality": "Ideas into Digital Reality",
+    "oxyware_description": "OxyWare specializes in turning creative concepts into efficient and modern digital solutions.",
+    "aboutItems": [
+      "Agile development with incremental deliveries",
+      "Scalable architecture and optimized performance",
+      "Responsive design for all devices",
+      "Integration with existing APIs and systems"
     ],
     "stats": [
       { "icon": "Users", "number": "50+", "label": "Satisfied Clients" },
@@ -72,7 +71,6 @@
     ],
     "button": "Meet Our Team"
   },
-
 
   "cta_section": {
     "title": "Ready to",
