@@ -9,7 +9,6 @@ import { ComponentType } from "react";
 export default function About() {
   const t = useTranslations("about_section");
 
-  // Busca arrays direto do JSON
   const aboutItems = t.raw("aboutItems") as string[];
   const stats = t.raw("stats") as { icon: string; number: string; label: string }[];
 

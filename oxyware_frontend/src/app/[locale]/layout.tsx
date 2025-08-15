@@ -6,12 +6,11 @@ import "../globals.css";
 
 export default async function LocaleLayout({
   children,
-  params
+  params,
 }: {
   children: React.ReactNode;
-  params: Promise<{ locale: string }>; // <- params é Promise
+  params: Promise<{ locale: string }>;
 }) {
-  // Aqui fazemos o await antes de usar
   const { locale } = await params;
 
   if (!hasLocale(routing.locales, locale)) {
