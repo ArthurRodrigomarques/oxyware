@@ -1,0 +1,83 @@
+{
+  "Header": {
+    "codigoInteligente": "Código inteligente,",
+    "impactoReal": "Impacto Real.",
+    "descricao": "Criamos aplicativos e websites modernos que impulsionam seu negócio para a era digital com tecnologia de ponta e design inovador.",
+    "comecarProjeto": "Começar Projeto",
+    "verPortfolio": "Ver Portfólio",
+    "apps": "Apps",
+    "websites": "Websites",
+    "sistemas": "Sistemas"
+  },
+
+  "services_section": {
+    "our_services": "Nossos Serviços",
+    "services_description": "Oferecemos soluções completas em desenvolvimento de software, desde a concepção até a implementação e manutenção.",
+    "services": [
+      {
+        "title": "Desenvolvimento de Apps",
+        "description": "Apps nativos e híbridos para iOS e Android com performance excepcional e UX intuitiva."
+      },
+      {
+        "title": "Websites Modernos",
+        "description": "Sites responsivos e otimizados com as mais recentes tecnologias web para máxima performance."
+      },
+      {
+        "title": "Sistemas Customizados",
+        "description": "Soluções sob medida para automatizar processos e otimizar a operação do seu negócio."
+      },
+      {
+        "title": "Performance Otimizada",
+        "description": "Aplicações ultra-rápidas com carregamento instantâneo e experiência fluida."
+      },
+      {
+        "title": "Segurança Avançada",
+        "description": "Implementação de protocolos de segurança de nível empresarial para proteger seus dados."
+      },
+      {
+        "title": "Deploy & Escalabilidade",
+        "description": "Infraestrutura cloud robusta que cresce junto com seu negócio sem limitações."
+      },
+      {
+        "title": "Marketing Digital",
+        "description": "Estratégias digitais personalizadas para aumentar sua presença online e gerar mais leads."
+      },
+      {
+        "title": "Copywriting",
+        "description": "Textos persuasivos para sites e redes sociais que convertem visitantes em clientes."
+      },
+      {
+        "title": "Gestão de Redes Sociais",
+        "description": "Gerenciamento completo das suas redes sociais com conteúdo engajador e estratégico."
+      }
+    ]
+  },
+
+  "about_section": {
+    "transform_ideas": "Transformamos",
+    "digital_reality": "Ideias em Realidade Digital",
+    "oxyware_description": "A Oxyware é especializada em transformar conceitos criativos em soluções digitais eficientes e modernas.",
+    "aboutItems": [
+      "Desenvolvimento ágil com entregas incrementais",
+      "Arquitetura escalável e performance otimizada",
+      "Design responsivo para todos os dispositivos",
+      "Integração com APIs e sistemas existentes"
+    ],
+    "stats": [
+      { "icon": "Users", "number": "50+", "label": "Clientes satisfeitos" },
+      { "icon": "Code", "number": "100+", "label": "Projetos entregues" },
+      { "icon": "Globe", "number": "10+", "label": "Países atendidos" },
+      { "icon": "Award", "number": "5+", "label": "Prêmios recebidos" }
+    ],
+    "button": "Conhecer Nossa Equipe"
+  },
+
+  "cta_section": {
+    "title": "Pronto para",
+    "highlight": "Inovar",
+    "description": "Vamos transformar sua visão em uma solução digital excepcional. Entre em contato e descubra como podemos impulsionar seu negócio.",
+    "start_project": "Iniciar Projeto",
+    "contact_us": "Falar Conosco",
+    "contact_through": "Entre em contato através de:"
+  }
+}

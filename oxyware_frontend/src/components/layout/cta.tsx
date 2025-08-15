@@ -2,8 +2,11 @@
 
 import { Button } from "@/components/ui/button";
 import { ArrowRight, MessageCircle } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export default function CTA() {
+  const t = useTranslations("cta_section");
+
   return (
     <section className="relative py-24 px-6 overflow-hidden bg-gradient-to-br from-purple-800 to-blue-800 ">
 
@@ -17,12 +20,11 @@ export default function CTA() {
 
       <div className="container mx-auto relative z-10 text-center max-w-4xl">
         <h2 className="mb-8 text-5xl md:text-6xl font-bold leading-tight">
-          Pronto para <span className="text-gradient">Inovar</span>?
+          {t("title")} <span className="text-gradient">{t("highlight")}</span>?
         </h2>
 
         <p className="mx-auto mb-12 max-w-2xl text-xl md:text-2xl text-muted-foreground leading-relaxed">
-          Vamos transformar sua visão em uma solução digital excepcional. Entre
-          em contato e descubra como podemos impulsionar seu negócio.
+          {t("description")}
         </p>
 
         <div className="mx-auto flex max-w-[600px] flex-col gap-6 sm:flex-row justify-center items-center">
@@ -30,7 +32,7 @@ export default function CTA() {
             size="lg"
             className="bg-gradient-to-r from-purple-600 to-blue-500 text-white rounded-full shadow-2xl px-10 py-5 text-xl font-semibold hover:scale-[1.05] transition-transform cursor-pointer"
           >
-            Iniciar Projeto
+            {t("start_project")}
             <ArrowRight className="ml-3 h-6 w-6" />
           </Button>
 
@@ -40,12 +42,12 @@ export default function CTA() {
             className="glass-card rounded-full px-10 py-5 text-xl font-semibold min-w-[250px] hover:bg-white/10 cursor-pointer"
           >
             <MessageCircle className="mr-3 h-6 w-6" />
-            Falar Conosco
+            {t("contact_us")}
           </Button>
         </div>
 
         <div className="mt-16 border-t border-white/10 pt-8 text-muted-foreground">
-          <p className="mb-4">Entre em contato através de:</p>
+          <p className="mb-4">{t("contact_through")}</p>
           <div className="flex flex-col gap-4 sm:flex-row sm:justify-center sm:gap-8 text-foreground">
             <a
               href="mailto:oxywaretech@gmail.com"

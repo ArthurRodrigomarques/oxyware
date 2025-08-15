@@ -7,26 +7,30 @@ import {
   CardTitle,
   CardDescription,
 } from "@/components/ui/card";
-import { services } from "@/data/servicesData";
+import { useTranslations } from "next-intl";
 
 export default function BodyServices() {
+  const t = useTranslations("services_section");
+
+  const services = t.raw("services") as {
+    title: string;
+    description: string;
+  }[];
+
   return (
     <section className="py-24 px-6 bg-slate-950">
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-5xl font-bold mb-6">
-            <span className="text-gradient">Nossos Serviços</span>
+            <span className="text-gradient">{t("our_services")}</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Oferecemos soluções completas em desenvolvimento de software, desde
-            a concepção até a implementação e manutenção.
+            {t("services_description")}
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {services.map((service, index) => {
-            const Icon = service.icon;
-
             // Alterna cores de forma sequencial
             let gradientClass = "";
             if (index % 3 === 0) {
@@ -50,7 +54,8 @@ export default function BodyServices() {
                   <div
                     className={`flex items-center justify-center w-16 h-16 rounded-2xl ${gradientClass} text-white shadow-lg mb-4`}
                   >
-                    <Icon className="h-8 w-8" />
+                    {/* Ícone opcional, removi o import fixo */}
+                    <span className="text-xl font-bold">{index + 1}</span>
                   </div>
                   <CardTitle className="text-xl font-bold">
                     {service.title}
