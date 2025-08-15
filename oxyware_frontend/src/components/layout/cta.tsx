@@ -1,7 +1,13 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight, MessageCircle } from "lucide-react";
+import {
+  ArrowRight,
+  Instagram,
+  Mail,
+  MessageCircle,
+  MessageSquare,
+} from "lucide-react";
 import { useTranslations } from "next-intl";
 
 export default function CTA() {
@@ -9,7 +15,6 @@ export default function CTA() {
 
   return (
     <section className="relative py-24 px-6 overflow-hidden bg-gradient-to-br from-purple-800 to-blue-800 ">
-
       <div className="absolute inset-0 bg-gradient-hero opacity-30 pointer-events-none" />
 
       <div className="absolute top-10 left-1/4 w-24 h-24 bg-primary/20 rounded-full blur-xl animate-float" />
@@ -46,20 +51,35 @@ export default function CTA() {
           </Button>
         </div>
 
-        <div className="mt-16 border-t border-white/10 pt-8 text-muted-foreground">
-          <p className="mb-4">{t("contact_through")}</p>
-          <div className="flex flex-col gap-4 sm:flex-row sm:justify-center sm:gap-8 text-foreground">
+        <div className="mt-8 flex flex-col gap-3">
+          <h2 className="text-lg font-semibold mb-4">{t("contact_through")} </h2>
+          <div className="flex justify-center gap-6 text-white">
             <a
-              href="mailto:oxywaretech@gmail.com"
-              className="hover:text-gray-400 transition-colors"
+              href="mailto:seuemail@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 hover:text-blue-800"
             >
-              oxywaretech@gmail.com
+              <Mail size={20} />
+              Gmail
             </a>
             <a
-              href="tel:+5513991908771"
-              className="hover:text-gray-400 transition-colors"
+              href="https://wa.me/5513996547656"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 hover:text-green-600"
             >
-              +55 (13) 99190-8771
+              <MessageSquare size={20} />
+              WhatsApp
+            </a>
+            <a
+              href="https://instagram.com/oxyware"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 hover:text-pink-500"
+            >
+              <Instagram size={20} />
+              Instagram
             </a>
           </div>
         </div>

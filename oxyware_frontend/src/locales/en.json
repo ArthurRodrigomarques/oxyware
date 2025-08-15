@@ -3,7 +3,7 @@
     "codigoInteligente": "Smart Code,",
     "impactoReal": "Real Impact.",
     "descricao": "We create modern applications and websites that drive your business into the digital era with cutting-edge technology and innovative design.",
-    "comecarProjeto": "Start Project",
+    "comecarProjeto": "Request a Quote",
     "verPortfolio": "View Portfolio",
     "apps": "Apps",
     "websites": "Websites",
@@ -15,38 +15,47 @@
     "services_description": "We offer complete software development solutions, from conception to implementation and maintenance.",
     "services": [
       {
+        "icon": "Smartphone",
         "title": "App Development",
         "description": "Native and hybrid apps for iOS and Android with exceptional performance and intuitive UX."
       },
       {
+        "icon": "Globe",
         "title": "Modern Websites",
         "description": "Responsive and optimized websites using the latest web technologies for maximum performance."
       },
       {
+        "icon": "Code",
         "title": "Custom Systems",
         "description": "Tailor-made solutions to automate processes and optimize your business operations."
       },
       {
+        "icon": "Zap",
         "title": "Optimized Performance",
         "description": "Ultra-fast applications with instant loading and smooth experience."
       },
       {
+        "icon": "Shield",
         "title": "Advanced Security",
         "description": "Implementation of enterprise-level security protocols to protect your data."
       },
       {
+        "icon": "Rocket",
         "title": "Deploy & Scalability",
         "description": "Robust cloud infrastructure that grows alongside your business without limitations."
       },
       {
+        "icon": "TrendingUp",
         "title": "Digital Marketing",
         "description": "Personalized digital strategies to increase your online presence and generate more leads."
       },
       {
+        "icon": "PenTool",
         "title": "Copywriting",
         "description": "Persuasive texts for websites and social media that turn visitors into customers."
       },
       {
+        "icon": "Share2",
         "title": "Social Media Management",
         "description": "Complete management of your social media with engaging and strategic content."
       }
@@ -76,8 +85,18 @@
     "title": "Ready to",
     "highlight": "Innovate",
     "description": "Let's turn your vision into an exceptional digital solution. Get in touch and discover how we can boost your business.",
-    "start_project": "Start Project",
+    "start_project": "Request a Quote",
     "contact_us": "Contact Us",
     "contact_through": "Get in touch through:"
+  },
+
+  "contact_section": {
+    "title": "Request a Quote",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "message": "Message",
+    "submit": "Send",
+    "success": "Request sent successfully!"
   }
 }
