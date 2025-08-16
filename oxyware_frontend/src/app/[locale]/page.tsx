@@ -1,31 +1,30 @@
 import { getTranslations } from "next-intl/server";
+import type { Metadata } from "next";
 import About from "@/components/layout/about";
 import BodyServices from "@/components/layout/body-services";
 import CTA from "@/components/layout/cta";
 import Header from "@/components/layout/header";
 import SlideIn from "@/components/AnimatedSlideIn";
 
-// Metadata dinâmico com tradução
-export async function generateMetadata({ params: { locale } }: { params: { locale: string } }) {
-  const t = await getTranslations({ locale, namespace: "metadata" });
+export async function generateMetadata(props: unknown): Promise<Metadata> {
+  const { params } = props as { params: { locale: string } };
+  const t = await getTranslations({
+    locale: params.locale,
+    namespace: "metadata",
+  });
 
   return {
+    metadataBase: new URL("https://www.oxyware.com"),
     title: t("title"),
     description: t("description"),
     keywords: t.raw("keywords") as string[],
     openGraph: {
       title: t("title"),
       description: t("description"),
-      url: "https://www.oxyware.com",
+      url: "/",
       siteName: "Oxyware",
-      images: [
-        {
-          url: "/og-image.png",
-          width: 1200,
-          height: 630,
-        },
-      ],
-      locale: locale === "pt" ? "pt_BR" : "en_US",
+      images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+      locale: params.locale === "pt" ? "pt_BR" : "en_US",
       type: "website",
     },
     twitter: {
