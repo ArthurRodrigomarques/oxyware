@@ -98,5 +98,15 @@
     "message": "Message",
     "submit": "Send",
     "success": "Request sent successfully!"
+  },
+
+  
+  "metadata": {
+    "title": "Oxyware - Web & App Development",
+    "description": "Oxyware creates modern websites, apps, and technology solutions to help businesses grow.",
+    "keywords": ["Oxyware", "web development", "app development", "Next.js", "React", "technology solutions", "software company"]
   }
+
+
 }
+

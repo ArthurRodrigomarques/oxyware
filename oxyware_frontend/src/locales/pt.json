@@ -98,5 +98,11 @@
     "message": "Mensagem",
     "submit": "Enviar",
     "success": "Solicitação enviada com sucesso!"
+  },
+
+    "metadata": {
+    "title": "Oxyware - Desenvolvimento Web e Apps",
+    "description": "A Oxyware cria sites modernos, aplicativos e soluções tecnológicas para ajudar empresas a crescerem.",
+    "keywords": ["Oxyware", "desenvolvimento web", "desenvolvimento de aplicativos", "Next.js", "React", "soluções tecnológicas", "empresa de software"]
   }
 }
