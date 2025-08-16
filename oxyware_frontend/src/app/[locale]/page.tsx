@@ -1,17 +1,21 @@
 import { getTranslations } from "next-intl/server";
-import type { Metadata } from "next";
 import About from "@/components/layout/about";
 import BodyServices from "@/components/layout/body-services";
 import CTA from "@/components/layout/cta";
 import Header from "@/components/layout/header";
 import SlideIn from "@/components/AnimatedSlideIn";
+import type { Metadata } from "next";
+import FloatingSocials from "@/components/FloatingSocials";
 
-export async function generateMetadata(props: unknown): Promise<Metadata> {
-  const { params } = props as { params: { locale: string } };
-  const t = await getTranslations({
-    locale: params.locale,
-    namespace: "metadata",
-  });
+type PageProps = {
+  params: Promise<{ locale: string }>;
+};
+
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const { locale } = await params; 
+  const t = await getTranslations({ locale, namespace: "metadata" });
 
   return {
     metadataBase: new URL("https://www.oxyware.com"),
@@ -24,7 +28,7 @@ export async function generateMetadata(props: unknown): Promise<Metadata> {
       url: "/",
       siteName: "Oxyware",
       images: [{ url: "/og-image.png", width: 1200, height: 630 }],
-      locale: params.locale === "pt" ? "pt_BR" : "en_US",
+      locale: locale === "pt" ? "pt_BR" : "en_US",
       type: "website",
     },
     twitter: {
@@ -36,7 +40,8 @@ export async function generateMetadata(props: unknown): Promise<Metadata> {
   };
 }
 
-export default function Page() {
+export default async function Page({ params }: PageProps) {
+  const { locale } = await params; 
   return (
     <div className="overflow-x-hidden">
       <Header />
@@ -50,6 +55,7 @@ export default function Page() {
         <SlideIn direction="left" delay={0.3}>
           <CTA />
         </SlideIn>
+        <FloatingSocials />
       </div>
     </div>
   );
