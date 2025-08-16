@@ -45,7 +45,7 @@ export default function BodyServices() {
   };
 
   return (
-    <section className="py-24 px-6 bg-slate-950">
+    <section className="py-24 px-6 bg-slate-950 text-white">
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-5xl font-bold mb-6">

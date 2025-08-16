@@ -13,7 +13,7 @@ export default function About() {
   const stats = t.raw("stats") as { icon: string; number: string; label: string }[];
 
   return (
-    <section className="py-24 px-6 relative bg-slate-950">
+    <section className="py-24 px-6 relative bg-slate-950 text-white">
       <div className="absolute top-1/4 right-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl" />
       <div className="absolute bottom-1/4 left-10 w-32 h-32 bg-accent/10 rounded-full blur-3xl" />
 

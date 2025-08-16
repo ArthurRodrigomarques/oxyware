@@ -10,7 +10,7 @@ export default function Header() {
   const t = useTranslations("Header");
 
   return (
-    <div className="min-h-screen flex flex-col items-center text-center px-4 bg-gradient-to-br from-blue-900 to-purple-600">
+    <div className="min-h-screen flex flex-col items-center text-center px-4 bg-gradient-to-br from-blue-900 to-purple-600 text-white">
       <Image
         src="/logo.png"
         alt="Logo"
