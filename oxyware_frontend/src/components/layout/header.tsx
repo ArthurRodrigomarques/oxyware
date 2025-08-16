@@ -5,12 +5,14 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { ArrowRight, Code, Smartphone, Globe } from "lucide-react";
 import { Button } from "../ui/button";
+import LanguageSwitcher from "../LanguageSwitcher";
 
 export default function Header() {
   const t = useTranslations("Header");
 
   return (
     <div className="min-h-screen flex flex-col items-center text-center px-4 bg-gradient-to-br from-blue-900 to-purple-600 text-white">
+            <LanguageSwitcher />
       <Image
         src="/logo.png"
         alt="Logo"
