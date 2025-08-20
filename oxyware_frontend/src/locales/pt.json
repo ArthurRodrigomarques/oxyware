@@ -100,9 +100,48 @@
     "success": "Solicitação enviada com sucesso!"
   },
 
-    "metadata": {
+  "metadata": {
     "title": "Oxyware - Desenvolvimento Web e Apps",
     "description": "A Oxyware cria sites modernos, aplicativos e soluções tecnológicas para ajudar empresas a crescerem.",
-    "keywords": ["Oxyware", "desenvolvimento web", "desenvolvimento de aplicativos", "Next.js", "React", "soluções tecnológicas", "empresa de software"]
+    "keywords": [
+      "Oxyware",
+      "desenvolvimento web",
+      "desenvolvimento de aplicativos",
+      "Next.js",
+      "React",
+      "soluções tecnológicas",
+      "empresa de software"
+    ]
+  },
+
+  "portfolio": {
+    "title": "Exemplos",
+    "description": "Este site é uma plataforma moderna de portfolio que apresenta projetos de forma profissional, destacando qualidade visual, usabilidade e interatividade. Os visitantes podem explorar cada projeto detalhadamente e ter uma experiência imersiva.",
+    "projects": {
+      "cars": "Concessionária de Carros",
+      "carsDescription": "Projeto de site para uma concessionária de carros, com layout moderno, imagens de veículos esportivos, SUVs e sedans, seções de promoções, teste de drive e design em vermelho e branco.",
+      "realEstate": "Imobiliária",
+      "realEstateDescription": "Projeto de sistema imobiliário completo, apresentando imóveis, filtros de busca, detalhes de cada propriedade e integração com contato do cliente, layout limpo e profissional."
+    }
+  },
+
+  "faq": {
+    "title": "Perguntas Frequentes",
+    "q1": {
+      "question": "Quanto custa um site?",
+      "answer": "O preço de um site varia de acordo com a complexidade, funcionalidades e design desejado. Para sites simples, o valor costuma ser menor; sites mais complexos com funcionalidades avançadas e integração podem ter um custo maior."
+    },
+    "q2": {
+      "question": "Quanto tempo demora para criar um site?",
+      "answer": "O tempo de desenvolvimento depende do projeto. Um site simples pode ser feito em semanas, enquanto projetos mais complexos podem levar de 2 a 8 meses, incluindo design, desenvolvimento e testes."
+    },
+    "q3": {
+      "question": "Que resultados devo esperar?",
+      "answer": "Um site profissional deve melhorar sua presença online, transmitir credibilidade, gerar leads e engajar visitantes. Resultados específicos podem variar de acordo com a estratégia de marketing e SEO aplicada."
+    },
+    "q4": {
+      "question": "Vocês oferecem suporte após o lançamento do site?",
+      "answer": "Sim! Oferecemos suporte contínuo, manutenção e atualizações, garantindo que seu site funcione corretamente e esteja sempre atualizado com as melhores práticas de segurança e desempenho."
+    }
   }
 }

@@ -84,6 +84,7 @@ export default function BodyServices() {
                   >
                     {Icon && <Icon size={28} />}
                   </div>
+
                   <CardTitle className="text-xl font-bold text-center">
                     {service.title}
                   </CardTitle>

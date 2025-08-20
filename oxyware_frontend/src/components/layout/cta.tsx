@@ -14,7 +14,7 @@ export default function CTA() {
   const t = useTranslations("cta_section");
 
   return (
-    <section className="relative py-24 px-6 overflow-hidden bg-gradient-to-br from-purple-800 to-blue-800 text-white">
+    <section className="relative py-24 px-6 overflow-hidden bg-gradient-to-br text-white">
       <div className="absolute inset-0 bg-gradient-hero opacity-30 pointer-events-none" />
 
       <div className="absolute top-10 left-1/4 w-24 h-24 bg-primary/20 rounded-full blur-xl animate-float" />

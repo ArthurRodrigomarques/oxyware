@@ -6,6 +6,9 @@ import Header from "@/components/layout/header";
 import SlideIn from "@/components/AnimatedSlideIn";
 import type { Metadata } from "next";
 import FloatingSocials from "@/components/FloatingSocials";
+import Process from "@/components/layout/process";
+import Portfolio from "@/components/layout/portfolio";
+import Faq from "@/components/layout/faq";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -14,7 +17,7 @@ type PageProps = {
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
-  const { locale } = await params; 
+  const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "metadata" });
 
   return {
@@ -41,7 +44,7 @@ export async function generateMetadata({
 }
 
 export default async function Page({ params }: PageProps) {
-  const { locale } = await params; 
+  const { locale } = await params;
   return (
     <div className="overflow-x-hidden">
       <Header />
@@ -49,12 +52,19 @@ export default async function Page({ params }: PageProps) {
         <SlideIn direction="left">
           <BodyServices />
         </SlideIn>
-        <SlideIn direction="right" delay={0.2}>
+        <SlideIn direction="right" delay={0.1}>
           <About />
         </SlideIn>
-        <SlideIn direction="left" delay={0.3}>
+        <SlideIn direction="left" delay={0.1}>
+          <Portfolio />
+        </SlideIn>
+        <SlideIn direction="right" delay={0.1}>
+          <Faq />
+        </SlideIn>
+        <SlideIn direction="left" delay={0.1}>
           <CTA />
         </SlideIn>
+
         <FloatingSocials />
       </div>
     </div>

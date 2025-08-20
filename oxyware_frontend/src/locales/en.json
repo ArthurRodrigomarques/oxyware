@@ -100,13 +100,48 @@
     "success": "Request sent successfully!"
   },
 
-  
   "metadata": {
     "title": "Oxyware - Web & App Development",
     "description": "Oxyware creates modern websites, apps, and technology solutions to help businesses grow.",
-    "keywords": ["Oxyware", "web development", "app development", "Next.js", "React", "technology solutions", "software company"]
+    "keywords": [
+      "Oxyware",
+      "web development",
+      "app development",
+      "Next.js",
+      "React",
+      "technology solutions",
+      "software company"
+    ]
+  },
+
+  "portfolio": {
+    "title": "Examples",
+    "description": "This website is a modern portfolio platform that presents projects professionally, highlighting visual quality, usability, and interactivity. Visitors can explore each project in detail and have an immersive experience.",
+    "projects": {
+      "cars": "Car Dealership",
+      "carsDescription": "Website project for a car dealership with modern layout, images of sports cars, SUVs, and sedans, promotion sections, test drive booking, and red & white design.",
+      "realEstate": "Real Estate",
+      "realEstateDescription": "Complete real estate system showcasing properties, search filters, detailed property pages, and client contact integration, with a clean and professional layout."
+    }
+  },
+
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "q1": {
+      "question": "How much does a website cost?",
+      "answer": "The price of a website depends on its complexity, features, and desired design. Simple websites are usually cheaper; more complex projects with advanced functionalities and integrations may cost more."
+    },
+    "q2": {
+      "question": "How long does it take to create a website?",
+      "answer": "The development time depends on the project. A simple website can be completed in weeks, while more complex projects may take 2-8 months, including design, development, and testing."
+    },
+    "q3": {
+      "question": "What results should I expect?",
+      "answer": "A professional website should improve your online presence, convey credibility, generate leads, and engage visitors. Specific results may vary depending on the applied marketing and SEO strategy."
+    },
+    "q4": {
+      "question": "Do you offer support after the website launch?",
+      "answer": "Yes! We offer ongoing support, maintenance, and updates to ensure your website works correctly and stays up-to-date with the best security and performance practices."
+    }
   }
-
-
 }
-

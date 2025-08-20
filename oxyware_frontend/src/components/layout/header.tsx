@@ -11,7 +11,7 @@ export default function Header() {
   const t = useTranslations("Header");
 
   return (
-    <div className="min-h-screen flex flex-col items-center text-center px-4 bg-gradient-to-br from-blue-900 to-purple-600 text-white">
+    <div className="min-h-screen flex flex-col items-center text-center px-4 text-white">
             <LanguageSwitcher />
       <Image
         src="/logo.png"
@@ -45,13 +45,7 @@ export default function Header() {
           <ArrowRight className="ml-2 h-5 w-5" />
         </Button>
 
-        <Button
-          variant="outline"
-          size="lg"
-          className="glass-card px-8 py-4 text-lg font-semibold rounded-full min-w-[200px] hover:bg-white/10"
-        >
-          {t("verPortfolio")}
-        </Button>
+
       </div>
 
       <div className="flex justify-center gap-12 opacity-60">
