@@ -9,6 +9,8 @@ import FloatingSocials from "@/components/FloatingSocials";
 import Process from "@/components/layout/process";
 import Portfolio from "@/components/layout/portfolio";
 import Faq from "@/components/layout/faq";
+import Footer from "@/components/layout/footer";
+import AboutSection from "@/components/layout/aboutSection";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -49,22 +51,27 @@ export default async function Page({ params }: PageProps) {
     <div className="overflow-x-hidden">
       <Header />
       <div>
-        <SlideIn direction="left">
+        <SlideIn>
           <BodyServices />
         </SlideIn>
-        <SlideIn direction="right" delay={0.1}>
+        <SlideIn delay={0.1}>
           <About />
         </SlideIn>
-        <SlideIn direction="left" delay={0.1}>
+        <SlideIn delay={0.1}>
           <Portfolio />
         </SlideIn>
-        <SlideIn direction="right" delay={0.1}>
+        <SlideIn delay={0.1}>
+          <AboutSection />
+        </SlideIn>
+        <SlideIn delay={0.1}>
           <Faq />
         </SlideIn>
-        <SlideIn direction="left" delay={0.1}>
+        <SlideIn delay={0.1}>
           <CTA />
         </SlideIn>
-
+        <SlideIn delay={0.1}>
+          <Footer />
+        </SlideIn>
         <FloatingSocials />
       </div>
     </div>

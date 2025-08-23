@@ -6,13 +6,17 @@ import Image from "next/image";
 import { ArrowRight, Code, Smartphone, Globe } from "lucide-react";
 import { Button } from "../ui/button";
 import LanguageSwitcher from "../LanguageSwitcher";
+import QuoteButton from "../QuoteButton";
 
 export default function Header() {
   const t = useTranslations("Header");
 
   return (
-    <div className="min-h-screen flex flex-col items-center text-center px-4 text-white">
-            <LanguageSwitcher />
+    <div
+      className="min-h-screen flex flex-col items-center text-center px-4 text-white"
+      id="header"
+    >
+      <LanguageSwitcher />
       <Image
         src="/logo.png"
         alt="Logo"
@@ -37,15 +41,7 @@ export default function Header() {
       </h2>
 
       <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-        <Button
-          size="lg"
-          className="px-8 py-4 rounded-full min-w-[200px] bg-gradient-to-r from-purple-600 to-blue-500 text-white font-semibold text-lg flex items-center justify-center transition-transform duration-300 hover:scale-105 cursor-pointer"
-        >
-          {t("comecarProjeto")}
-          <ArrowRight className="ml-2 h-5 w-5" />
-        </Button>
-
-
+        <QuoteButton phone="+5513996547656" />
       </div>
 
       <div className="flex justify-center gap-12 opacity-60">

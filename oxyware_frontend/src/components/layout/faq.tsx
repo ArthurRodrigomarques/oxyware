@@ -20,14 +20,14 @@ export default function Faq() {
   ];
 
   return (
-    <section className="py-16 px-6 mx-auto bg-slate-950">
+    <section className="py-16 px-6 mx-auto bg-slate-950" id="faq">
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-white">
         {t("title")}
       </h2>
       <Accordion
         type="single"
         collapsible
-        className="max-w-5xl mx-auto space-y-4" 
+        className="max-w-5xl mx-auto space-y-4"
       >
         {questions.map((faq, index) => (
           <AccordionItem key={index} value={`item-${index}`}>

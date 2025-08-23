@@ -9,6 +9,9 @@
     "websites": "Websites",
     "sistemas": "Sistemas"
   },
+  "QuoteButton": {
+    "label": "Solicite um Orçamento"
+  },
 
   "services_section": {
     "our_services": "Nossos Serviços",
@@ -73,10 +76,10 @@
       "Integração com APIs e sistemas existentes"
     ],
     "stats": [
-      { "icon": "Users", "number": "50+", "label": "Clientes satisfeitos" },
-      { "icon": "Code", "number": "100+", "label": "Projetos entregues" },
-      { "icon": "Globe", "number": "10+", "label": "Países atendidos" },
-      { "icon": "Award", "number": "5+", "label": "Prêmios recebidos" }
+      { "icon": "Users", "number": "5+", "label": "Clientes satisfeitos" },
+      { "icon": "Code", "number": "20+", "label": "Projetos entregues" },
+      { "icon": "Globe", "number": "5+", "label": "Países atendidos" },
+      { "icon": "Award", "number": "1+", "label": "Prêmios recebidos" }
     ],
     "button": "Conhecer Nossa Equipe"
   },
@@ -142,6 +145,73 @@
     "q4": {
       "question": "Vocês oferecem suporte após o lançamento do site?",
       "answer": "Sim! Oferecemos suporte contínuo, manutenção e atualizações, garantindo que seu site funcione corretamente e esteja sempre atualizado com as melhores práticas de segurança e desempenho."
+    }
+  },
+
+  "footer": {
+    "companyName": "OxyWare",
+    "companyDescription": "Transformando ideias em soluções digitais inovadoras. Código inteligente, impacto real.",
+    "contact": {
+      "email": "oxywaretech@gmail.com",
+      "phone": "+55 (13) 99654-7656",
+      "address": "São Paulo, SP\nBrasil"
+    },
+    "links": {
+      "quick1": { "name": "Home", "href": "#hero" },
+      "quick2": { "name": "Serviços", "href": "#services" },
+      "quick3": { "name": "Sobre Nós", "href": "#about" },
+      "quick4": { "name": "Projetos", "href": "#projects" },
+      "quick5": { "name": "Equipe", "href": "#team" },
+      "quick6": { "name": "Perguntas Frequentes", "href": "#questions" },
+      "service1": "Desenvolvimento Web",
+      "service2": "Landing Pages",
+      "service3": "E-commerce",
+      "service4": "Sistemas Web",
+      "service5": "APIs & Backend",
+      "service6": "Consultoria Tech",
+      "legal1": { "name": "Política de Privacidade", "href": "/privacy" },
+      "legal2": { "name": "Termos de Uso", "href": "/terms" },
+      "legal3": { "name": "Cookies", "href": "/cookies" }
+    },
+    "newsletter": {
+      "title": "Fique por Dentro",
+      "description": "Receba nossas novidades e dicas sobre tecnologia.",
+      "placeholder": "Seu melhor e-mail",
+      "button": "Inscrever-se"
+    },
+    "bottomBar": {
+      "copyright": "© 2024 OxyWare. Todos os direitos reservados.",
+      "cnpj": "São Paulo, SP",
+      "madeBy": "Feito com ❤️ por OxyWare"
+    }
+  },
+
+  "about": {
+    "title": { "part1": "Quem", "part2": "Somos" },
+    "description": "A OxyWare nasceu da paixão por transformar ideias em soluções digitais inovadoras que geram impacto real no mundo dos negócios.",
+    "history": {
+      "title": "Nossa História",
+      "paragraph1": "Fundada com o objetivo de democratizar o acesso a tecnologias de ponta...",
+      "paragraph2": "Especializada em desenvolvimento web moderno..."
+    },
+    "values": {
+      "mission": {
+        "title": "Missão",
+        "description": "Transformar ideias em soluções digitais..."
+      },
+      "vision": {
+        "title": "Visão",
+        "description": "Ser referência em inovação tecnológica..."
+      },
+      "values": {
+        "title": "Valores",
+        "description": "Excelência, inovação, transparência..."
+      }
+    },
+    "arthur": {
+      "name": "Arthur Rodrigo",
+      "role": "Fundador & Tech Lead",
+      "description": "\"Como desenvolvedor apaixonado por tecnologia e inovação...\""
     }
   }
 }

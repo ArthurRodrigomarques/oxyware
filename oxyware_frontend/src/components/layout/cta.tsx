@@ -9,6 +9,7 @@ import {
   MessageSquare,
 } from "lucide-react";
 import { useTranslations } from "next-intl";
+import QuoteButton from "../QuoteButton";
 
 export default function CTA() {
   const t = useTranslations("cta_section");
@@ -33,22 +34,16 @@ export default function CTA() {
         </p>
 
         <div className="mx-auto flex max-w-[600px] flex-col gap-6 sm:flex-row justify-center items-center">
-          <Button
-            size="lg"
-            className="bg-gradient-to-r from-purple-600 to-blue-500 text-white rounded-full shadow-2xl px-10 py-5 text-xl font-semibold hover:scale-[1.05] transition-transform cursor-pointer"
-          >
-            {t("start_project")}
-            <ArrowRight className="ml-3 h-6 w-6" />
-          </Button>
+          <QuoteButton phone="+5513996547656" />
 
-          <Button
+          {/* <Button
             variant="outline"
             size="lg"
             className="glass-card rounded-full px-10 py-5 text-xl font-semibold min-w-[250px] hover:bg-white/10 cursor-pointer"
           >
             <MessageCircle className="mr-3 h-6 w-6" />
             {t("contact_us")}
-          </Button>
+          </Button> */}
         </div>
 
         <div className="mt-8 flex flex-col gap-3">

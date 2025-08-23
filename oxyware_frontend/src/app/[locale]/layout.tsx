@@ -26,7 +26,7 @@ export default async function LocaleLayout({
         />
 
         <div
-          className="fixed bottom-0 right-0 z-0 pointer-events-none"
+          className="fixed bottom-0 right-0 z-0 pointer-events-none hidden md:block"
           style={{
             backgroundImage: "url('/oxy.png')",
             backgroundSize: "500px",

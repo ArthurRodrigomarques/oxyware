@@ -10,6 +10,10 @@
     "sistemas": "Systems"
   },
 
+  "QuoteButton": {
+    "label": "Request a Quote"
+  },
+
   "services_section": {
     "our_services": "Our Services",
     "services_description": "We offer complete software development solutions, from conception to implementation and maintenance.",
@@ -73,10 +77,10 @@
       "Integration with existing APIs and systems"
     ],
     "stats": [
-      { "icon": "Users", "number": "50+", "label": "Satisfied Clients" },
-      { "icon": "Code", "number": "100+", "label": "Projects Delivered" },
-      { "icon": "Globe", "number": "10+", "label": "Countries Served" },
-      { "icon": "Award", "number": "5+", "label": "Awards Received" }
+      { "icon": "Users", "number": "5+", "label": "Satisfied Clients" },
+      { "icon": "Code", "number": "20+", "label": "Projects Delivered" },
+      { "icon": "Globe", "number": "5+", "label": "Countries Served" },
+      { "icon": "Award", "number": "1+", "label": "Awards Received" }
     ],
     "button": "Meet Our Team"
   },
@@ -142,6 +146,73 @@
     "q4": {
       "question": "Do you offer support after the website launch?",
       "answer": "Yes! We offer ongoing support, maintenance, and updates to ensure your website works correctly and stays up-to-date with the best security and performance practices."
+    }
+  },
+
+  "footer": {
+    "companyName": "OxyWare",
+    "companyDescription": "Turning ideas into innovative digital solutions. Smart code, real impact.",
+    "contact": {
+      "email": "oxywaretech@gmail.com",
+      "phone": "+55 (13) 99654-7656",
+      "address": "São Paulo, SP\nBrazil"
+    },
+    "links": {
+      "quick1": { "name": "Home", "href": "#hero" },
+      "quick2": { "name": "Services", "href": "#services" },
+      "quick3": { "name": "About Us", "href": "#about" },
+      "quick4": { "name": "Projects", "href": "#projects" },
+      "quick5": { "name": "Team", "href": "#team" },
+      "quick6": { "name": "Frequently Asked Questions", "href": "#questions" },
+      "service1": "Web Development",
+      "service2": "Landing Pages",
+      "service3": "E-commerce",
+      "service4": "Web Systems",
+      "service5": "APIs & Backend",
+      "service6": "Tech Consulting",
+      "legal1": { "name": "Privacy Policy", "href": "/privacy" },
+      "legal2": { "name": "Terms of Use", "href": "/terms" },
+      "legal3": { "name": "Cookies", "href": "/cookies" }
+    },
+    "newsletter": {
+      "title": "Stay Updated",
+      "description": "Receive our news and tech tips.",
+      "placeholder": "Your best email",
+      "button": "Subscribe"
+    },
+    "bottomBar": {
+      "copyright": "© 2024 OxyWare. All rights reserved.",
+      "cnpj": "São Paulo, SP",
+      "madeBy": "Made with ❤️ by OxyWare"
+    }
+  },
+
+  "about": {
+    "title": { "part1": "Who", "part2": "We Are" },
+    "description": "OxyWare was born from a passion to transform ideas into innovative digital solutions that make a real impact in the business world.",
+    "history": {
+      "title": "Our History",
+      "paragraph1": "Founded with the goal of democratizing access to cutting-edge technologies, OxyWare combines creativity, innovation, and technical expertise to create exceptional digital experiences that drive the growth of our clients.",
+      "paragraph2": "Specialized in modern web development, our team uses the most advanced technologies in the market to deliver robust, scalable, and high-performance solutions."
+    },
+    "values": {
+      "mission": {
+        "title": "Mission",
+        "description": "Transform ideas into digital solutions that revolutionize businesses and connect people through technology."
+      },
+      "vision": {
+        "title": "Vision",
+        "description": "Be a reference in technological innovation, creating the digital future with solutions that make a difference."
+      },
+      "values": {
+        "title": "Values",
+        "description": "Excellence, innovation, transparency, and commitment to the success of our clients and partners."
+      }
+    },
+    "arthur": {
+      "name": "Arthur Rodrigo",
+      "role": "Founder & Tech Lead",
+      "description": "\"As a developer passionate about technology and innovation, I created OxyWare with the purpose of helping companies and entrepreneurs materialize their digital visions. I believe technology should be a growth catalyst, and that’s what we deliver in every project.\""
     }
   }
 }

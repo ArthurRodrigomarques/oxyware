@@ -7,15 +7,10 @@ import { easeOut } from "framer-motion";
 
 interface SlideInProps {
   children: React.ReactNode;
-  direction?: "left" | "right";
   delay?: number;
 }
 
-export default function SlideIn({
-  children,
-  direction = "left",
-  delay = 0,
-}: SlideInProps) {
+export default function SlideIn({ children, delay = 0 }: SlideInProps) {
   const controls = useAnimation();
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
@@ -26,7 +21,7 @@ export default function SlideIn({
   }, [controls, inView]);
 
   const transition: Transition = {
-    duration: 0.6,
+    duration: 0.8, 
     delay,
     ease: easeOut,
   };
@@ -34,11 +29,11 @@ export default function SlideIn({
   const variants = {
     hidden: {
       opacity: 0,
-      x: direction === "left" ? -100 : 100,
+      y: -60, 
     },
     visible: {
       opacity: 1,
-      x: 0,
+      y: 0,
       transition,
     },
   };

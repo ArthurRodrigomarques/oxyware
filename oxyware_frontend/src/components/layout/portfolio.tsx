@@ -22,7 +22,7 @@ export default function Portfolio() {
   ];
 
   return (
-    <section className="py-16">
+    <section className="py-16" id="portfolio">
       <h2 className="text-3xl font-bold text-center mb-8">{t("title")}</h2>
       <p className="text-center text-white mb-16 max-w-3xl mx-auto">
         {t("description")}
