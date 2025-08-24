@@ -36,7 +36,6 @@ export default async function LocaleLayout({
           }}
         />
 
-        {/* Conteúdo */}
         <main className="relative z-10">{children}</main>
       </div>
     </NextIntlClientProvider>

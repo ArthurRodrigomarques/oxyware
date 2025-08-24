@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 
 export default function Footer() {
   const t = useTranslations("footer");
@@ -59,19 +60,32 @@ export default function Footer() {
           </div>
 
           <div className="flex space-x-4 mt-3">
-            <Button
-              variant="outline"
-              className="p-3 rounded-xl hover:scale-110 transition-transform"
+            <Link
+              href="https://instagram.com/oxyware"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              <Instagram className="w-5 h-5" />
-            </Button>
-            <Button
-              variant="outline"
-              className="p-3 rounded-xl hover:scale-110 transition-transform"
+              <Button
+                variant="outline"
+                className="p-3 rounded-xl hover:scale-110 transition-transform"
+              >
+                <Instagram className="w-5 h-5" />
+              </Button>
+            </Link>
+
+            <Link
+              href="https://www.linkedin.com/company/oxyware/"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              <Linkedin className="w-5 h-5" />
-            </Button>
-            <Button
+              <Button
+                variant="outline"
+                className="p-3 rounded-xl hover:scale-110 transition-transform"
+              >
+                <Linkedin className="w-5 h-5" />
+              </Button>
+            </Link>
+            {/* <Button
               variant="outline"
               className="p-3 rounded-xl hover:scale-110 transition-transform"
             >
@@ -82,7 +96,7 @@ export default function Footer() {
               className="p-3 rounded-xl hover:scale-110 transition-transform"
             >
               <Facebook className="w-5 h-5" />
-            </Button>
+            </Button> */}
           </div>
         </div>
 

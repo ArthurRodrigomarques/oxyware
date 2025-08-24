@@ -1,16 +1,21 @@
-"use client"
+"use client";
 
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import * as Icons from "lucide-react";
 import { useTranslations } from "next-intl";
 import { ComponentType } from "react";
+import QuoteButton from "../QuoteButton";
 
 export default function About() {
   const t = useTranslations("about_section");
 
   const aboutItems = t.raw("aboutItems") as string[];
-  const stats = t.raw("stats") as { icon: string; number: string; label: string }[];
+  const stats = t.raw("stats") as {
+    icon: string;
+    number: string;
+    label: string;
+  }[];
 
   return (
     <section className="py-24 px-6 relative bg-slate-950 text-white" id="about">
@@ -38,9 +43,7 @@ export default function About() {
               ))}
             </div>
 
-            <Button className="px-8 py-4 rounded-full bg-gradient-to-r from-purple-600 to-blue-500 text-white font-semibold text-lg hover:scale-105 transition-transform duration-300 cursor-pointer">
-              {t("button")}
-            </Button>
+            <QuoteButton />
           </div>
 
           <div className="grid grid-cols-2 gap-6">
@@ -58,8 +61,12 @@ export default function About() {
                       <IconComponent className="h-8 w-8" />
                     </div>
                   </div>
-                  <div className="text-4xl font-bold text-gradient mb-2">{number}</div>
-                  <div className="text-muted-foreground font-medium">{label}</div>
+                  <div className="text-4xl font-bold text-gradient mb-2">
+                    {number}
+                  </div>
+                  <div className="text-muted-foreground font-medium">
+                    {label}
+                  </div>
                 </Card>
               );
             })}
