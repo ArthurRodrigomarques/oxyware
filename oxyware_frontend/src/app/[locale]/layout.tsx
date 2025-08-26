@@ -25,17 +25,6 @@ export default async function LocaleLayout({
           style={{ backgroundImage: "url('/bg3.png')" }}
         />
 
-        <div
-          className="fixed bottom-0 right-0 z-0 pointer-events-none hidden md:block"
-          style={{
-            backgroundImage: "url('/oxy.png')",
-            backgroundSize: "500px",
-            backgroundRepeat: "no-repeat",
-            width: "500px",
-            height: "400px",
-          }}
-        />
-
         <main className="relative z-10">{children}</main>
       </div>
     </NextIntlClientProvider>
