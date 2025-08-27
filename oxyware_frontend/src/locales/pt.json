@@ -77,7 +77,7 @@
     ],
     "stats": [
       { "icon": "Users", "number": "5+", "label": "Clientes satisfeitos" },
-      { "icon": "Code", "number": "20+", "label": "Projetos entregues" },
+      { "icon": "Code", "number": "5+", "label": "Projetos entregues" },
       { "icon": "Globe", "number": "5+", "label": "Países atendidos" },
       { "icon": "Award", "number": "1+", "label": "Prêmios recebidos" }
     ],
