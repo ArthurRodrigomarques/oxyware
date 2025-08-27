@@ -34,7 +34,7 @@ export default function CTA() {
         </p>
 
         <div className="mx-auto flex max-w-[600px] flex-col gap-6 sm:flex-row justify-center items-center">
-          <QuoteButton phone="+5513996547656" />
+          <QuoteButton />
 
           {/* <Button
             variant="outline"
