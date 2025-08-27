@@ -41,7 +41,7 @@ export default function Header() {
       </h2>
 
       <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-        <QuoteButton phone="+5513996547656" />
+        <QuoteButton phone="+5513988622256" />
       </div>
 
       <div className="flex justify-center gap-12 opacity-60">

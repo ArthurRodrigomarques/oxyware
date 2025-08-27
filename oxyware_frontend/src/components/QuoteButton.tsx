@@ -11,7 +11,7 @@ interface QuoteButtonProps {
 export default function QuoteButton({ phone }: QuoteButtonProps) {
   const t = useTranslations("QuoteButton");
 
-  const phoneNumber = phone || "+55 (13) 99654-7656";
+  const phoneNumber = phone || "+5513988622256";
 
   return (
     <Button

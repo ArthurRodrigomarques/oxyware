@@ -5,7 +5,7 @@ export default function FloatingSocials() {
     <div className="fixed bottom-6 right-6 flex flex-col gap-4 z-50">
       {/* WhatsApp */}
       <a
-        href="https://wa.me/13996547656"
+        href="https://wa.me/13988622256"
         target="_blank"
         rel="noopener noreferrer"
         className="bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg transition-transform hover:scale-110"
@@ -38,7 +38,6 @@ export default function FloatingSocials() {
           <path d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 017.75 2zm0 1.5A4.25 4.25 0 003.5 7.75v8.5A4.25 4.25 0 007.75 20.5h8.5a4.25 4.25 0 004.25-4.25v-8.5A4.25 4.25 0 0016.25 3.5h-8.5zm8.25 2a.75.75 0 110 1.5.75.75 0 010-1.5zM12 7a5 5 0 110 10 5 5 0 010-10zm0 1.5a3.5 3.5 0 100 7 3.5 3.5 0 000-7z" />
         </svg>
       </a>
-
     </div>
   );
 }
