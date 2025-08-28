@@ -3,8 +3,7 @@
 
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { ArrowRight, Code, Smartphone, Globe } from "lucide-react";
-import { Button } from "../ui/button";
+import { Code, Smartphone, Globe } from "lucide-react";
 import LanguageSwitcher from "../LanguageSwitcher";
 import QuoteButton from "../QuoteButton";
 

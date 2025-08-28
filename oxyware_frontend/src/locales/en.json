@@ -183,7 +183,7 @@
     "bottomBar": {
       "copyright": "© 2024 OxyWare. All rights reserved.",
       "cnpj": "São Paulo, SP",
-      "madeBy": "Made with ❤️ by OxyWare"
+      "madeBy": "Made by OxyWare"
     }
   },
 
@@ -192,8 +192,9 @@
     "description": "OxyWare was born from a passion to transform ideas into innovative digital solutions that make a real impact in the business world.",
     "history": {
       "title": "Our History",
-      "paragraph1": "Founded with the goal of democratizing access to cutting-edge technologies, OxyWare combines creativity, innovation, and technical expertise to create exceptional digital experiences that drive the growth of our clients.",
-      "paragraph2": "Specialized in modern web development, our team uses the most advanced technologies in the market to deliver robust, scalable, and high-performance solutions."
+      "paragraph1": "Founded with the mission of making cutting-edge technology accessible to everyone, our company was born from a passion for innovation and smart solutions.",
+      "paragraph2": "Focusing on modern web development and high-performance digital applications, we transform ideas into impactful digital experiences.",
+      "paragraph3": "Each project is an opportunity to combine design, functionality, and efficiency, delivering solutions that not only meet current needs but anticipate the future."
     },
     "values": {
       "mission": {

@@ -182,7 +182,7 @@
     "bottomBar": {
       "copyright": "© 2024 OxyWare. Todos os direitos reservados.",
       "cnpj": "São Paulo, SP",
-      "madeBy": "Feito com ❤️ por OxyWare"
+      "madeBy": "Feito por OxyWare"
     }
   },
 
@@ -191,8 +191,9 @@
     "description": "A OxyWare nasceu da paixão por transformar ideias em soluções digitais inovadoras que geram impacto real no mundo dos negócios.",
     "history": {
       "title": "Nossa História",
-      "paragraph1": "Fundada com o objetivo de democratizar o acesso a tecnologias de ponta...",
-      "paragraph2": "Especializada em desenvolvimento web moderno..."
+      "paragraph1": "Fundada com a missão de tornar a tecnologia de ponta acessível a todos, nossa empresa nasceu da paixão por inovação e soluções inteligentes.",
+      "paragraph2": "Com foco em desenvolvimento web moderno e aplicações digitais de alta performance, transformamos ideias em experiências digitais impactantes.",
+      "paragraph3": "Cada projeto é uma oportunidade de unir design, funcionalidade e eficiência, oferecendo soluções que não apenas atendem às necessidades atuais, mas antecipam o futuro."
     },
     "values": {
       "mission": {

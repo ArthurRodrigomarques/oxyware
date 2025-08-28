@@ -6,7 +6,6 @@ import Header from "@/components/layout/header";
 import SlideIn from "@/components/AnimatedSlideIn";
 import type { Metadata } from "next";
 import FloatingSocials from "@/components/FloatingSocials";
-import Process from "@/components/layout/process";
 import Portfolio from "@/components/layout/portfolio";
 import Faq from "@/components/layout/faq";
 import Footer from "@/components/layout/footer";

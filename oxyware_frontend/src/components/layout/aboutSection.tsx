@@ -1,6 +1,6 @@
 "use client";
 
-import { Code2, Target, Users, Zap } from "lucide-react";
+import { Target, Users, Zap } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Card } from "@/components/ui/card";
 
@@ -43,6 +43,9 @@ export default function AboutSection() {
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
                 {t("history.paragraph2")}
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                {t("history.paragraph3")}
               </p>
             </div>
           </div>

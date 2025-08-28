@@ -7,8 +7,6 @@ import {
   ArrowUp,
   Instagram,
   Linkedin,
-  Github,
-  Facebook,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTranslations } from "next-intl";
@@ -85,18 +83,6 @@ export default function Footer() {
                 <Linkedin className="w-5 h-5" />
               </Button>
             </Link>
-            {/* <Button
-              variant="outline"
-              className="p-3 rounded-xl hover:scale-110 transition-transform"
-            >
-              <Github className="w-5 h-5" />
-            </Button>
-            <Button
-              variant="outline"
-              className="p-3 rounded-xl hover:scale-110 transition-transform"
-            >
-              <Facebook className="w-5 h-5" />
-            </Button> */}
           </div>
         </div>
 

@@ -1,11 +1,8 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import {
-  ArrowRight,
   Instagram,
   Mail,
-  MessageCircle,
   MessageSquare,
 } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -36,14 +33,6 @@ export default function CTA() {
         <div className="mx-auto flex max-w-[600px] flex-col gap-6 sm:flex-row justify-center items-center">
           <QuoteButton />
 
-          {/* <Button
-            variant="outline"
-            size="lg"
-            className="glass-card rounded-full px-10 py-5 text-xl font-semibold min-w-[250px] hover:bg-white/10 cursor-pointer"
-          >
-            <MessageCircle className="mr-3 h-6 w-6" />
-            {t("contact_us")}
-          </Button> */}
         </div>
 
         <div className="mt-8 flex flex-col gap-3">
