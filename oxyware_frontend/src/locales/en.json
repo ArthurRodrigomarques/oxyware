@@ -101,7 +101,8 @@
     "phone": "Phone",
     "message": "Message",
     "submit": "Send",
-    "success": "Request sent successfully!"
+    "success": "We’ve received your request! Our team will contact you shortly!",
+    "required": "Required field"
   },
 
   "metadata": {

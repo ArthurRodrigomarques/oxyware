@@ -100,7 +100,8 @@
     "phone": "Telefone",
     "message": "Mensagem",
     "submit": "Enviar",
-    "success": "Solicitação enviada com sucesso!"
+    "success": "Recebemos sua solicitação! Nossa equipe falará com você em breve!",
+    "required": "Campo obrigatório"
   },
 
   "metadata": {

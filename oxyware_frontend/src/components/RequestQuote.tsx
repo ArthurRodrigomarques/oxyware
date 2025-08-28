@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Instagram, Mail, MessageSquare } from "lucide-react";
+import emailjs from "emailjs-com";
 
 type FormData = {
   name: string;
@@ -19,6 +20,7 @@ type FormData = {
 export default function RequestQuote() {
   const t = useTranslations();
   const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(false);
 
   const {
     register,
@@ -27,16 +29,28 @@ export default function RequestQuote() {
     formState: { errors },
   } = useForm<FormData>();
 
-  const onSubmit = (data: FormData) => {
-    console.log("Dados enviados:", data);
-    setSuccess(true);
-    reset();
+  const onSubmit = async (data: FormData) => {
+    try {
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        data,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+      );
+      setSuccess(true);
+      setError(false);
+      reset();
+    } catch (err) {
+      console.error("Erro ao enviar email:", err);
+      setError(true);
+      setSuccess(false);
+    }
   };
 
   return (
     <div
       className="min-h-screen flex items-center justify-center px-4 bg-cover bg-center"
-      style={{ backgroundImage: "url('/bgquote2.png')" }} // seu bg
+      style={{ backgroundImage: "url('/bgquote2.png')" }}
     >
       <div className="max-w-2xl w-full bg-slate-900 rounded-xl shadow-xl p-10">
         <h1 className="text-3xl font-bold mb-8 text-white">
@@ -46,6 +60,11 @@ export default function RequestQuote() {
         {success && (
           <p className="text-green-500 mb-4 text-lg">
             {t("contact_section.success")}
+          </p>
+        )}
+        {error && (
+          <p className="text-red-500 mb-4 text-lg">
+            {t("contact_section.error")}
           </p>
         )}
 
@@ -61,7 +80,9 @@ export default function RequestQuote() {
               className="border-gray-300 h-14 text-lg"
             />
             {errors.name && (
-              <span className="text-red-500 text-sm">Required</span>
+              <span className="text-red-500 text-sm">
+                {t("contact_section.required")}
+              </span>
             )}
           </div>
 
@@ -77,7 +98,9 @@ export default function RequestQuote() {
               className="border-gray-300 h-14 text-lg"
             />
             {errors.email && (
-              <span className="text-red-500 text-sm">Required</span>
+              <span className="text-red-500 text-sm">
+                {t("contact_section.required")}
+              </span>
             )}
           </div>
 
@@ -105,7 +128,9 @@ export default function RequestQuote() {
               className="border-gray-300 h-40 text-lg"
             />
             {errors.message && (
-              <span className="text-red-500 text-sm">Required</span>
+              <span className="text-red-500 text-sm">
+                {t("contact_section.required")}
+              </span>
             )}
           </div>
 
