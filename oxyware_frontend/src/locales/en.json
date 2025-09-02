@@ -172,8 +172,8 @@
       "service5": "APIs & Backend",
       "service6": "Tech Consulting",
       "legal1": { "name": "Privacy Policy", "href": "/privacy" },
-      "legal2": { "name": "Terms of Use", "href": "/terms" },
-      "legal3": { "name": "Cookies", "href": "/cookies" }
+      "legal2": { "name": "Terms of Use", "href": "/privacy" },
+      "legal3": { "name": "Cookies", "href": "/privacy" }
     },
     "newsletter": {
       "title": "Stay Updated",

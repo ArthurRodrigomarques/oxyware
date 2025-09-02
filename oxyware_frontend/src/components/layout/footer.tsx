@@ -9,11 +9,12 @@ import {
   Linkedin,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 
 export default function Footer() {
   const t = useTranslations("footer");
+  const locale = useLocale();
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -191,30 +192,22 @@ export default function Footer() {
           <div className="space-y-3 mt-6">
             <h5 className="font-semibold">Legal</h5>
             <ul className="space-y-2">
-              <li>
-                <Button
-                  variant="link"
-                  className="text-sm text-muted-foreground hover:text-primary p-0"
-                >
-                  {t("links.legal1.name")}
-                </Button>
-              </li>
-              <li>
-                <Button
-                  variant="link"
-                  className="text-sm text-muted-foreground hover:text-primary p-0"
-                >
-                  {t("links.legal2.name")}
-                </Button>
-              </li>
-              <li>
-                <Button
-                  variant="link"
-                  className="text-sm text-muted-foreground hover:text-primary p-0"
-                >
-                  {t("links.legal3.name")}
-                </Button>
-              </li>
+              {[
+                t("links.legal1.name"),
+                t("links.legal2.name"),
+                t("links.legal3.name"),
+              ].map((label, i) => (
+                <li key={i}>
+                  <Link href={`/${locale}/privacypolicy`} passHref>
+                    <Button
+                      variant="link"
+                      className="text-sm text-muted-foreground hover:text-primary p-0"
+                    >
+                      {label}
+                    </Button>
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
