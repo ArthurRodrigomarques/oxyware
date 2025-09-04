@@ -22,8 +22,8 @@ export default function Portfolio() {
   ];
 
   return (
-    <section className="py-16" id="portfolio">
-      <h2 className="text-3xl font-bold text-center mb-8">{t("title")}</h2>
+    <section className="py-16" id="portfolio text-white">
+      <h2 className="text-3xl font-bold text-center mb-8 text-white">{t("title")}</h2>
       <p className="text-center text-white mb-16 max-w-3xl mx-auto">
         {t("description")}
       </p>
@@ -49,7 +49,7 @@ export default function Portfolio() {
             </div>
 
             <div className="md:w-1/2 w-full">
-              <h3 className="text-2xl font-semibold mb-4">{project.title}</h3>
+              <h3 className="text-2xl font-semibold mb-4 text-white">{project.title}</h3>
               <p className="text-white whitespace-pre-line">
                 {project.description}
               </p>

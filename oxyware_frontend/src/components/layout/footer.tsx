@@ -28,14 +28,14 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative bg-card border-t border-border/50 overflow-hidden">
+    <footer className="relative bg-card border-t border-border/50 overflow-hidden text-white">
       {/* Background decorative elements */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-0 left-1/4 w-64 h-64 bg-primary rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 right-1/4 w-48 h-48 bg-secondary rounded-full blur-3xl"></div>
       </div>
 
-      <div className="relative z-10 container mx-auto max-w-6xl px-4 py-16 grid lg:grid-cols-4 md:grid-cols-2 gap-12">
+      <div className="relative z-10 container mx-auto max-w-6xl px-4 py-16 grid lg:grid-cols-4 md:grid-cols-2 gap-12 text-white">
         {/* Company Info */}
         <div className="space-y-6">
           <h3 className="text-2xl font-bold text-gradient">
@@ -45,7 +45,7 @@ export default function Footer() {
             {t("companyDescription")}
           </p>
 
-          <div className="space-y-3">
+          <div className="space-y-3 text-white">
             <div className="flex items-center space-x-3 text-muted-foreground hover:text-primary transition-colors">
               <Mail className="w-5 h-5" /> <span>{t("contact.email")}</span>
             </div>
@@ -58,7 +58,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="flex space-x-4 mt-3">
+          <div className="flex space-x-4 mt-3 text-white">
             <Link
               href="https://instagram.com/oxyware"
               target="_blank"
@@ -88,7 +88,7 @@ export default function Footer() {
         </div>
 
         {/* Quick Links */}
-        <div className="space-y-6">
+        <div className="space-y-6 text-white">
           <h4 className="text-xl font-semibold text-gradient">Links Rápidos</h4>
           <ul className="space-y-3">
             <li>
@@ -149,7 +149,7 @@ export default function Footer() {
         </div>
 
         {/* Services */}
-        <div className="space-y-6">
+        <div className="space-y-6 text-white">
           <h4 className="text-xl font-semibold text-gradient">
             {t("newsletter.title")}
           </h4>
@@ -176,7 +176,7 @@ export default function Footer() {
         </div>
 
         {/* Newsletter & Legal */}
-        <div className="space-y-6">
+        <div className="space-y-6 text-white">
           <p className="text-muted-foreground">{t("newsletter.description")}</p>
           <div className="space-y-3">
             <input
@@ -214,7 +214,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-border/50 mt-12">
+      <div className="border-t border-border/50 mt-12 text-white">
         <div className="container mx-auto max-w-6xl px-4 py-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <div className="text-center md:text-left">
             <p className="text-muted-foreground">{t("bottomBar.copyright")}</p>

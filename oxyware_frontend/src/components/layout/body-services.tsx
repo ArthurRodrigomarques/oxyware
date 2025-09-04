@@ -56,7 +56,7 @@ export default function BodyServices() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-white">
           {services.map((service, index) => {
             let gradientClass = "";
             if (index % 3 === 0) {
@@ -72,7 +72,7 @@ export default function BodyServices() {
             return (
               <Card
                 key={index}
-                className="group relative overflow-hidden transition-transform duration-300 hover:scale-105 cursor-pointer max-w-lg w-full"
+                className="group relative overflow-hidden transition-transform duration-300 hover:scale-105 cursor-pointer max-w-lg w-full text-white"
               >
                 <div
                   className={`absolute inset-0 ${gradientClass} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}
