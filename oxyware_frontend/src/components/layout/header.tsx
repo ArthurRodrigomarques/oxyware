@@ -15,7 +15,7 @@ export default function Header() {
       className="min-h-screen flex flex-col items-center text-center px-4 text-white"
       id="header"
     >
-      <LanguageSwitcher />
+
       <Image
         src="/logo.png"
         alt="Logo"
@@ -40,7 +40,7 @@ export default function Header() {
       </h2>
 
       <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-        <QuoteButton phone="+5513988622256" />
+        <QuoteButton/>
       </div>
 
       <div className="flex justify-center gap-12 opacity-60">

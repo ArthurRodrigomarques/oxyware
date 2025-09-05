@@ -1,3 +1,4 @@
+import Navbar from "@/components/Navbar";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 
@@ -15,6 +16,7 @@ export default function RootLayout({
           defaultTheme="dark"
           disableTransitionOnChange
         >
+
           {children}
         </ThemeProvider>
       </body>
