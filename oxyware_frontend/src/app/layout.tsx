@@ -9,14 +9,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt" suppressHydrationWarning>
-      <head />
+      <head>
+        <link rel="icon" href="/favicon.ico" />
+        <title>Oxyware</title>
+      </head>
       <body>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
           disableTransitionOnChange
         >
-
           {children}
         </ThemeProvider>
       </body>
