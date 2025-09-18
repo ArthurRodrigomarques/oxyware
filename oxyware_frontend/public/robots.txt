@@ -1,4 +1,9 @@
+# *
 User-agent: *
 Allow: /
 
-Sitemap: https://www.oxyware.com/sitemap.xml
+# Host
+Host: https://www.oxyware.com.br
+
+# Sitemaps
+Sitemap: https://www.oxyware.com.br/sitemap.xml
