@@ -1,6 +1,7 @@
-import Navbar from "@/components/Navbar";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+
+import { Analytics } from "@vercel/analytics/react";
 
 export default function RootLayout({
   children,
@@ -21,6 +22,8 @@ export default function RootLayout({
         >
           {children}
         </ThemeProvider>
+
+        <Analytics />
       </body>
     </html>
   );
