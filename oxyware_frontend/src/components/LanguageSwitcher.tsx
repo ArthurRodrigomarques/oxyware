@@ -23,7 +23,7 @@ export default function LanguageSwitcher({ className }: LanguageSwitcherProps) {
   return (
     <div
       className={cn(
-        "flex items-center gap-1 rounded-lg border border-white/10 bg-slate-900/80 p-1 backdrop-blur-md shadow-xs",
+        "flex items-center gap-1 rounded-none border border-white/10 bg-slate-900/80 p-1 backdrop-blur-md shadow-xs",
         className
       )}
     >
@@ -32,7 +32,7 @@ export default function LanguageSwitcher({ className }: LanguageSwitcherProps) {
         aria-label="Português"
         onClick={(): void => handleLanguageChange("pt")}
         className={cn(
-          "flex h-7 w-7 items-center justify-center rounded-md transition-all duration-200 cursor-pointer",
+          "flex h-7 w-7 items-center justify-center rounded-none transition-all duration-200 cursor-pointer",
           currentLocale === "pt"
             ? "bg-purple-600/30 border border-purple-400/50 shadow-xs scale-105"
             : "opacity-60 hover:opacity-100 hover:bg-white/10"
@@ -41,7 +41,7 @@ export default function LanguageSwitcher({ className }: LanguageSwitcherProps) {
         <ReactCountryFlag
           countryCode="BR"
           svg
-          style={{ width: 16, height: 16, borderRadius: "2px", objectFit: "cover" }}
+          style={{ width: 16, height: 16, borderRadius: "0px", objectFit: "cover" }}
         />
       </button>
       <button
@@ -49,7 +49,7 @@ export default function LanguageSwitcher({ className }: LanguageSwitcherProps) {
         aria-label="English"
         onClick={(): void => handleLanguageChange("en")}
         className={cn(
-          "flex h-7 w-7 items-center justify-center rounded-md transition-all duration-200 cursor-pointer",
+          "flex h-7 w-7 items-center justify-center rounded-none transition-all duration-200 cursor-pointer",
           currentLocale === "en"
             ? "bg-purple-600/30 border border-purple-400/50 shadow-xs scale-105"
             : "opacity-60 hover:opacity-100 hover:bg-white/10"
@@ -58,7 +58,7 @@ export default function LanguageSwitcher({ className }: LanguageSwitcherProps) {
         <ReactCountryFlag
           countryCode="GB"
           svg
-          style={{ width: 16, height: 16, borderRadius: "2px", objectFit: "cover" }}
+          style={{ width: 16, height: 16, borderRadius: "0px", objectFit: "cover" }}
         />
       </button>
     </div>

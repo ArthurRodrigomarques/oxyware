@@ -5,6 +5,7 @@ import { useTranslations, useLocale } from "next-intl";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export interface HeroSlideItem {
   tag: string;
@@ -91,11 +92,46 @@ export default function HeroCarousel({
   const [direction, setDirection] = useState<number>(1);
   const [isPaused, setIsPaused] = useState<boolean>(false);
   const [progress, setProgress] = useState<number>(0);
+  const [isVideoReady, setIsVideoReady] = useState<boolean>(false);
 
   const progressTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
 
   const currentSlide = slideItems[currentIndex] || slideItems[0];
   const totalSlides = slideItems.length;
+
+  useEffect(() => {
+    setIsVideoReady(false);
+    const video = videoRef.current;
+    if (!video) return;
+
+    video.defaultMuted = true;
+    video.muted = true;
+    video.playsInline = true;
+    video.setAttribute("playsinline", "true");
+    video.setAttribute("webkit-playsinline", "true");
+
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {});
+    }
+  }, [currentSlide.videoSrc]);
+
+  useEffect(() => {
+    const handleUnlockVideo = (): void => {
+      if (videoRef.current && videoRef.current.paused) {
+        videoRef.current.play().catch(() => {});
+      }
+    };
+
+    window.addEventListener("touchstart", handleUnlockVideo, { passive: true });
+    window.addEventListener("pointerdown", handleUnlockVideo, { passive: true });
+
+    return () => {
+      window.removeEventListener("touchstart", handleUnlockVideo);
+      window.removeEventListener("pointerdown", handleUnlockVideo);
+    };
+  }, []);
 
   const handleNext = useCallback(() => {
     setDirection(1);
@@ -143,8 +179,12 @@ export default function HeroCarousel({
     };
   }, [isPaused, autoplayIntervalMs, handleNext]);
 
-  const formatSlideNumber = (index: number): string => {
+  const formatSlideIndex = (index: number): string => {
     return String(index + 1).padStart(2, "0");
+  };
+
+  const formatTotalCount = (count: number): string => {
+    return String(count).padStart(2, "0");
   };
 
   const getResolvedHref = (href: string): string => {
@@ -168,33 +208,27 @@ export default function HeroCarousel({
       onBlur={() => setIsPaused(false)}
     >
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <AnimatePresence mode="sync">
-          <motion.video
-            key={currentSlide.videoSrc}
-            src={currentSlide.videoSrc}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.7, ease: "easeInOut" }}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            onLoadedData={(e) => {
-              const videoElement = e.currentTarget;
-              videoElement.muted = true;
-              const playPromise = videoElement.play();
-              if (playPromise !== undefined) {
-                playPromise.catch(() => {});
-              }
-            }}
-            className="absolute inset-0 w-full h-full object-cover object-right lg:object-center"
-          />
-        </AnimatePresence>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-950/40 via-slate-950 to-[#050608]" />
 
-        <div className="absolute inset-0 bg-gradient-to-r from-[#050608] via-[#050608]/75 to-transparent z-10 pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#050608] via-transparent to-[#050608]/40 z-10 pointer-events-none" />
+        <video
+          ref={videoRef}
+          key={currentSlide.videoSrc}
+          src={currentSlide.videoSrc}
+          autoPlay
+          muted
+          loop
+          playsInline
+          webkit-playsinline="true"
+          preload="auto"
+          onCanPlay={(): void => setIsVideoReady(true)}
+          className={cn(
+            "absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-700",
+            isVideoReady ? "opacity-100" : "opacity-60"
+          )}
+        />
+
+        <div className="absolute inset-0 bg-gradient-to-t from-[#050608] via-[#050608]/40 to-[#050608]/50 lg:bg-gradient-to-r lg:from-[#050608] lg:via-[#050608]/80 lg:to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#050608]/80 via-transparent to-[#050608]/60 z-10 pointer-events-none" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full relative z-20 min-h-screen flex flex-col justify-between pt-32 pb-14">
@@ -210,7 +244,7 @@ export default function HeroCarousel({
               className="flex flex-col"
             >
               <div className="inline-flex items-center gap-2 mb-4">
-                <span className="w-2 h-2 rounded-full bg-purple-500 animate-pulse" />
+                <span className="w-2 h-2 rounded-none bg-purple-500 animate-pulse" />
                 <span className="text-xs uppercase tracking-[0.25em] text-neutral-400 font-semibold">
                   {currentSlide.tag}
                 </span>
@@ -240,7 +274,7 @@ export default function HeroCarousel({
                   <span className="border-b border-white/30 group-hover:border-purple-300 pb-0.5 transition-all duration-200">
                     {currentSlide.ctaText}
                   </span>
-                  <div className="w-8 h-8 rounded-full border border-white/30 group-hover:border-purple-300 group-hover:bg-purple-500/10 flex items-center justify-center transition-all duration-200">
+                  <div className="w-8 h-8 rounded-none border border-white/30 group-hover:border-purple-300 group-hover:bg-purple-500/10 flex items-center justify-center transition-all duration-200">
                     <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-white group-hover:text-purple-300" />
                   </div>
                 </Link>
@@ -255,7 +289,7 @@ export default function HeroCarousel({
               type="button"
               onClick={handlePrev}
               aria-label={t("previousSlide")}
-              className="w-11 h-11 rounded-full border border-white/30 hover:border-white hover:bg-white/10 active:scale-95 flex items-center justify-center transition-all duration-200 text-white cursor-pointer focus:outline-none focus:ring-2 focus:ring-purple-500/50"
+              className="w-11 h-11 rounded-none border border-white/30 hover:border-white hover:bg-white/10 active:scale-95 flex items-center justify-center transition-all duration-200 text-white cursor-pointer focus:outline-none focus:ring-1 focus:ring-purple-500/50"
             >
               <ArrowLeft className="w-4 h-4" />
             </button>
@@ -263,18 +297,18 @@ export default function HeroCarousel({
               type="button"
               onClick={handleNext}
               aria-label={t("nextSlide")}
-              className="w-11 h-11 rounded-full border border-white/30 hover:border-white hover:bg-white/10 active:scale-95 flex items-center justify-center transition-all duration-200 text-white cursor-pointer focus:outline-none focus:ring-2 focus:ring-purple-500/50"
+              className="w-11 h-11 rounded-none border border-white/30 hover:border-white hover:bg-white/10 active:scale-95 flex items-center justify-center transition-all duration-200 text-white cursor-pointer focus:outline-none focus:ring-1 focus:ring-purple-500/50"
             >
               <ArrowRight className="w-4 h-4" />
             </button>
 
             <div className="flex items-center gap-1.5 text-sm font-mono tracking-wider ml-2">
               <span className="text-white font-semibold">
-                {formatSlideNumber(currentIndex)}
+                {formatSlideIndex(currentIndex)}
               </span>
               <span className="text-neutral-500">/</span>
               <span className="text-neutral-500">
-                {formatSlideNumber(totalSlides)}
+                {formatTotalCount(totalSlides)}
               </span>
             </div>
           </div>
@@ -286,16 +320,16 @@ export default function HeroCarousel({
                 type="button"
                 onClick={() => handleSelectSlide(index)}
                 aria-label={`${t("slideIndicator")} ${index + 1}`}
-                className="relative h-1 flex-1 bg-white/20 rounded-full overflow-hidden transition-all duration-300 focus:outline-none cursor-pointer"
+                className="relative h-1 flex-1 bg-white/20 rounded-none overflow-hidden transition-all duration-300 focus:outline-none cursor-pointer"
               >
                 {index === currentIndex && (
                   <div
-                    className="absolute top-0 left-0 bottom-0 bg-gradient-to-r from-purple-600 via-indigo-500 to-blue-500 transition-all duration-75 ease-linear rounded-full"
+                    className="absolute top-0 left-0 bottom-0 bg-gradient-to-r from-purple-600 via-indigo-500 to-blue-500 transition-all duration-75 ease-linear rounded-none"
                     style={{ width: `${progress}%` }}
                   />
                 )}
                 {index < currentIndex && (
-                  <div className="absolute inset-0 bg-white/60 rounded-full" />
+                  <div className="absolute inset-0 bg-white/60 rounded-none" />
                 )}
               </button>
             ))}
