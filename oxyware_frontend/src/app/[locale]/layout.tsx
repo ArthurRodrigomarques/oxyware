@@ -21,7 +21,7 @@ export default async function LocaleLayout({
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
        <Navbar />
-      <div className="relative min-h-screen overflow-hidden">
+      <div className="relative min-h-screen">
                  
         <div
           className="fixed inset-0 bg-cover bg-center z-0"

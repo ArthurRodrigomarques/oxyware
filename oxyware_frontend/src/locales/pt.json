@@ -1,4 +1,14 @@
 {
+  "navbar": {
+    "home": "Início",
+    "services": "Serviços",
+    "impact": "Impacto",
+    "about": "Sobre",
+    "portfolio": "Portfólio",
+    "faq": "FAQ",
+    "contact": "Contato",
+    "quote": "Orçamento"
+  },
   "Header": {
     "codigoInteligente": "Código inteligente,",
     "impactoReal": "Impacto Real.",
@@ -8,6 +18,53 @@
     "apps": "Apps",
     "websites": "Websites",
     "sistemas": "Sistemas"
+  },
+  "HeroCarousel": {
+    "slides": [
+      {
+        "tag": "INOVAÇÃO & ENGENHARIA",
+        "titlePrefix": "Construindo o",
+        "titleHighlight": "Futuro",
+        "titleSuffix": "™",
+        "description": "Criamos aplicativos e websites modernos que impulsionam seu negócio para a era digital com tecnologia de ponta e design inovador.",
+        "ctaText": "Solicitar Orçamento",
+        "ctaHref": "/contact",
+        "videoSrc": "/backgroundvideo.mp4"
+      },
+      {
+        "tag": "DESENVOLVIMENTO WEB & MOBILE",
+        "titlePrefix": "Soluções Digitais de",
+        "titleHighlight": "Alto Impacto",
+        "titleSuffix": "",
+        "description": "Experiências fluidas e inteligentes para iOS, Android e Web com arquitetura escalável e design moderno.",
+        "ctaText": "Conhecer Nossos Serviços",
+        "ctaHref": "#services",
+        "videoSrc": "/bubbles.mp4"
+      },
+      {
+        "tag": "SISTEMAS SOB MEDIDA",
+        "titlePrefix": "Tecnologia para",
+        "titleHighlight": "Escalar Resultados",
+        "titleSuffix": "",
+        "description": "Automação de processos empresariais e plataformas em nuvem de alta performance para impulsionar seu crescimento.",
+        "ctaText": "Ver Nosso Portfólio",
+        "ctaHref": "#portfolio",
+        "videoSrc": "/AbstractRibbons.mp4"
+      },
+      {
+        "tag": "INTELIGÊNCIA & DADOS",
+        "titlePrefix": "Arquitetura Digital de",
+        "titleHighlight": "Próxima Geração",
+        "titleSuffix": "",
+        "description": "Infraestrutura escalável, microsserviços modernos e engenharia de software para negócios que buscam liderança de mercado.",
+        "ctaText": "Falar com Especialistas",
+        "ctaHref": "/contact",
+        "videoSrc": "/particle.mp4"
+      }
+    ],
+    "previousSlide": "Slide anterior",
+    "nextSlide": "Próximo slide",
+    "slideIndicator": "Ir para o slide"
   },
   "QuoteButton": {
     "label": "Solicite um Orçamento"
@@ -119,13 +176,29 @@
   },
 
   "portfolio": {
-    "title": "Exemplos",
-    "description": "Este site é uma plataforma moderna de portfolio que apresenta projetos de forma profissional, destacando qualidade visual, usabilidade e interatividade. Os visitantes podem explorar cada projeto detalhadamente e ter uma experiência imersiva.",
+    "tag": "CASES SELECIONADOS",
+    "title": "Projetos em Destaque",
+    "description": "Desenvolvemos plataformas e sistemas sob medida com arquitetura robusta, interfaces de alta performance e usabilidade focada em resultados reais.",
+    "requestProject": "Solicitar Orçamento Similar",
     "projects": {
-      "cars": "Concessionária de Carros",
-      "carsDescription": "Projeto de site para uma concessionária de carros, com layout moderno, imagens de veículos esportivos, SUVs e sedans, seções de promoções, teste de drive e design em vermelho e branco.",
-      "realEstate": "Imobiliária",
-      "realEstateDescription": "Projeto de sistema imobiliário completo, apresentando imóveis, filtros de busca, detalhes de cada propriedade e integração com contato do cliente, layout limpo e profissional."
+      "vitrolinha": {
+        "title": "Portal Oficial Vitrolinha",
+        "category": "PORTAL POLÍTICO & CAMPANHA DIGITAL",
+        "description": "Website institucional e plataforma de campanha com alta taxa de conversão, divulgação completa de propostas, canal direto via WhatsApp, notícias em tempo real e arquitetura responsiva.",
+        "tags": ["NEXT.JS", "TAILWIND CSS", "CAMPANHA DIGITAL", "ALTA PERFORMANCE", "SEO"]
+      },
+      "realEstate": {
+        "title": "Sistema Imobiliário",
+        "category": "PLATAFORMA WEB & GESTÃO",
+        "description": "Sistema imobiliário completo com busca avançada de imóveis, filtros refinados, visualização detalhada de propriedades e captura ágil de leads.",
+        "tags": ["NEXT.JS", "TYPESCRIPT", "TAILWIND CSS", "PAINEL ADMINISTRATIVO"]
+      },
+      "cars": {
+        "title": "Concessionária de Carros",
+        "category": "PORTAL AUTOMOTIVO & SHOWROOM",
+        "description": "Plataforma digital para concessionária automotiva, incluindo vitrine dinâmica de veículos esportivos, SUVs e sedans, agendamento de test drive e módulos de conversão.",
+        "tags": ["REACT", "CATÁLOGO DIGITAL", "AGENDAMENTOS", "ALTA PERFORMANCE"]
+      }
     }
   },
 
@@ -215,5 +288,48 @@
       "role": "Fundador & Tech Lead",
       "description": "\"Como desenvolvedor apaixonado por tecnologia e inovação...\""
     }
+  },
+
+  "impact_showcase": {
+    "title_part1": "Escala e",
+    "title_part2": "Resultados Comprovados",
+    "metrics": [
+      {
+        "id": "deploy",
+        "value": "12x",
+        "headline": "Aceleração no Ciclo de Deploy & Entrega Contínua",
+        "subline": "para Plataformas Digitais & E-commerce de Alta Demanda"
+      },
+      {
+        "id": "uptime",
+        "value": "99.9%",
+        "headline": "Uptime e Resiliência de Infraestrutura em Nuvem",
+        "subline": "em Microsserviços e APIs de Missão Crítica"
+      },
+      {
+        "id": "leads",
+        "value": "+340%",
+        "headline": "Crescimento em Conversão e Geração de Leads",
+        "subline": "para Portais Imobiliários & Showrooms Digitais"
+      },
+      {
+        "id": "concurrency",
+        "value": "50K+",
+        "headline": "Requisições Simultâneas Suportadas por Minuto",
+        "subline": "com Zero Gargalos de Conexão ou Perda de Sessão"
+      },
+      {
+        "id": "automation",
+        "value": "-60%",
+        "headline": "Redução no Tempo Operacional de Tarefas Manuais",
+        "subline": "através de Automação de Sistemas Sob Medida & ERP"
+      },
+      {
+        "id": "mobile",
+        "value": "4.9★",
+        "headline": "Satisfação Média de Usuários em Lojas de Apps",
+        "subline": "em Experiências Nativas para iOS e Android"
+      }
+    ]
   }
 }

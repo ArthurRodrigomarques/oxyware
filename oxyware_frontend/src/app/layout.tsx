@@ -14,7 +14,7 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" />
         <title>Oxyware</title>
       </head>
-      <body>
+      <body suppressHydrationWarning>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

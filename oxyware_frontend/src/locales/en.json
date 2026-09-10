@@ -1,4 +1,14 @@
 {
+  "navbar": {
+    "home": "Home",
+    "services": "Services",
+    "impact": "Impact",
+    "about": "About",
+    "portfolio": "Portfolio",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "quote": "Quote"
+  },
   "Header": {
     "codigoInteligente": "Smart Code,",
     "impactoReal": "Real Impact.",
@@ -10,6 +20,53 @@
     "sistemas": "Systems"
   },
 
+  "HeroCarousel": {
+    "slides": [
+      {
+        "tag": "INNOVATION & ENGINEERING",
+        "titlePrefix": "Engineering the",
+        "titleHighlight": "Future",
+        "titleSuffix": "™",
+        "description": "We create modern applications and websites that drive your business into the digital era with cutting-edge technology and innovative design.",
+        "ctaText": "Request a Quote",
+        "ctaHref": "/contact",
+        "videoSrc": "/backgroundvideo.mp4"
+      },
+      {
+        "tag": "WEB & MOBILE DEVELOPMENT",
+        "titlePrefix": "High-Impact",
+        "titleHighlight": "Digital Solutions",
+        "titleSuffix": "",
+        "description": "Fluid and intelligent experiences for iOS, Android, and Web built with scalable architecture and modern design.",
+        "ctaText": "Explore Our Services",
+        "ctaHref": "#services",
+        "videoSrc": "/bubbles.mp4"
+      },
+      {
+        "tag": "CUSTOM SYSTEMS & CLOUD",
+        "titlePrefix": "Technology to",
+        "titleHighlight": "Scale Growth",
+        "titleSuffix": "",
+        "description": "Business process automation and resilient, high-performance cloud platforms engineered to scale seamlessly.",
+        "ctaText": "Explore Our Portfolio",
+        "ctaHref": "#portfolio",
+        "videoSrc": "/AbstractRibbons.mp4"
+      },
+      {
+        "tag": "INTELLIGENCE & DATA",
+        "titlePrefix": "Next-Gen Digital",
+        "titleHighlight": "Architecture",
+        "titleSuffix": "",
+        "description": "Resilient infrastructure, modern microservices, and forward-looking software engineering for market leaders.",
+        "ctaText": "Talk to Specialists",
+        "ctaHref": "/contact",
+        "videoSrc": "/particle.mp4"
+      }
+    ],
+    "previousSlide": "Previous slide",
+    "nextSlide": "Next slide",
+    "slideIndicator": "Go to slide"
+  },
   "QuoteButton": {
     "label": "Request a Quote"
   },
@@ -120,13 +177,29 @@
   },
 
   "portfolio": {
-    "title": "Examples",
-    "description": "This website is a modern portfolio platform that presents projects professionally, highlighting visual quality, usability, and interactivity. Visitors can explore each project in detail and have an immersive experience.",
+    "tag": "FEATURED WORK",
+    "title": "Selected Projects",
+    "description": "Engineered digital platforms built with technical precision, combining sharp aesthetics, intuitive workflows, and scalable architecture.",
+    "requestProject": "Request Similar Project",
     "projects": {
-      "cars": "Car Dealership",
-      "carsDescription": "Website project for a car dealership with modern layout, images of sports cars, SUVs, and sedans, promotion sections, test drive booking, and red & white design.",
-      "realEstate": "Real Estate",
-      "realEstateDescription": "Complete real estate system showcasing properties, search filters, detailed property pages, and client contact integration, with a clean and professional layout."
+      "vitrolinha": {
+        "title": "Vitrolinha Official Portal",
+        "category": "POLITICAL PORTAL & CAMPAIGN PLATFORM",
+        "description": "Institutional website and campaign platform engineered for high conversion, proposals showcase, direct WhatsApp outreach channel, real-time updates, and responsive architecture.",
+        "tags": ["NEXT.JS", "TAILWIND CSS", "DIGITAL CAMPAIGN", "HIGH PERFORMANCE", "SEO"]
+      },
+      "realEstate": {
+        "title": "Real Estate Platform",
+        "category": "WEB PLATFORM & MANAGEMENT",
+        "description": "Comprehensive real estate web system with advanced property search, precise filtering, rich listing views, and integrated client contact capture.",
+        "tags": ["NEXT.JS", "TYPESCRIPT", "TAILWIND CSS", "ADMIN DASHBOARD"]
+      },
+      "cars": {
+        "title": "Automotive Dealership",
+        "category": "DIGITAL SHOWROOM & PORTAL",
+        "description": "High-performance digital showroom for premium vehicles, featuring an interactive vehicle inventory, test drive booking flows, and conversion-focused design.",
+        "tags": ["REACT", "DIGITAL SHOWROOM", "BOOKINGS", "HIGH PERFORMANCE"]
+      }
     }
   },
 
@@ -216,5 +289,48 @@
       "role": "Founder & Tech Lead",
       "description": "\"As a developer passionate about technology and innovation, I created OxyWare with the purpose of helping companies and entrepreneurs materialize their digital visions. I believe technology should be a growth catalyst, and that’s what we deliver in every project.\""
     }
+  },
+
+  "impact_showcase": {
+    "title_part1": "Scale &",
+    "title_part2": "Proven Results",
+    "metrics": [
+      {
+        "id": "deploy",
+        "value": "12x",
+        "headline": "Faster Deployment & Continuous Delivery Cycle",
+        "subline": "for High-Traffic Digital Platforms & E-commerce"
+      },
+      {
+        "id": "uptime",
+        "value": "99.9%",
+        "headline": "Cloud Infrastructure Uptime & System Resilience",
+        "subline": "across Mission-Critical Microservices and APIs"
+      },
+      {
+        "id": "leads",
+        "value": "+340%",
+        "headline": "Growth in Lead Generation & Conversion Rates",
+        "subline": "for Real Estate Platforms & Automotive Showrooms"
+      },
+      {
+        "id": "concurrency",
+        "value": "50K+",
+        "headline": "Concurrent Requests Handled Under Peak Traffic",
+        "subline": "with Zero Latency Spikes or Session Dropoffs"
+      },
+      {
+        "id": "automation",
+        "value": "-60%",
+        "headline": "Reduction in Operational Time for Manual Workflows",
+        "subline": "via Custom Intelligent Systems & Tailored ERP"
+      },
+      {
+        "id": "mobile",
+        "value": "4.9★",
+        "headline": "Average User Satisfaction in App Stores",
+        "subline": "across Native iOS and Android Deployments"
+      }
+    ]
   }
 }

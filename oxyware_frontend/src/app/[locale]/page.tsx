@@ -10,6 +10,7 @@ import Portfolio from "@/components/layout/portfolio";
 import Faq from "@/components/layout/faq";
 import Footer from "@/components/layout/footer";
 import AboutSection from "@/components/layout/aboutSection";
+import ImpactShowcase from "@/components/layout/ImpactShowcase";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -45,14 +46,15 @@ export async function generateMetadata({
 }
 
 export default async function Page({ params }: PageProps) {
-  const { locale } = await params;
+  await params;
   return (
-    <div className="overflow-x-hidden">
+    <div className="w-full">
       <Header />
       <div>
         <SlideIn>
           <BodyServices />
         </SlideIn>
+        <ImpactShowcase />
         <SlideIn delay={0.1}>
           <About />
         </SlideIn>
