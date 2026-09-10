@@ -71,53 +71,162 @@
   },
 
   "services_section": {
+    "badge": "CAPACIDADES & ENGENHARIA",
     "our_services": "Nossos Serviços",
-    "services_description": "Oferecemos soluções completas em desenvolvimento de software, desde a concepção até a implementação e manutenção.",
+    "headline": "Engenharia de precisão para produtos que escalam.",
+    "services_description": "Desenvolvemos software moderno, plataformas web e aplicativos com foco em arquitetura resiliente, performance máxima e impacto comercial tangível.",
+    "filter_all": "Todas as Áreas",
+    "filter_software": "Software & Web",
+    "filter_infra": "Cloud & Infraestrutura",
+    "filter_growth": "Estratégia & Crescimento",
+    "deliverables_label": "Escopo de entrega:",
+    "cta_title": "Precisa de uma arquitetura customizada para o seu negócio?",
+    "cta_description": "Nossos especialistas analisam seus requisitos técnicos e desenham a solução ideal.",
+    "cta_button": "Solicitar Orçamento Técnico",
     "services": [
       {
+        "id": "apps",
+        "category": "software",
+        "code": "01",
         "icon": "Smartphone",
+        "tag": "MOBILE APPS",
         "title": "Desenvolvimento de Apps",
-        "description": "Apps nativos e híbridos para iOS e Android com performance excepcional e UX intuitiva."
+        "description": "Aplicativos nativos e híbridos para iOS e Android com alta taxa de quadros e UX intuitiva.",
+        "deliverables": [
+          "Arquitetura nativa e híbrida (iOS & Android)",
+          "Gateways de pagamento e push notifications",
+          "Publicação assistida na App Store e Google Play",
+          "Arquitetura offline-first e persistência local"
+        ],
+        "technologies": ["React Native", "Expo", "Swift", "Kotlin"]
       },
       {
+        "id": "web",
+        "category": "software",
+        "code": "02",
         "icon": "Globe",
-        "title": "Websites Modernos",
-        "description": "Sites responsivos e otimizados com as mais recentes tecnologias web para máxima performance."
+        "tag": "WEB PLATFORMS",
+        "title": "Websites Modernos & Plataformas",
+        "description": "Aplicações web modernas com SSR, renderização em Edge e foco em tempo de resposta imediato.",
+        "deliverables": [
+          "Arquitetura Server Components & SSR",
+          "Design System exclusivo e responsivo",
+          "Core Web Vitals e SEO técnico 100/100",
+          "Painéis administrativos e integrações via API"
+        ],
+        "technologies": ["Next.js 15", "React 19", "Tailwind CSS", "TypeScript"]
       },
       {
+        "id": "systems",
+        "category": "software",
+        "code": "03",
         "icon": "Code",
-        "title": "Sistemas Customizados",
-        "description": "Soluções sob medida para automatizar processos e otimizar a operação do seu negócio."
+        "tag": "CUSTOM SYSTEMS",
+        "title": "Sistemas Customizados & SaaS",
+        "description": "Plataformas sob medida para automatizar operações complexas e suportar crescimento escalável.",
+        "deliverables": [
+          "Arquitetura multitenant com isolamento de dados",
+          "APIs RESTful e GraphQL documentadas",
+          "Dashboards analíticos em tempo real",
+          "Automação e orquestração de workflows"
+        ],
+        "technologies": ["Node.js", "PostgreSQL", "Prisma", "Redis"]
       },
       {
+        "id": "perf",
+        "category": "infra",
+        "code": "04",
         "icon": "Zap",
+        "tag": "HIGH PERFORMANCE",
         "title": "Performance Otimizada",
-        "description": "Aplicações ultra-rápidas com carregamento instantâneo e experiência fluida."
+        "description": "Engenharia de velocidade com carregamento instantâneo, consultas otimizadas e latência mínima.",
+        "deliverables": [
+          "Otimização rigorosa de LCP, FID e CLS",
+          "Camada de cache distribuído em memória",
+          "Auditoria e eliminação de gargalos de banco",
+          "Assets compactados e distribuídos em Edge CDN"
+        ],
+        "technologies": ["Edge CDN", "Redis Cache", "Core Web Vitals", "Turbopack"]
       },
       {
+        "id": "security",
+        "category": "infra",
+        "code": "05",
         "icon": "Shield",
+        "tag": "SECURITY & COMPLIANCE",
         "title": "Segurança Avançada",
-        "description": "Implementação de protocolos de segurança de nível empresarial para proteger seus dados."
+        "description": "Protocolos de proteção empresarial, controle de acessos estrito e blindagem de dados sensíveis.",
+        "deliverables": [
+          "Autenticação corporativa (JWT, OAuth e RBAC)",
+          "Criptografia de ponta a ponta em trânsito e repouso",
+          "Mitigação contra vulnerabilidades OWASP Top 10",
+          "Conformidade e boas práticas de privacidade"
+        ],
+        "technologies": ["OAuth / JWT", "Stripe PCI-DSS", "SSL/TLS", "Rate Limiting"]
       },
       {
+        "id": "cloud",
+        "category": "infra",
+        "code": "06",
         "icon": "Rocket",
+        "tag": "CLOUD & DEVOPS",
         "title": "Deploy & Escalabilidade",
-        "description": "Infraestrutura cloud robusta que cresce junto com seu negócio sem limitações."
+        "description": "Infraestrutura em nuvem elástica e resiliente com deploy contínuo automatizado.",
+        "deliverables": [
+          "Esteiras automatizadas de CI/CD",
+          "Ambientes containerizados com Docker",
+          "Escalabilidade automática sem tempo de inatividade",
+          "Monitoramento de métricas e alertas em tempo real"
+        ],
+        "technologies": ["Docker", "Vercel", "Railway", "AWS / Fly.io"]
       },
       {
+        "id": "marketing",
+        "category": "growth",
+        "code": "07",
         "icon": "TrendingUp",
-        "title": "Marketing Digital",
-        "description": "Estratégias digitais personalizadas para aumentar sua presença online e gerar mais leads."
+        "tag": "GROWTH ENGINE",
+        "title": "Marketing Digital & Tração",
+        "description": "Estratégias orientadas a dados para aquisição consistente de clientes e geração de leads qualificados.",
+        "deliverables": [
+          "Mapeamento de funis de conversão digital",
+          "Implementação de analytics e rastreamento de eventos",
+          "Otimização de páginas de destino (CRO)",
+          "Testes A/B para aumento de conversão"
+        ],
+        "technologies": ["Analytics", "PostHog", "Conversion Rate", "A/B Testing"]
       },
       {
+        "id": "copy",
+        "category": "growth",
+        "code": "08",
         "icon": "PenTool",
-        "title": "Copywriting",
-        "description": "Textos persuasivos para sites e redes sociais que convertem visitantes em clientes."
+        "tag": "STRATEGIC COPY",
+        "title": "Copywriting de Conversão",
+        "description": "Comunicação assertiva e persuasiva desenhada para transformar visitantes em oportunidades de negócio.",
+        "deliverables": [
+          "Estruturação de propostas de valor únicas",
+          "Copywriting direcionado para landing pages",
+          "Microcopy de UX para redução de atrito",
+          "Roteirização de mensagens e comunicações"
+        ],
+        "technologies": ["UX Writing", "Conversion Copy", "Value Proposition", "Brand Tone"]
       },
       {
+        "id": "social",
+        "category": "growth",
+        "code": "09",
         "icon": "Share2",
-        "title": "Gestão de Redes Sociais",
-        "description": "Gerenciamento completo das suas redes sociais com conteúdo engajador e estratégico."
+        "tag": "DIGITAL PRESENCE",
+        "title": "Gestão de Presença Digital",
+        "description": "Posicionamento institucional sólido para consolidar a autoridade da sua marca no mercado.",
+        "deliverables": [
+          "Planejamento de conteúdo técnico e institucional",
+          "Peças visuais alinhadas à identidade da marca",
+          "Estratégia de distribuição multicanal",
+          "Acompanhamento de métricas de alcance e público"
+        ],
+        "technologies": ["Brand Strategy", "Content Plan", "Audience Reach", "Engagement"]
       }
     ]
   },

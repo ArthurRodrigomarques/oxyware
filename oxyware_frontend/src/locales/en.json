@@ -72,53 +72,162 @@
   },
 
   "services_section": {
+    "badge": "CAPABILITIES & ENGINEERING",
     "our_services": "Our Services",
-    "services_description": "We offer complete software development solutions, from conception to implementation and maintenance.",
+    "headline": "Precision engineering for products built to scale.",
+    "services_description": "We architect and build modern software, web platforms, and mobile apps with a relentless focus on performance, clean architecture, and measurable business impact.",
+    "filter_all": "All Capabilities",
+    "filter_software": "Software & Web",
+    "filter_infra": "Cloud & Infrastructure",
+    "filter_growth": "Strategy & Growth",
+    "deliverables_label": "Core deliverables:",
+    "cta_title": "Have a project with custom technical requirements?",
+    "cta_description": "Our engineering leads evaluate your requirements and design the optimal technical solution.",
+    "cta_button": "Request Technical Consultation",
     "services": [
       {
+        "id": "apps",
+        "category": "software",
+        "code": "01",
         "icon": "Smartphone",
-        "title": "App Development",
-        "description": "Native and hybrid apps for iOS and Android with exceptional performance and intuitive UX."
+        "tag": "MOBILE APPS",
+        "title": "Mobile App Engineering",
+        "description": "Native and cross-platform apps for iOS and Android built for high framerates and intuitive UX.",
+        "deliverables": [
+          "Native and hybrid architecture (iOS & Android)",
+          "Payment gateway and push notification pipelines",
+          "App Store & Google Play release lifecycle",
+          "Offline-first sync and secure local storage"
+        ],
+        "technologies": ["React Native", "Expo", "Swift", "Kotlin"]
       },
       {
+        "id": "web",
+        "category": "software",
+        "code": "02",
         "icon": "Globe",
-        "title": "Modern Websites",
-        "description": "Responsive and optimized websites using the latest web technologies for maximum performance."
+        "tag": "WEB PLATFORMS",
+        "title": "Modern Websites & Web Platforms",
+        "description": "High-impact web applications featuring SSR, Edge rendering, and sub-second response times.",
+        "deliverables": [
+          "React Server Components & SSR architecture",
+          "Bespoke, responsive Design System",
+          "Core Web Vitals & technical SEO 100/100",
+          "Admin consoles and headless API integrations"
+        ],
+        "technologies": ["Next.js 15", "React 19", "Tailwind CSS", "TypeScript"]
       },
       {
+        "id": "systems",
+        "category": "software",
+        "code": "03",
         "icon": "Code",
-        "title": "Custom Systems",
-        "description": "Tailor-made solutions to automate processes and optimize your business operations."
+        "tag": "CUSTOM SYSTEMS",
+        "title": "Custom Software & Multitenant SaaS",
+        "description": "Tailored enterprise platforms designed to automate business operations and handle scale.",
+        "deliverables": [
+          "Secure multitenant data isolation",
+          "Documented RESTful & GraphQL APIs",
+          "Real-time operational dashboards",
+          "Workflow and pipeline automation"
+        ],
+        "technologies": ["Node.js", "PostgreSQL", "Prisma", "Redis"]
       },
       {
+        "id": "perf",
+        "category": "infra",
+        "code": "04",
         "icon": "Zap",
-        "title": "Optimized Performance",
-        "description": "Ultra-fast applications with instant loading and smooth experience."
+        "tag": "HIGH PERFORMANCE",
+        "title": "Performance Optimization",
+        "description": "Speed engineering delivering instant page loads, database query tuning, and minimal latency.",
+        "deliverables": [
+          "Rigorous optimization for LCP, FID, and CLS",
+          "Distributed in-memory caching tier",
+          "Database profiling and bottleneck removal",
+          "Edge CDN asset compression and distribution"
+        ],
+        "technologies": ["Edge CDN", "Redis Cache", "Core Web Vitals", "Turbopack"]
       },
       {
+        "id": "security",
+        "category": "infra",
+        "code": "05",
         "icon": "Shield",
+        "tag": "SECURITY & COMPLIANCE",
         "title": "Advanced Security",
-        "description": "Implementation of enterprise-level security protocols to protect your data."
+        "description": "Enterprise-grade protection protocols, strict access control, and hardened sensitive data shielding.",
+        "deliverables": [
+          "Corporate auth protocols (JWT, OAuth, RBAC)",
+          "End-to-end encryption in transit and at rest",
+          "OWASP Top 10 mitigation and security audits",
+          "Privacy standard adherence and compliance"
+        ],
+        "technologies": ["OAuth / JWT", "Stripe PCI-DSS", "SSL/TLS", "Rate Limiting"]
       },
       {
+        "id": "cloud",
+        "category": "infra",
+        "code": "06",
         "icon": "Rocket",
-        "title": "Deploy & Scalability",
-        "description": "Robust cloud infrastructure that grows alongside your business without limitations."
+        "tag": "CLOUD & DEVOPS",
+        "title": "Deploy & Cloud Scalability",
+        "description": "Elastic and resilient cloud infrastructure with automated continuous delivery pipelines.",
+        "deliverables": [
+          "Automated CI/CD deployment pipelines",
+          "Containerized Docker environments",
+          "Zero-downtime horizontal auto-scaling",
+          "Real-time telemetry and uptime alert systems"
+        ],
+        "technologies": ["Docker", "Vercel", "Railway", "AWS / Fly.io"]
       },
       {
+        "id": "marketing",
+        "category": "growth",
+        "code": "07",
         "icon": "TrendingUp",
-        "title": "Digital Marketing",
-        "description": "Personalized digital strategies to increase your online presence and generate more leads."
+        "tag": "GROWTH ENGINE",
+        "title": "Digital Growth & Acquisition",
+        "description": "Data-driven acquisition and conversion frameworks aligned directly with your product architecture.",
+        "deliverables": [
+          "Full digital funnel tracking and attribution",
+          "Custom event tracking implementation",
+          "Landing page conversion rate optimization",
+          "Hypothesis-driven A/B experimentation"
+        ],
+        "technologies": ["Analytics", "PostHog", "Conversion Rate", "A/B Testing"]
       },
       {
+        "id": "copy",
+        "category": "growth",
+        "code": "08",
         "icon": "PenTool",
-        "title": "Copywriting",
-        "description": "Persuasive texts for websites and social media that turn visitors into customers."
+        "tag": "STRATEGIC COPY",
+        "title": "Conversion Copywriting",
+        "description": "Sharp, persuasive technical messaging engineered to transform visitors into enterprise clients.",
+        "deliverables": [
+          "Distinct value proposition design",
+          "Conversion-focused landing page messaging",
+          "UX microcopy eliminating product friction",
+          "Automated email and onboarding sequences"
+        ],
+        "technologies": ["UX Writing", "Conversion Copy", "Value Proposition", "Brand Tone"]
       },
       {
+        "id": "social",
+        "category": "growth",
+        "code": "09",
         "icon": "Share2",
-        "title": "Social Media Management",
-        "description": "Complete management of your social media with engaging and strategic content."
+        "tag": "DIGITAL PRESENCE",
+        "title": "Digital Presence Management",
+        "description": "Consistent market positioning and strategic technical content distribution establishing category authority.",
+        "deliverables": [
+          "Strategic B2B tech content planning",
+          "High-craft visual assets matching brand identity",
+          "Structured multi-channel syndication",
+          "Audience engagement and metric intelligence"
+        ],
+        "technologies": ["Brand Strategy", "Content Plan", "Audience Reach", "Engagement"]
       }
     ]
   },
