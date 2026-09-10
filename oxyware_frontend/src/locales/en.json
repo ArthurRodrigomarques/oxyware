@@ -84,6 +84,7 @@
     "cta_title": "Have a project with custom technical requirements?",
     "cta_description": "Our engineering leads evaluate your requirements and design the optimal technical solution.",
     "cta_button": "Request Technical Consultation",
+    "swipe_hint": "Swipe sideways",
     "services": [
       {
         "id": "apps",

@@ -83,6 +83,7 @@
     "cta_title": "Precisa de uma arquitetura customizada para o seu negócio?",
     "cta_description": "Nossos especialistas analisam seus requisitos técnicos e desenham a solução ideal.",
     "cta_button": "Solicitar Orçamento Técnico",
+    "swipe_hint": "Deslize para o lado",
     "services": [
       {
         "id": "apps",
