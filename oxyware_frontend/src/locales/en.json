@@ -233,22 +233,63 @@
   },
 
   "about_section": {
-    "transform_ideas": "We Transform",
-    "digital_reality": "Ideas into Digital Reality",
-    "oxyware_description": "OxyWare specializes in turning creative concepts into efficient and modern digital solutions.",
+    "badge": "MANIFESTO & CRAFT",
+    "transform_ideas": "Transforming concepts into",
+    "digital_reality": "High-Precision Digital Engineering",
+    "oxyware_description": "We engineer bespoke digital systems, combining rigorous architecture, pristine code, and refined design to accelerate business velocity.",
     "aboutItems": [
-      "Agile development with incremental deliveries",
-      "Scalable architecture and optimized performance",
-      "Responsive design for all devices",
-      "Integration with existing APIs and systems"
+      {
+        "code": "01",
+        "title": "Continuous Agile Delivery",
+        "description": "Weekly incremental releases with continuous technical validation in production."
+      },
+      {
+        "code": "02",
+        "title": "Resilient Architecture",
+        "description": "Scalable systems built for high availability, zero downtime, and low latency."
+      },
+      {
+        "code": "03",
+        "title": "Conversion-First Design",
+        "description": "Functional and responsive user experiences crafted with pixel-perfect rigor."
+      },
+      {
+        "code": "04",
+        "title": "Critical Integrations",
+        "description": "Seamless, secure connection to enterprise APIs, payment rails, and cloud microservices."
+      }
     ],
     "stats": [
-      { "icon": "Users", "number": "5+", "label": "Satisfied Clients" },
-      { "icon": "Code", "number": "5+", "label": "Projects Delivered" },
-      { "icon": "Globe", "number": "5+", "label": "Countries Served" },
-      { "icon": "Award", "number": "1+", "label": "Awards Received" }
+      {
+        "code": "01",
+        "tag": "CLIENTS",
+        "number": "5+",
+        "label": "Active Deployments",
+        "sublabel": "SaaS and enterprise operations in production"
+      },
+      {
+        "code": "02",
+        "tag": "RELEASES",
+        "number": "5+",
+        "label": "Shipped Projects",
+        "sublabel": "High-performance web platforms and mobile apps"
+      },
+      {
+        "code": "03",
+        "tag": "REACH",
+        "number": "5+",
+        "label": "Countries Served",
+        "sublabel": "Multi-region global cloud infrastructure"
+      },
+      {
+        "code": "04",
+        "tag": "EXCELLENCE",
+        "number": "1+",
+        "label": "Digital Awards",
+        "sublabel": "Industry recognition for craft and code quality"
+      }
     ],
-    "button": "Meet Our Team"
+    "button": "Start a Project"
   },
 
   "cta_section": {
@@ -313,22 +354,51 @@
   },
 
   "faq": {
+    "badge": "FREQUENTLY ASKED",
     "title": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know about our services, timelines, technology stack, and development process.",
+    "support_title": "Still have questions?",
+    "support_description": "Our team is available to answer any questions and craft a tailored proposal for your project.",
+    "support_cta": "Chat on WhatsApp",
     "q1": {
       "question": "How much does a website cost?",
-      "answer": "The price of a website depends on its complexity, features, and desired design. Simple websites are usually cheaper; more complex projects with advanced functionalities and integrations may cost more."
+      "answer": "Pricing depends on your project's complexity, features, and goals. We build everything from high-converting landing pages to full web platforms and bespoke systems. We provide clear, tailored proposals designed to maximize your return on investment."
     },
     "q2": {
       "question": "How long does it take to create a website?",
-      "answer": "The development time depends on the project. A simple website can be completed in weeks, while more complex projects may take 2-8 months, including design, development, and testing."
+      "answer": "Delivery times depend on the scope. Landing pages and institutional sites are usually delivered within 1 to 3 weeks. Larger solutions, such as custom e-commerce or scalable web applications, take 4 to 12 weeks with staged agile deliveries."
     },
     "q3": {
       "question": "What results should I expect?",
-      "answer": "A professional website should improve your online presence, convey credibility, generate leads, and engage visitors. Specific results may vary depending on the applied marketing and SEO strategy."
+      "answer": "You get a fast, modern, conversion-optimized platform that instantly establishes authority. In practice, this means higher visitor engagement, more qualified leads, enhanced brand reputation, and increased sales opportunities."
     },
     "q4": {
       "question": "Do you offer support after the website launch?",
-      "answer": "Yes! We offer ongoing support, maintenance, and updates to ensure your website works correctly and stays up-to-date with the best security and performance practices."
+      "answer": "Yes! We provide post-launch warranties, ongoing maintenance plans, and continuous support covering security updates, automated backups, performance tuning, and new feature rollouts."
+    },
+    "q5": {
+      "question": "Will the website work seamlessly on mobile and tablets?",
+      "answer": "Absolutely. Every project is developed with a mobile-first philosophy, ensuring your site loads quickly and provides an intuitive experience across smartphones, tablets, laptops, and wide monitors."
+    },
+    "q6": {
+      "question": "Is the website optimized for Google (SEO)?",
+      "answer": "Yes. We implement technical SEO best practices from the start: semantic markup, social share meta tags, rapid load times, Schema.org structured data, and automated sitemaps for optimal search engine indexing."
+    },
+    "q7": {
+      "question": "Will I be able to update text and images myself?",
+      "answer": "Yes! We can integrate an intuitive management dashboard (CMS) allowing your team to update copy, images, products, or blog articles independently without requiring technical skills or coding."
+    },
+    "q8": {
+      "question": "Do you handle domain registration and web hosting?",
+      "answer": "Yes. We assist you through domain registration or migration, high-availability cloud infrastructure setup, SSL security certificates, and professional business emails."
+    },
+    "q9": {
+      "question": "How does the development workflow operate?",
+      "answer": "Our process is transparent and structured: we begin with discovery and requirements scoping, design modern prototypes in Figma for your review, build the production code, execute rigorous tests, and finalize with deployment."
+    },
+    "q10": {
+      "question": "Can you integrate payments and WhatsApp automation?",
+      "answer": "Yes. We build complete integrations with WhatsApp click-to-chat, payment gateways (such as Stripe), CRM systems, email marketing platforms, and third-party APIs."
     }
   },
 

@@ -232,22 +232,63 @@
   },
 
   "about_section": {
-    "transform_ideas": "Transformamos",
-    "digital_reality": "Ideias em Realidade Digital",
-    "oxyware_description": "A Oxyware é especializada em transformar conceitos criativos em soluções digitais eficientes e modernas.",
+    "badge": "MANIFESTO & ENGENHARIA",
+    "transform_ideas": "Transformamos conceitos em",
+    "digital_reality": "Engenharia Digital de Alta Precisão",
+    "oxyware_description": "Desenvolvemos software sob medida, combinando arquitetura robusta, código limpo e design refinado para acelerar o crescimento do seu negócio.",
     "aboutItems": [
-      "Desenvolvimento ágil com entregas incrementais",
-      "Arquitetura escalável e performance otimizada",
-      "Design responsivo para todos os dispositivos",
-      "Integração com APIs e sistemas existentes"
+      {
+        "code": "01",
+        "title": "Engenharia Ágil & Contínua",
+        "description": "Entregas incrementais semanais com validação técnica em produção."
+      },
+      {
+        "code": "02",
+        "title": "Arquitetura Resiliente",
+        "description": "Sistemas escaláveis com alta disponibilidade e latência mínima."
+      },
+      {
+        "code": "03",
+        "title": "Design Focado em Conversão",
+        "description": "Interfaces funcionais e responsivas com rigor de acabamento pixel-perfect."
+      },
+      {
+        "code": "04",
+        "title": "Integrações Críticas",
+        "description": "Conexão nativa e segura com APIs empresariais, gateways e microsserviços."
+      }
     ],
     "stats": [
-      { "icon": "Users", "number": "5+", "label": "Clientes satisfeitos" },
-      { "icon": "Code", "number": "5+", "label": "Projetos entregues" },
-      { "icon": "Globe", "number": "5+", "label": "Países atendidos" },
-      { "icon": "Award", "number": "1+", "label": "Prêmios recebidos" }
+      {
+        "code": "01",
+        "tag": "CLIENTES",
+        "number": "5+",
+        "label": "Operações Ativas",
+        "sublabel": "SaaS e empresas em produção contínua"
+      },
+      {
+        "code": "02",
+        "tag": "ENTREGAS",
+        "number": "5+",
+        "label": "Projetos Lançados",
+        "sublabel": "Websites e apps de alta performance"
+      },
+      {
+        "code": "03",
+        "tag": "ALCANCE",
+        "number": "5+",
+        "label": "Países Atendidos",
+        "sublabel": "Aplicações com infraestrutura multirregional"
+      },
+      {
+        "code": "04",
+        "tag": "EXCELÊNCIA",
+        "number": "1+",
+        "label": "Premiação Digital",
+        "sublabel": "Reconhecimento em qualidade e design"
+      }
     ],
-    "button": "Conhecer Nossa Equipe"
+    "button": "Iniciar um Projeto"
   },
 
   "cta_section": {
@@ -312,22 +353,51 @@
   },
 
   "faq": {
+    "badge": "DÚVIDAS FREQUENTES",
     "title": "Perguntas Frequentes",
+    "subtitle": "Tudo o que você precisa saber sobre nossos serviços, prazos, tecnologias e processo de desenvolvimento.",
+    "support_title": "Ainda tem alguma dúvida?",
+    "support_description": "Nossa equipe está disponível para tirar suas dúvidas e criar uma proposta sob medida para o seu projeto.",
+    "support_cta": "Falar no WhatsApp",
     "q1": {
       "question": "Quanto custa um site?",
-      "answer": "O preço de um site varia de acordo com a complexidade, funcionalidades e design desejado. Para sites simples, o valor costuma ser menor; sites mais complexos com funcionalidades avançadas e integração podem ter um custo maior."
+      "answer": "O valor depende da complexidade, funcionalidades e objetivos do seu projeto. Desenvolvemos desde landing pages de alta conversão até plataformas completas e sistemas sob medida. Criamos propostas transparentes e personalizadas para garantir o melhor retorno sobre o investimento."
     },
     "q2": {
       "question": "Quanto tempo demora para criar um site?",
-      "answer": "O tempo de desenvolvimento depende do projeto. Um site simples pode ser feito em semanas, enquanto projetos mais complexos podem levar de 2 a 8 meses, incluindo design, desenvolvimento e testes."
+      "answer": "O prazo varia conforme o escopo. Landing pages e sites institucionais costumam ser entregues entre 1 e 3 semanas. Já projetos mais robustos, como e-commerces avançados ou plataformas sob medida, levam de 4 a 12 semanas, com acompanhamento e entregas por etapas."
     },
     "q3": {
       "question": "Que resultados devo esperar?",
-      "answer": "Um site profissional deve melhorar sua presença online, transmitir credibilidade, gerar leads e engajar visitantes. Resultados específicos podem variar de acordo com a estratégia de marketing e SEO aplicada."
+      "answer": "Você terá um site moderno, rápido e otimizado para conversão que passa credibilidade imediata. Na prática, isso significa maior retenção de visitantes, geração de leads qualificados, fortalecimento da sua marca e aumento nas oportunidades de vendas."
     },
     "q4": {
       "question": "Vocês oferecem suporte após o lançamento do site?",
-      "answer": "Sim! Oferecemos suporte contínuo, manutenção e atualizações, garantindo que seu site funcione corretamente e esteja sempre atualizado com as melhores práticas de segurança e desempenho."
+      "answer": "Sim! Oferecemos garantia após o lançamento, planos de manutenção preventiva e suporte contínuo para atualizações de segurança, backups, otimizações de performance e suporte para novas melhorias no sistema."
+    },
+    "q5": {
+      "question": "O site funcionará bem em celulares e tablets?",
+      "answer": "Com certeza. Todos os nossos projetos são desenvolvidos com a metodologia mobile-first, garantindo que o seu site carregue rápido e funcione perfeitamente em celulares, tablets, notebooks e monitores de qualquer tamanho."
+    },
+    "q6": {
+      "question": "O site já vem otimizado para o Google (SEO)?",
+      "answer": "Sim. Desenvolvemos com as melhores práticas de SEO técnico: marcação semântica, meta tags para redes sociais, carregamento ultrarrápido, dados estruturados (Schema.org) e sitemap para facilitar a indexação nos mecanismos de busca."
+    },
+    "q7": {
+      "question": "Eu mesmo poderei alterar textos e imagens do site?",
+      "answer": "Sim! Podemos integrar um painel administrativo intuitivo onde você e sua equipe conseguem atualizar textos, imagens, produtos ou postagens com total autonomia, sem depender de suporte técnico ou conhecimento em programação."
+    },
+    "q8": {
+      "question": "Vocês cuidam do domínio e da hospedagem?",
+      "answer": "Sim. Ajudamos você em todo o processo de registro ou migração de domínio, configuração de servidores em nuvem de alta disponibilidade, certificados de segurança SSL e contas de e-mail profissionais."
+    },
+    "q9": {
+      "question": "Como funciona o processo de desenvolvimento?",
+      "answer": "Trabalhamos de forma transparente e colaborativa: começamos com o briefing e levantamento de necessidades, criamos os protótipos de design no Figma para aprovação, desenvolvemos a aplicação, realizamos os testes e finalizamos com o lançamento e homologação."
+    },
+    "q10": {
+      "question": "É possível integrar meios de pagamento e WhatsApp?",
+      "answer": "Sim. Realizamos integrações completas com botões de atendimento via WhatsApp, gateways de pagamento (como Stripe e Mercado Pago), sistemas de CRM, plataformas de e-mail marketing e APIs personalizadas."
     }
   },
 
