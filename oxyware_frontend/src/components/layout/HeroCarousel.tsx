@@ -32,7 +32,7 @@ const DEFAULT_SLIDES: HeroSlideItem[] = [
       "Criamos aplicativos e websites modernos que impulsionam seu negócio para a era digital com tecnologia de ponta e design inovador.",
     ctaText: "Solicitar Orçamento",
     ctaHref: "/contact",
-    videoSrc: "/backgroundvideo.mp4",
+    videoSrc: "/abackgroundvideo.mp4",
   },
   {
     tag: "DESENVOLVIMENTO WEB & MOBILE",
@@ -43,7 +43,7 @@ const DEFAULT_SLIDES: HeroSlideItem[] = [
       "Experiências fluidas e inteligentes para iOS, Android e Web com arquitetura escalável e design moderno.",
     ctaText: "Conhecer Nossos Serviços",
     ctaHref: "#services",
-    videoSrc: "/bubbles.mp4",
+    videoSrc: "/abubbles.mp4",
   },
   {
     tag: "SISTEMAS SOB MEDIDA",

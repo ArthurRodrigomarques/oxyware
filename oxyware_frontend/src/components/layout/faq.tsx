@@ -92,7 +92,7 @@ export default function Faq(): React.JSX.Element {
         <div className={cn("flex flex-col items-center text-center mb-14 sm:mb-16 space-y-4")}>
           <div
             className={cn(
-              "inline-flex items-center gap-2 px-3 py-1 rounded-full border border-purple-500/20 bg-purple-500/10 backdrop-blur-md text-xs font-mono tracking-widest text-purple-300"
+              "inline-flex items-center gap-2 px-3 py-1 bg-purple-500/10 backdrop-blur-md text-xs font-mono tracking-widest text-purple-300"
             )}
           >
             <CircleHelp className={cn("w-3.5 h-3.5 text-purple-400")} />
@@ -126,7 +126,7 @@ export default function Faq(): React.JSX.Element {
               key={faq.id}
               value={faq.id}
               className={cn(
-                "group rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] px-5 sm:px-7 transition-all duration-300 data-[state=open]:border-purple-500/40 data-[state=open]:bg-white/[0.04] data-[state=open]:shadow-[0_0_30px_rgba(168,85,247,0.08)]"
+                "group rounded-none border-0 bg-white/[0.02] hover:bg-white/[0.04] px-5 sm:px-7 transition-all duration-300 data-[state=open]:bg-white/[0.04] data-[state=open]:shadow-[0_0_30px_rgba(168,85,247,0.08)]"
               )}
             >
               <AccordionTrigger
@@ -137,7 +137,7 @@ export default function Faq(): React.JSX.Element {
                 <div className={cn("flex items-center gap-3.5 sm:gap-4 flex-1 text-left")}>
                   <span
                     className={cn(
-                      "flex-shrink-0 text-xs font-mono font-bold px-2 py-1 rounded-md bg-white/5 text-purple-300 group-hover:text-purple-200 group-hover:bg-purple-500/20 group-data-[state=open]:bg-purple-600/30 group-data-[state=open]:text-purple-200 border border-purple-500/20 transition-colors"
+                      "flex-shrink-0 text-xs font-mono font-bold px-2 py-1 rounded-none bg-white/5 text-purple-300 group-hover:text-purple-200 group-hover:bg-purple-500/20 group-data-[state=open]:bg-purple-600/30 group-data-[state=open]:text-purple-200 transition-colors"
                     )}
                   >
                     {faq.numberLabel}
@@ -153,7 +153,7 @@ export default function Faq(): React.JSX.Element {
               </AccordionTrigger>
               <AccordionContent
                 className={cn(
-                  "text-sm sm:text-base text-zinc-300 leading-relaxed pb-6 pt-2 pl-0 sm:pl-12 border-t border-white/5"
+                  "text-sm sm:text-base text-zinc-300 leading-relaxed pb-6 pt-2 pl-0 sm:pl-12"
                 )}
               >
                 {faq.answer}
@@ -164,7 +164,7 @@ export default function Faq(): React.JSX.Element {
 
         <div
           className={cn(
-            "mt-14 sm:mt-16 rounded-2xl border border-white/10 bg-white/[0.02] p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 backdrop-blur-md hover:border-purple-500/30 transition-all"
+            "mt-14 sm:mt-16 rounded-none border-0 bg-white/[0.02] p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 backdrop-blur-md transition-all"
           )}
         >
           <div className={cn("space-y-1.5 text-center sm:text-left")}>
@@ -181,7 +181,7 @@ export default function Faq(): React.JSX.Element {
             target="_blank"
             rel="noopener noreferrer"
             className={cn(
-              "inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl",
+              "inline-flex items-center justify-center gap-2 px-6 py-3 rounded-none",
               "bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500",
               "text-white text-sm font-semibold tracking-wide shadow-lg shadow-purple-950/50",
               "transition-all duration-300 hover:scale-105 active:scale-95 shrink-0"

@@ -30,7 +30,7 @@
         "description": "We create modern applications and websites that drive your business into the digital era with cutting-edge technology and innovative design.",
         "ctaText": "Request a Quote",
         "ctaHref": "/contact",
-        "videoSrc": "/backgroundvideo.mp4"
+        "videoSrc": "/abackgroundvideo.mp4"
       },
       {
         "tag": "WEB & MOBILE DEVELOPMENT",
@@ -40,7 +40,7 @@
         "description": "Fluid and intelligent experiences for iOS, Android, and Web built with scalable architecture and modern design.",
         "ctaText": "Explore Our Services",
         "ctaHref": "#services",
-        "videoSrc": "/bubbles.mp4"
+        "videoSrc": "/abubbles.mp4"
       },
       {
         "tag": "CUSTOM SYSTEMS & CLOUD",
