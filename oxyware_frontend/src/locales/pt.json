@@ -263,30 +263,30 @@
       {
         "code": "01",
         "tag": "CLIENTES",
-        "number": "5+",
-        "label": "Operações Ativas",
+        "number": "50+",
+        "label": "Clientes & Operações Ativas",
         "sublabel": "SaaS e empresas em produção contínua"
       },
       {
         "code": "02",
         "tag": "ENTREGAS",
-        "number": "5+",
-        "label": "Projetos Lançados",
-        "sublabel": "Websites e apps de alta performance"
+        "number": "100+",
+        "label": "Projetos Entregues",
+        "sublabel": "Websites, sistemas e apps de alta performance"
       },
       {
         "code": "03",
         "tag": "ALCANCE",
-        "number": "5+",
-        "label": "Países Atendidos",
+        "number": "15+",
+        "label": "Países & Regiões Atendidas",
         "sublabel": "Aplicações com infraestrutura multirregional"
       },
       {
         "code": "04",
         "tag": "EXCELÊNCIA",
-        "number": "1+",
-        "label": "Premiação Digital",
-        "sublabel": "Reconhecimento em qualidade e design"
+        "number": "10+",
+        "label": "Premiações & Certificações",
+        "sublabel": "Reconhecimento em qualidade, arquitetura e design"
       }
     ],
     "button": "Iniciar um Projeto"

@@ -44,6 +44,17 @@ function ProjectArticle({ project, index, requestText }: ProjectArticleProps): J
   const previewY = useTransform(scrollYProgress, [0, 1], [60, -60]);
   const textY = useTransform(scrollYProgress, [0, 1], [-25, 25]);
 
+  const handlePreviewWheel = (event: React.WheelEvent<HTMLDivElement>): void => {
+    const container = event.currentTarget;
+    const isAtBottom =
+      container.scrollTop + container.clientHeight >= container.scrollHeight - 2;
+    const isAtTop = container.scrollTop <= 0;
+
+    if ((event.deltaY > 0 && isAtBottom) || (event.deltaY < 0 && isAtTop)) {
+      window.scrollBy({ top: event.deltaY, behavior: "auto" });
+    }
+  };
+
   return (
     <article
       ref={articleRef}
@@ -69,7 +80,7 @@ function ProjectArticle({ project, index, requestText }: ProjectArticleProps): J
             </span>
           </div>
 
-          <h3 className="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-6 uppercase">
+          <h3 className="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-6 uppercase font-orbitron">
             {project.title}
           </h3>
 
@@ -108,17 +119,10 @@ function ProjectArticle({ project, index, requestText }: ProjectArticleProps): J
         )}
       >
         <div className="rounded-xl border border-purple-500/25 bg-slate-950/80 overflow-hidden group hover:border-purple-500/50 transition-all duration-300 backdrop-blur-xl">
-          <div className="flex items-center justify-between px-4 py-3 border-b border-purple-500/20 bg-slate-950/90 text-[11px] font-mono text-neutral-300 uppercase">
-            <div className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-xs bg-gradient-to-r from-purple-500 to-blue-500" />
-              <span className="text-neutral-400">{`SYS://${project.id}`}</span>
-            </div>
-            <span className="text-purple-300 font-mono text-[10px] tracking-wider font-semibold">
-              {"SCROLL PREVIEW ↓"}
-            </span>
-          </div>
-
-          <div className="relative w-full h-[460px] sm:h-[520px] lg:h-[580px] overflow-y-auto overscroll-contain scroll-smooth [scrollbar-width:thin] [scrollbar-color:rgba(168,85,247,0.4)_transparent] [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-purple-500/40 [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-purple-500/60">
+          <div
+            onWheel={handlePreviewWheel}
+            className="relative w-full h-[460px] sm:h-[520px] lg:h-[580px] overflow-y-auto overscroll-y-auto scroll-smooth [scrollbar-width:thin] [scrollbar-color:rgba(168,85,247,0.4)_transparent] [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-purple-500/40 [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-purple-500/60"
+          >
             <Image
               src={project.image}
               alt={project.title}
@@ -141,7 +145,6 @@ export default function Portfolio(): JSX.Element {
 
   const vitrolinhaData = t.raw("projects.vitrolinha") as ProjectDetails | undefined;
   const realEstateData = t.raw("projects.realEstate") as ProjectDetails | undefined;
-  const carsData = t.raw("projects.cars") as ProjectDetails | undefined;
 
   const sectionRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
@@ -188,23 +191,6 @@ export default function Portfolio(): JSX.Element {
       image: "/example/websiteexample.png",
       link: `/${locale}/contact`,
     },
-    {
-      id: "automotive",
-      index: "03",
-      title: carsData?.title || "Concessionária de Carros",
-      category: carsData?.category || "PORTAL AUTOMOTIVO & SHOWROOM",
-      description:
-        carsData?.description ||
-        "Plataforma digital para concessionária automotiva, incluindo vitrine dinâmica de veículos esportivos, SUVs e sedans, agendamento de test drive e módulos de conversão.",
-      tags: carsData?.tags || [
-        "REACT",
-        "CATÁLOGO DIGITAL",
-        "AGENDAMENTOS",
-        "ALTA PERFORMANCE",
-      ],
-      image: "/example/cars.png",
-      link: `/${locale}/contact`,
-    },
   ];
 
   return (
@@ -236,7 +222,7 @@ export default function Portfolio(): JSX.Element {
               </span>
             </div>
 
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white uppercase">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white uppercase font-orbitron">
               {t("title")}{" "}
               <span className="bg-gradient-to-r from-purple-400 via-indigo-300 to-blue-400 bg-clip-text text-transparent">
                 ™

@@ -264,29 +264,29 @@
       {
         "code": "01",
         "tag": "CLIENTS",
-        "number": "5+",
-        "label": "Active Deployments",
-        "sublabel": "SaaS and enterprise operations in production"
+        "number": "50+",
+        "label": "Active Deployments & Clients",
+        "sublabel": "SaaS and enterprise operations in continuous production"
       },
       {
         "code": "02",
         "tag": "RELEASES",
-        "number": "5+",
+        "number": "100+",
         "label": "Shipped Projects",
-        "sublabel": "High-performance web platforms and mobile apps"
+        "sublabel": "High-performance web platforms and mobile applications"
       },
       {
         "code": "03",
         "tag": "REACH",
-        "number": "5+",
-        "label": "Countries Served",
-        "sublabel": "Multi-region global cloud infrastructure"
+        "number": "15+",
+        "label": "Countries & Regions Served",
+        "sublabel": "Multi-region scalable cloud infrastructure"
       },
       {
         "code": "04",
         "tag": "EXCELLENCE",
-        "number": "1+",
-        "label": "Digital Awards",
+        "number": "10+",
+        "label": "Awards & Certifications",
         "sublabel": "Industry recognition for craft and code quality"
       }
     ],
