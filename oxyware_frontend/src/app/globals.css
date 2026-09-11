@@ -1,27 +1,24 @@
 @import "tailwindcss";
 
-/* ============================= */
-/* Variáveis do Tema (Claro/Escuro) */
-/* ============================= */
+@theme {
+  --font-orbitron: var(--font-orbitron), ui-sans-serif, system-ui, sans-serif;
+}
+
 @layer utilities {
-  /* Gradiente primário (roxo → azul) */
   .bg-gradient-primary {
     background: linear-gradient(135deg, #7c3aed, #2563eb);
   }
 
-  /* Gradiente secundário (variação) */
   .bg-gradient-secondary {
     background: linear-gradient(135deg, #9333ea, #3b82f6);
   }
 
-  /* Texto com gradiente */
   .text-gradient {
     background: linear-gradient(135deg, #7c3aed, #2563eb);
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
-  /* Hover com escala e cursor pointer */
   .hover-scale {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
@@ -100,5 +97,15 @@
     --sidebar-accent-foreground: oklch(0.985 0.002 247.839);
     --sidebar-border: oklch(1 0 0 / 10%);
     --sidebar-ring: oklch(0.551 0.027 264.364);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .font-orbitron {
+    font-family: var(--font-orbitron), ui-sans-serif, system-ui, sans-serif;
   }
 }

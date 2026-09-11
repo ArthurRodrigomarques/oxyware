@@ -39,7 +39,7 @@
         "description": "Experiências fluidas e inteligentes para iOS, Android e Web com arquitetura escalável e design moderno.",
         "ctaText": "Conhecer Nossos Serviços",
         "ctaHref": "#services",
-        "videoSrc": "/abubbles.mp4"
+        "videoSrc": "/segundo.mp4"
       },
       {
         "tag": "SISTEMAS SOB MEDIDA",
@@ -49,7 +49,7 @@
         "description": "Automação de processos empresariais e plataformas em nuvem de alta performance para impulsionar seu crescimento.",
         "ctaText": "Ver Nosso Portfólio",
         "ctaHref": "#portfolio",
-        "videoSrc": "/AbstractRibbons.mp4"
+        "videoSrc": "/terceiro.mp4"
       },
       {
         "tag": "INTELIGÊNCIA & DADOS",
@@ -59,7 +59,7 @@
         "description": "Infraestrutura escalável, microsserviços modernos e engenharia de software para negócios que buscam liderança de mercado.",
         "ctaText": "Falar com Especialistas",
         "ctaHref": "/contact",
-        "videoSrc": "/particle.mp4"
+        "videoSrc": "/quarto.mp4"
       }
     ],
     "previousSlide": "Slide anterior",

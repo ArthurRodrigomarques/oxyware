@@ -40,7 +40,7 @@
         "description": "Fluid and intelligent experiences for iOS, Android, and Web built with scalable architecture and modern design.",
         "ctaText": "Explore Our Services",
         "ctaHref": "#services",
-        "videoSrc": "/abubbles.mp4"
+        "videoSrc": "/segundo.mp4"
       },
       {
         "tag": "CUSTOM SYSTEMS & CLOUD",
@@ -50,7 +50,7 @@
         "description": "Business process automation and resilient, high-performance cloud platforms engineered to scale seamlessly.",
         "ctaText": "Explore Our Portfolio",
         "ctaHref": "#portfolio",
-        "videoSrc": "/AbstractRibbons.mp4"
+        "videoSrc": "/terceiro.mp4"
       },
       {
         "tag": "INTELLIGENCE & DATA",
@@ -60,7 +60,7 @@
         "description": "Resilient infrastructure, modern microservices, and forward-looking software engineering for market leaders.",
         "ctaText": "Talk to Specialists",
         "ctaHref": "/contact",
-        "videoSrc": "/particle.mp4"
+        "videoSrc": "/quarto.mp4"
       }
     ],
     "previousSlide": "Previous slide",

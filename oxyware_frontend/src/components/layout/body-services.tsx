@@ -21,7 +21,6 @@ import {
   Terminal,
   ChevronLeft,
   ChevronRight,
-  MoveHorizontal,
 } from "lucide-react";
 
 interface ServiceItem {
@@ -65,6 +64,7 @@ const ICONS_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
 export default function BodyServices(): React.JSX.Element {
   const t = useTranslations("services_section");
   const [activeCategory, setActiveCategory] = useState<CategoryFilter>("all");
+  const [currentSlideIndex, setCurrentSlideIndex] = useState<number>(0);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const services = t.raw("services") as readonly ServiceItem[];
@@ -73,15 +73,39 @@ export default function BodyServices(): React.JSX.Element {
     ? services
     : services.filter((service: ServiceItem) => service.category === activeCategory);
 
-  const handleScrollTo = (direction: "left" | "right"): void => {
-    if (!scrollContainerRef.current) {
-      return;
+  const handleCategoryChange = (key: CategoryFilter): void => {
+    setActiveCategory(key);
+    setCurrentSlideIndex(0);
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTo({ left: 0, behavior: "smooth" });
     }
-    const scrollOffset = 320;
-    scrollContainerRef.current.scrollBy({
-      left: direction === "left" ? -scrollOffset : scrollOffset,
+  };
+
+  const handleScroll = (): void => {
+    if (!scrollContainerRef.current) return;
+    const container = scrollContainerRef.current;
+    const card = container.querySelector("article");
+    if (!card) return;
+    const cardWidth = card.offsetWidth + 16;
+    const index = Math.round(container.scrollLeft / cardWidth);
+    setCurrentSlideIndex(Math.max(0, Math.min(index, filteredServices.length - 1)));
+  };
+
+  const handleScrollTo = (direction: "left" | "right"): void => {
+    if (!scrollContainerRef.current) return;
+    const container = scrollContainerRef.current;
+    const card = container.querySelector("article");
+    if (!card) return;
+    const cardWidth = card.offsetWidth + 16;
+    const nextIndex = direction === "left"
+      ? Math.max(0, currentSlideIndex - 1)
+      : Math.min(filteredServices.length - 1, currentSlideIndex + 1);
+
+    container.scrollTo({
+      left: nextIndex * cardWidth,
       behavior: "smooth",
     });
+    setCurrentSlideIndex(nextIndex);
   };
 
   return (
@@ -117,7 +141,7 @@ export default function BodyServices(): React.JSX.Element {
 
           <h2
             className={cn(
-              "text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white max-w-4xl px-2 leading-tight"
+              "text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white max-w-4xl px-2 leading-tight font-orbitron"
             )}
           >
             {t("headline")}
@@ -133,7 +157,7 @@ export default function BodyServices(): React.JSX.Element {
 
           <div
             className={cn(
-              "pt-4 sm:pt-6 flex overflow-x-auto sm:flex-wrap justify-start sm:justify-center gap-2 max-w-full pb-2 sm:pb-0 -mx-4 px-4 sm:mx-0 sm:px-0 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+              "pt-4 sm:pt-6 flex flex-wrap justify-center gap-2 max-w-full pb-2 sm:pb-0 px-2"
             )}
           >
             {FILTER_OPTIONS.map((filter: FilterOption) => {
@@ -142,7 +166,7 @@ export default function BodyServices(): React.JSX.Element {
                 <button
                   key={filter.key}
                   type="button"
-                  onClick={() => setActiveCategory(filter.key)}
+                  onClick={() => handleCategoryChange(filter.key)}
                   className={cn(
                     "relative px-4 py-2 rounded-full text-xs font-medium tracking-wide transition-all duration-200 cursor-pointer shrink-0",
                     isActive
@@ -167,8 +191,35 @@ export default function BodyServices(): React.JSX.Element {
         </div>
 
         <div className={cn("relative")}>
+          <button
+            type="button"
+            onClick={() => handleScrollTo("left")}
+            disabled={currentSlideIndex === 0}
+            aria-label="Previous service"
+            className={cn(
+              "md:hidden absolute -left-2 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full border border-white/20 bg-slate-950/85 backdrop-blur-md flex items-center justify-center text-white shadow-xl active:scale-90 transition-all cursor-pointer",
+              currentSlideIndex === 0 ? "opacity-0 pointer-events-none" : "opacity-100"
+            )}
+          >
+            <ChevronLeft className={cn("w-4 h-4")} />
+          </button>
+
+          <button
+            type="button"
+            onClick={() => handleScrollTo("right")}
+            disabled={currentSlideIndex >= filteredServices.length - 1}
+            aria-label="Next service"
+            className={cn(
+              "md:hidden absolute -right-2 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full border border-white/20 bg-slate-950/85 backdrop-blur-md flex items-center justify-center text-white shadow-xl active:scale-90 transition-all cursor-pointer",
+              currentSlideIndex >= filteredServices.length - 1 ? "opacity-0 pointer-events-none" : "opacity-100"
+            )}
+          >
+            <ChevronRight className={cn("w-4 h-4")} />
+          </button>
+
           <motion.div
             ref={scrollContainerRef}
+            onScroll={handleScroll}
             layout
             className={cn(
               "flex md:grid md:grid-cols-2 lg:grid-cols-3",
@@ -181,6 +232,7 @@ export default function BodyServices(): React.JSX.Element {
               "shadow-none md:shadow-2xl",
               "-mx-4 px-4 sm:-mx-6 sm:px-6 md:mx-0 md:px-0",
               "pb-4 md:pb-0 pt-1",
+              "scroll-smooth",
               "[-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
             )}
           >
@@ -199,8 +251,8 @@ export default function BodyServices(): React.JSX.Element {
                     className={cn(
                       "group relative bg-slate-950 hover:bg-slate-900/90 transition-colors duration-300",
                       "p-6 sm:p-8 flex flex-col justify-between",
-                      "w-[84vw] max-w-[320px] sm:max-w-[360px] shrink-0 snap-start",
-                      "md:w-auto md:max-w-none md:shrink md:snap-align-none",
+                      "w-[85vw] max-w-[340px] shrink-0 snap-center mx-auto",
+                      "md:w-auto md:max-w-none md:shrink md:snap-align-none md:mx-0",
                       "rounded-2xl md:rounded-none",
                       "border border-white/10 md:border-0",
                       "shadow-xl md:shadow-none"
@@ -255,7 +307,7 @@ export default function BodyServices(): React.JSX.Element {
                               <IconComponent className={cn("w-4 h-4")} />
                             </div>
                           )}
-                          <h3 className={cn("text-lg sm:text-xl font-semibold text-white tracking-tight leading-snug")}>
+                          <h3 className={cn("text-lg sm:text-xl font-semibold text-white tracking-tight leading-snug font-orbitron")}>
                             {service.title}
                           </h3>
                         </div>
@@ -301,33 +353,50 @@ export default function BodyServices(): React.JSX.Element {
             </AnimatePresence>
           </motion.div>
 
-          <div className={cn("flex md:hidden items-center justify-between mt-3 px-1")}>
-            <div className={cn("inline-flex items-center gap-1.5 text-xs text-zinc-400 font-mono")}>
-              <MoveHorizontal className={cn("w-3.5 h-3.5 text-purple-400")} />
-              <span>{t("swipe_hint")}</span>
+          <div className={cn("flex md:hidden items-center justify-center gap-4 mt-6")}>
+            <button
+              type="button"
+              onClick={() => handleScrollTo("left")}
+              disabled={currentSlideIndex === 0}
+              aria-label="Previous service"
+              className={cn(
+                "w-10 h-10 rounded-full border border-white/15 bg-white/5 backdrop-blur-md flex items-center justify-center text-white transition-all duration-200 cursor-pointer active:scale-90",
+                currentSlideIndex === 0
+                  ? "opacity-30 cursor-not-allowed"
+                  : "hover:bg-white/10 hover:border-white/30"
+              )}
+            >
+              <ChevronLeft className={cn("w-5 h-5")} />
+            </button>
+
+            <div
+              className={cn(
+                "flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-xs font-mono text-zinc-300 backdrop-blur-md shadow-sm"
+              )}
+            >
+              <span className={cn("text-white font-semibold")}>
+                {String(currentSlideIndex + 1).padStart(2, "0")}
+              </span>
+              <span className={cn("text-zinc-600")}>/</span>
+              <span className={cn("text-zinc-400")}>
+                {String(filteredServices.length).padStart(2, "0")}
+              </span>
             </div>
-            <div className={cn("flex items-center gap-2")}>
-              <button
-                type="button"
-                onClick={() => handleScrollTo("left")}
-                aria-label="Previous service"
-                className={cn(
-                  "w-8 h-8 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-zinc-300 hover:text-white hover:bg-white/10 active:scale-95 transition-all"
-                )}
-              >
-                <ChevronLeft className={cn("w-4 h-4")} />
-              </button>
-              <button
-                type="button"
-                onClick={() => handleScrollTo("right")}
-                aria-label="Next service"
-                className={cn(
-                  "w-8 h-8 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-zinc-300 hover:text-white hover:bg-white/10 active:scale-95 transition-all"
-                )}
-              >
-                <ChevronRight className={cn("w-4 h-4")} />
-              </button>
-            </div>
+
+            <button
+              type="button"
+              onClick={() => handleScrollTo("right")}
+              disabled={currentSlideIndex >= filteredServices.length - 1}
+              aria-label="Next service"
+              className={cn(
+                "w-10 h-10 rounded-full border border-white/15 bg-white/5 backdrop-blur-md flex items-center justify-center text-white transition-all duration-200 cursor-pointer active:scale-90",
+                currentSlideIndex >= filteredServices.length - 1
+                  ? "opacity-30 cursor-not-allowed"
+                  : "hover:bg-white/10 hover:border-white/30"
+              )}
+            >
+              <ChevronRight className={cn("w-5 h-5")} />
+            </button>
           </div>
         </div>
 

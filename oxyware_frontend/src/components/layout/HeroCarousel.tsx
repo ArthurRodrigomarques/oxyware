@@ -44,7 +44,7 @@ const DEFAULT_SLIDES: HeroSlideItem[] = [
       "Experiências fluidas e inteligentes para iOS, Android e Web com arquitetura escalável e design moderno.",
     ctaText: "Conhecer Nossos Serviços",
     ctaHref: "#services",
-    videoSrc: "/abubbles.mp4",
+    videoSrc: "/segundo.mp4",
   },
   {
     tag: "SISTEMAS SOB MEDIDA",
@@ -55,7 +55,7 @@ const DEFAULT_SLIDES: HeroSlideItem[] = [
       "Automação de processos empresariais e plataformas em nuvem de alta performance para impulsionar seu crescimento.",
     ctaText: "Ver Nosso Portfólio",
     ctaHref: "#portfolio",
-    videoSrc: "/AbstractRibbons.mp4",
+    videoSrc: "/terceiro.mp4",
   },
   {
     tag: "INTELIGÊNCIA & DADOS",
@@ -66,7 +66,7 @@ const DEFAULT_SLIDES: HeroSlideItem[] = [
       "Infraestrutura escalável, microsserviços modernos e engenharia de software para negócios que buscam liderança de mercado.",
     ctaText: "Falar com Especialistas",
     ctaHref: "/contact",
-    videoSrc: "/particle.mp4",
+    videoSrc: "/quarto.mp4",
   },
 ];
 
@@ -208,8 +208,6 @@ export default function HeroCarousel({
       onBlur={() => setIsPaused(false)}
     >
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-950/40 via-slate-950 to-[#050608]" />
-
         <video
           ref={videoRef}
           key={currentSlide.videoSrc}
@@ -222,13 +220,12 @@ export default function HeroCarousel({
           preload="auto"
           onCanPlay={(): void => setIsVideoReady(true)}
           className={cn(
-            "absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-700",
-            isVideoReady ? "opacity-100" : "opacity-60"
+            "absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-700 contrast-[1.04] saturate-[1.12]",
+            isVideoReady ? "opacity-100" : "opacity-90"
           )}
         />
 
-        <div className="absolute inset-0 bg-gradient-to-t from-[#050608] via-[#050608]/40 to-[#050608]/50 lg:bg-gradient-to-r lg:from-[#050608] lg:via-[#050608]/80 lg:to-transparent z-10 pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#050608]/80 via-transparent to-[#050608]/60 z-10 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#050608]/85 via-[#050608]/20 to-transparent lg:bg-gradient-to-r lg:from-[#050608]/80 lg:via-[#050608]/15 lg:to-transparent z-10 pointer-events-none" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full relative z-20 min-h-screen flex flex-col justify-between pt-32 pb-14">
@@ -250,7 +247,7 @@ export default function HeroCarousel({
                 </span>
               </div>
 
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.08] mb-6">
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.08] mb-6 font-orbitron">
                 {currentSlide.titlePrefix}{" "}
                 <span className="bg-gradient-to-r from-purple-500 via-indigo-400 to-blue-500 bg-clip-text text-transparent inline-block">
                   {currentSlide.titleHighlight}
