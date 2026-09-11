@@ -1,9 +1,9 @@
 "use client";
 
 import * as React from "react";
-import { useState, useRef } from "react";
+import { useState, useCallback } from "react";
 import { useTranslations } from "next-intl";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, PanInfo } from "framer-motion";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 import {
@@ -61,11 +61,117 @@ const ICONS_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
   Share2,
 };
 
+interface ServiceCardContentProps {
+  service: ServiceItem;
+  deliverablesLabel: string;
+}
+
+function ServiceCardContent({
+  service,
+  deliverablesLabel,
+}: ServiceCardContentProps): React.JSX.Element {
+  const IconComponent = ICONS_MAP[service.icon];
+
+  return (
+    <>
+      <div
+        className={cn(
+          "absolute inset-0 bg-gradient-to-br from-purple-500/[0.03] via-transparent to-emerald-500/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+        )}
+      />
+
+      <div className={cn("space-y-5 sm:space-y-6")}>
+        <div className={cn("flex items-center justify-between")}>
+          <div className={cn("flex items-center gap-3")}>
+            <span
+              className={cn(
+                "font-mono text-xs font-semibold text-zinc-500 tracking-wider group-hover:text-purple-400 transition-colors"
+              )}
+            >
+              {service.code}
+            </span>
+            <span
+              className={cn(
+                "text-[11px] font-mono uppercase tracking-widest font-medium text-zinc-400 group-hover:text-zinc-200 transition-colors"
+              )}
+            >
+              {service.tag}
+            </span>
+          </div>
+
+          <div
+            className={cn(
+              "w-7 h-7 rounded-full border border-white/10 flex items-center justify-center text-zinc-500 group-hover:text-white group-hover:border-white/30 group-hover:bg-white/[0.05] transition-all duration-300"
+            )}
+          >
+            <ArrowUpRight
+              className={cn(
+                "w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"
+              )}
+            />
+          </div>
+        </div>
+
+        <div className={cn("space-y-2.5 sm:space-y-3")}>
+          <div className={cn("flex items-center gap-3")}>
+            {IconComponent && (
+              <div
+                className={cn(
+                  "w-9 h-9 rounded-lg bg-white/[0.04] border border-white/10 flex items-center justify-center text-zinc-300 group-hover:text-purple-400 group-hover:border-purple-500/40 group-hover:bg-purple-500/10 transition-all duration-300 shrink-0"
+                )}
+              >
+                <IconComponent className={cn("w-4 h-4")} />
+              </div>
+            )}
+            <h3 className={cn("text-lg sm:text-xl font-semibold text-white tracking-tight leading-snug font-orbitron")}>
+              {service.title}
+            </h3>
+          </div>
+
+          <p className={cn("text-xs sm:text-sm text-zinc-400 leading-relaxed")}>
+            {service.description}
+          </p>
+        </div>
+
+        <div className={cn("pt-4 border-t border-white/[0.06] space-y-2.5")}>
+          <span className={cn("text-[10px] uppercase font-mono tracking-widest text-zinc-500 font-semibold block")}>
+            {deliverablesLabel}
+          </span>
+          <ul className={cn("space-y-2")}>
+            {service.deliverables.map((deliverable: string, deliverableIndex: number) => (
+              <li
+                key={deliverableIndex}
+                className={cn("text-xs text-zinc-300 flex items-start gap-2 leading-snug")}
+              >
+                <CheckCircle2 className={cn("w-3.5 h-3.5 text-purple-400/80 shrink-0 mt-0.5")} />
+                <span>{deliverable}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <div className={cn("pt-5 sm:pt-6 border-t border-white/[0.06] mt-5 sm:mt-6 flex flex-wrap gap-1.5")}>
+        {service.technologies.map((tech: string, techIndex: number) => (
+          <span
+            key={techIndex}
+            className={cn(
+              "px-2 py-0.5 rounded text-[10px] font-mono tracking-wide text-zinc-400 bg-white/[0.03] border border-white/[0.06] group-hover:border-white/10 group-hover:text-zinc-300 transition-colors"
+            )}
+          >
+            {tech}
+          </span>
+        ))}
+      </div>
+    </>
+  );
+}
+
 export default function BodyServices(): React.JSX.Element {
   const t = useTranslations("services_section");
   const [activeCategory, setActiveCategory] = useState<CategoryFilter>("all");
   const [currentSlideIndex, setCurrentSlideIndex] = useState<number>(0);
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [slideDirection, setSlideDirection] = useState<number>(1);
 
   const services = t.raw("services") as readonly ServiceItem[];
 
@@ -73,39 +179,39 @@ export default function BodyServices(): React.JSX.Element {
     ? services
     : services.filter((service: ServiceItem) => service.category === activeCategory);
 
+  const totalSlides = filteredServices.length;
+  const activeService = filteredServices[currentSlideIndex] || filteredServices[0];
+
   const handleCategoryChange = (key: CategoryFilter): void => {
     setActiveCategory(key);
     setCurrentSlideIndex(0);
-    if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollTo({ left: 0, behavior: "smooth" });
+    setSlideDirection(1);
+  };
+
+  const handleNextSlide = useCallback((): void => {
+    if (currentSlideIndex < totalSlides - 1) {
+      setSlideDirection(1);
+      setCurrentSlideIndex((prevIndex) => prevIndex + 1);
     }
-  };
+  }, [currentSlideIndex, totalSlides]);
 
-  const handleScroll = (): void => {
-    if (!scrollContainerRef.current) return;
-    const container = scrollContainerRef.current;
-    const card = container.querySelector("article");
-    if (!card) return;
-    const cardWidth = card.offsetWidth + 16;
-    const index = Math.round(container.scrollLeft / cardWidth);
-    setCurrentSlideIndex(Math.max(0, Math.min(index, filteredServices.length - 1)));
-  };
+  const handlePrevSlide = useCallback((): void => {
+    if (currentSlideIndex > 0) {
+      setSlideDirection(-1);
+      setCurrentSlideIndex((prevIndex) => prevIndex - 1);
+    }
+  }, [currentSlideIndex]);
 
-  const handleScrollTo = (direction: "left" | "right"): void => {
-    if (!scrollContainerRef.current) return;
-    const container = scrollContainerRef.current;
-    const card = container.querySelector("article");
-    if (!card) return;
-    const cardWidth = card.offsetWidth + 16;
-    const nextIndex = direction === "left"
-      ? Math.max(0, currentSlideIndex - 1)
-      : Math.min(filteredServices.length - 1, currentSlideIndex + 1);
-
-    container.scrollTo({
-      left: nextIndex * cardWidth,
-      behavior: "smooth",
-    });
-    setCurrentSlideIndex(nextIndex);
+  const handleDragEnd = (
+    _event: MouseEvent | TouchEvent | PointerEvent,
+    info: PanInfo
+  ): void => {
+    const swipeThreshold = 35;
+    if (info.offset.x > swipeThreshold) {
+      handlePrevSlide();
+    } else if (info.offset.x < -swipeThreshold) {
+      handleNextSlide();
+    }
   };
 
   return (
@@ -190,14 +296,14 @@ export default function BodyServices(): React.JSX.Element {
           </div>
         </div>
 
-        <div className={cn("relative")}>
+        <div className={cn("md:hidden relative")}>
           <button
             type="button"
-            onClick={() => handleScrollTo("left")}
+            onClick={handlePrevSlide}
             disabled={currentSlideIndex === 0}
             aria-label="Previous service"
             className={cn(
-              "md:hidden absolute -left-2 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full border border-white/20 bg-slate-950/85 backdrop-blur-md flex items-center justify-center text-white shadow-xl active:scale-90 transition-all cursor-pointer",
+              "absolute -left-2 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full border border-white/20 bg-slate-950/85 backdrop-blur-md flex items-center justify-center text-white shadow-xl active:scale-90 transition-all cursor-pointer",
               currentSlideIndex === 0 ? "opacity-0 pointer-events-none" : "opacity-100"
             )}
           >
@@ -206,157 +312,50 @@ export default function BodyServices(): React.JSX.Element {
 
           <button
             type="button"
-            onClick={() => handleScrollTo("right")}
-            disabled={currentSlideIndex >= filteredServices.length - 1}
+            onClick={handleNextSlide}
+            disabled={currentSlideIndex >= totalSlides - 1}
             aria-label="Next service"
             className={cn(
-              "md:hidden absolute -right-2 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full border border-white/20 bg-slate-950/85 backdrop-blur-md flex items-center justify-center text-white shadow-xl active:scale-90 transition-all cursor-pointer",
-              currentSlideIndex >= filteredServices.length - 1 ? "opacity-0 pointer-events-none" : "opacity-100"
+              "absolute -right-2 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full border border-white/20 bg-slate-950/85 backdrop-blur-md flex items-center justify-center text-white shadow-xl active:scale-90 transition-all cursor-pointer",
+              currentSlideIndex >= totalSlides - 1 ? "opacity-0 pointer-events-none" : "opacity-100"
             )}
           >
             <ChevronRight className={cn("w-4 h-4")} />
           </button>
 
-          <motion.div
-            ref={scrollContainerRef}
-            onScroll={handleScroll}
-            layout
-            className={cn(
-              "flex md:grid md:grid-cols-2 lg:grid-cols-3",
-              "overflow-x-auto md:overflow-hidden",
-              "snap-x snap-mandatory md:snap-none",
-              "gap-4 md:gap-px",
-              "bg-transparent md:bg-white/10",
-              "rounded-none md:rounded-2xl",
-              "border-0 md:border md:border-white/10",
-              "shadow-none md:shadow-2xl",
-              "-mx-4 px-4 sm:-mx-6 sm:px-6 md:mx-0 md:px-0",
-              "pb-4 md:pb-0 pt-1",
-              "scroll-smooth",
-              "[-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-            )}
-          >
-            <AnimatePresence mode="popLayout">
-              {filteredServices.map((service: ServiceItem) => {
-                const IconComponent = ICONS_MAP[service.icon];
-
-                return (
-                  <motion.article
-                    key={service.id}
-                    layout
-                    initial={{ opacity: 0, scale: 0.98 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.98 }}
-                    transition={{ duration: 0.25 }}
-                    className={cn(
-                      "group relative bg-slate-950 hover:bg-slate-900/90 transition-colors duration-300",
-                      "p-6 sm:p-8 flex flex-col justify-between",
-                      "w-[85vw] max-w-[340px] shrink-0 snap-center mx-auto",
-                      "md:w-auto md:max-w-none md:shrink md:snap-align-none md:mx-0",
-                      "rounded-2xl md:rounded-none",
-                      "border border-white/10 md:border-0",
-                      "shadow-xl md:shadow-none"
-                    )}
-                  >
-                    <div
-                      className={cn(
-                        "absolute inset-0 bg-gradient-to-br from-purple-500/[0.03] via-transparent to-emerald-500/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                      )}
-                    />
-
-                    <div className={cn("space-y-5 sm:space-y-6")}>
-                      <div className={cn("flex items-center justify-between")}>
-                        <div className={cn("flex items-center gap-3")}>
-                          <span
-                            className={cn(
-                              "font-mono text-xs font-semibold text-zinc-500 tracking-wider group-hover:text-purple-400 transition-colors"
-                            )}
-                          >
-                            {service.code}
-                          </span>
-                          <span
-                            className={cn(
-                              "text-[11px] font-mono uppercase tracking-widest font-medium text-zinc-400 group-hover:text-zinc-200 transition-colors"
-                            )}
-                          >
-                            {service.tag}
-                          </span>
-                        </div>
-
-                        <div
-                          className={cn(
-                            "w-7 h-7 rounded-full border border-white/10 flex items-center justify-center text-zinc-500 group-hover:text-white group-hover:border-white/30 group-hover:bg-white/[0.05] transition-all duration-300"
-                          )}
-                        >
-                          <ArrowUpRight
-                            className={cn(
-                              "w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"
-                            )}
-                          />
-                        </div>
-                      </div>
-
-                      <div className={cn("space-y-2.5 sm:space-y-3")}>
-                        <div className={cn("flex items-center gap-3")}>
-                          {IconComponent && (
-                            <div
-                              className={cn(
-                                "w-9 h-9 rounded-lg bg-white/[0.04] border border-white/10 flex items-center justify-center text-zinc-300 group-hover:text-purple-400 group-hover:border-purple-500/40 group-hover:bg-purple-500/10 transition-all duration-300 shrink-0"
-                              )}
-                            >
-                              <IconComponent className={cn("w-4 h-4")} />
-                            </div>
-                          )}
-                          <h3 className={cn("text-lg sm:text-xl font-semibold text-white tracking-tight leading-snug font-orbitron")}>
-                            {service.title}
-                          </h3>
-                        </div>
-
-                        <p className={cn("text-xs sm:text-sm text-zinc-400 leading-relaxed")}>
-                          {service.description}
-                        </p>
-                      </div>
-
-                      <div className={cn("pt-4 border-t border-white/[0.06] space-y-2.5")}>
-                        <span className={cn("text-[10px] uppercase font-mono tracking-widest text-zinc-500 font-semibold block")}>
-                          {t("deliverables_label")}
-                        </span>
-                        <ul className={cn("space-y-2")}>
-                          {service.deliverables.map((deliverable: string, deliverableIndex: number) => (
-                            <li
-                              key={deliverableIndex}
-                              className={cn("text-xs text-zinc-300 flex items-start gap-2 leading-snug")}
-                            >
-                              <CheckCircle2 className={cn("w-3.5 h-3.5 text-purple-400/80 shrink-0 mt-0.5")} />
-                              <span>{deliverable}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-
-                    <div className={cn("pt-5 sm:pt-6 border-t border-white/[0.06] mt-5 sm:mt-6 flex flex-wrap gap-1.5")}>
-                      {service.technologies.map((tech: string, techIndex: number) => (
-                        <span
-                          key={techIndex}
-                          className={cn(
-                            "px-2 py-0.5 rounded text-[10px] font-mono tracking-wide text-zinc-400 bg-white/[0.03] border border-white/[0.06] group-hover:border-white/10 group-hover:text-zinc-300 transition-colors"
-                          )}
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </motion.article>
-                );
-              })}
+          <div className={cn("overflow-hidden px-2 py-2 flex items-center justify-center min-h-[560px]")}>
+            <AnimatePresence mode="wait" custom={slideDirection}>
+              <motion.article
+                key={activeService.id}
+                custom={slideDirection}
+                initial={{ opacity: 0, x: slideDirection * 70 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -slideDirection * 70 }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+                drag="x"
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={0.2}
+                onDragEnd={handleDragEnd}
+                className={cn(
+                  "group relative bg-slate-950 hover:bg-slate-900/90 transition-colors duration-300",
+                  "p-6 sm:p-8 flex flex-col justify-between",
+                  "w-full max-w-[340px] mx-auto",
+                  "rounded-2xl border border-white/10",
+                  "shadow-2xl cursor-grab active:cursor-grabbing"
+                )}
+              >
+                <ServiceCardContent
+                  service={activeService}
+                  deliverablesLabel={t("deliverables_label")}
+                />
+              </motion.article>
             </AnimatePresence>
-          </motion.div>
+          </div>
 
-          <div className={cn("flex md:hidden items-center justify-center gap-4 mt-6")}>
+          <div className={cn("flex items-center justify-center gap-4 mt-6")}>
             <button
               type="button"
-              onClick={() => handleScrollTo("left")}
+              onClick={handlePrevSlide}
               disabled={currentSlideIndex === 0}
               aria-label="Previous service"
               className={cn(
@@ -379,18 +378,18 @@ export default function BodyServices(): React.JSX.Element {
               </span>
               <span className={cn("text-zinc-600")}>/</span>
               <span className={cn("text-zinc-400")}>
-                {String(filteredServices.length).padStart(2, "0")}
+                {String(totalSlides).padStart(2, "0")}
               </span>
             </div>
 
             <button
               type="button"
-              onClick={() => handleScrollTo("right")}
-              disabled={currentSlideIndex >= filteredServices.length - 1}
+              onClick={handleNextSlide}
+              disabled={currentSlideIndex >= totalSlides - 1}
               aria-label="Next service"
               className={cn(
                 "w-10 h-10 rounded-full border border-white/15 bg-white/5 backdrop-blur-md flex items-center justify-center text-white transition-all duration-200 cursor-pointer active:scale-90",
-                currentSlideIndex >= filteredServices.length - 1
+                currentSlideIndex >= totalSlides - 1
                   ? "opacity-30 cursor-not-allowed"
                   : "hover:bg-white/10 hover:border-white/30"
               )}
@@ -398,6 +397,28 @@ export default function BodyServices(): React.JSX.Element {
               <ChevronRight className={cn("w-5 h-5")} />
             </button>
           </div>
+        </div>
+
+        <div
+          className={cn(
+            "hidden md:grid md:grid-cols-2 lg:grid-cols-3",
+            "gap-px bg-white/10 rounded-2xl border border-white/10 shadow-2xl overflow-hidden"
+          )}
+        >
+          {filteredServices.map((service: ServiceItem) => (
+            <article
+              key={service.id}
+              className={cn(
+                "group relative bg-slate-950 hover:bg-slate-900/90 transition-colors duration-300",
+                "p-6 sm:p-8 flex flex-col justify-between"
+              )}
+            >
+              <ServiceCardContent
+                service={service}
+                deliverablesLabel={t("deliverables_label")}
+              />
+            </article>
+          ))}
         </div>
 
         <div
