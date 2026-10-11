@@ -39,7 +39,19 @@ export default function RequestQuote(): React.JSX.Element {
       await sendQuoteRequest(request);
       setStatus("success");
       reset();
-    } catch {
+    } catch (error: unknown) {
+      if (process.env.NODE_ENV === "development") {
+        if (typeof error === "object" && error !== null &&
+          "status" in error && typeof error.status === "number" &&
+          "text" in error && typeof error.text === "string") {
+          console.error("[Quote request] EmailJS rejected the request:", error.status, error.text);
+        } else if (error instanceof Error) {
+          console.error("[Quote request] Email delivery failed:", error.message);
+        } else {
+          console.error("[Quote request] Email delivery failed:",
+            typeof error === "string" ? error : "Unknown error");
+        }
+      }
       setStatus("error");
     } finally {
       submissionLock.current = false;
