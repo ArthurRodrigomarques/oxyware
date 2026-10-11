@@ -331,7 +331,14 @@
     "title": "Projetos em Destaque",
     "description": "Desenvolvemos plataformas e sistemas sob medida com arquitetura robusta, interfaces de alta performance e usabilidade focada em resultados reais.",
     "requestProject": "Solicitar Orçamento Similar",
+    "visitProject": "Conhecer a OxyFood",
     "projects": {
+      "oxyfood": {
+        "title": "OxyFood",
+        "category": "SAAS & GESTÃO DE RESTAURANTES",
+        "description": "Plataforma completa para restaurantes: cardápio digital, delivery, pedidos por QR Code, PDV, cozinha e pagamentos online. Uma operação conectada, com integrações iFood e 99Food, para vender com a própria marca e acompanhar tudo em tempo real.",
+        "tags": ["SAAS", "DELIVERY", "PDV & KDS", "PIX & CARTÃO", "QR CODE"]
+      },
       "vitrolinha": {
         "title": "Portal Oficial Vitrolinha",
         "category": "PORTAL POLÍTICO & CAMPANHA DIGITAL",

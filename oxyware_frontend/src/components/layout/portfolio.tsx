@@ -24,7 +24,11 @@ interface PortfolioProjectItem {
   description: string;
   tags: string[];
   image: string;
+  imageWidth: number;
+  imageHeight: number;
   link: string;
+  requestLink?: string;
+  visitText?: string;
 }
 
 interface ProjectArticleProps {
@@ -101,8 +105,19 @@ function ProjectArticle({ project, index, requestText }: ProjectArticleProps): J
         </div>
 
         <div>
+          {project.visitText && (
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mb-4 flex w-fit items-center gap-2 text-sm font-medium text-purple-300 transition-colors hover:text-white"
+            >
+              {project.visitText}
+              <ArrowUpRight className="h-4 w-4" />
+            </a>
+          )}
           <Link
-            href={project.link}
+            href={project.requestLink ?? project.link}
             className="rounded-lg border border-purple-500/40 px-6 py-3.5 text-xs font-mono tracking-widest uppercase text-white hover:bg-gradient-to-r hover:from-purple-600 hover:to-blue-600 hover:border-transparent transition-all duration-300 inline-flex items-center gap-3 w-fit"
           >
             <span>{requestText}</span>
@@ -126,10 +141,10 @@ function ProjectArticle({ project, index, requestText }: ProjectArticleProps): J
             <Image
               src={project.image}
               alt={project.title}
-              width={1200}
-              height={3600}
-              priority={index === 0}
-              quality={100}
+              width={project.imageWidth}
+              height={project.imageHeight}
+              sizes="(min-width: 1280px) 640px, (min-width: 1024px) 55vw, (min-width: 640px) calc(100vw - 64px), calc(100vw - 48px)"
+              quality={85}
               className="w-full h-auto block"
             />
           </div>
@@ -143,6 +158,7 @@ export default function Portfolio(): JSX.Element {
   const t = useTranslations("portfolio");
   const locale = useLocale();
 
+  const oxyfoodData = t.raw("projects.oxyfood") as ProjectDetails | undefined;
   const vitrolinhaData = t.raw("projects.vitrolinha") as ProjectDetails | undefined;
   const realEstateData = t.raw("projects.realEstate") as ProjectDetails | undefined;
 
@@ -157,8 +173,23 @@ export default function Portfolio(): JSX.Element {
 
   const projects: PortfolioProjectItem[] = [
     {
-      id: "vitrolinha",
+      id: "oxyfood",
       index: "01",
+      title: oxyfoodData?.title || "OxyFood",
+      category: oxyfoodData?.category || "SAAS & GESTÃO DE RESTAURANTES",
+      description: oxyfoodData?.description ||
+        "Plataforma completa para restaurantes, com cardápio digital, delivery, pedidos por QR Code, PDV, cozinha e pagamentos online em uma operação conectada.",
+      tags: oxyfoodData?.tags || ["SAAS", "DELIVERY", "PDV & KDS", "PIX & CARTÃO", "QR CODE"],
+      image: "/oxyfood-home.jpg",
+      imageWidth: 1265,
+      imageHeight: 10444,
+      link: "https://oxyfood.com.br/",
+      requestLink: `/${locale}/contact`,
+      visitText: t("visitProject"),
+    },
+    {
+      id: "vitrolinha",
+      index: "02",
       title: vitrolinhaData?.title || "Portal Oficial Vitrolinha",
       category: vitrolinhaData?.category || "PORTAL POLÍTICO & CAMPANHA DIGITAL",
       description:
@@ -172,11 +203,13 @@ export default function Portfolio(): JSX.Element {
         "SEO",
       ],
       image: "/sitevitrolinha.png",
+      imageWidth: 1910,
+      imageHeight: 5046,
       link: `/${locale}/contact`,
     },
     {
       id: "real-estate",
-      index: "02",
+      index: "03",
       title: realEstateData?.title || "Sistema Imobiliário",
       category: realEstateData?.category || "PLATAFORMA WEB & GESTÃO",
       description:
@@ -189,6 +222,8 @@ export default function Portfolio(): JSX.Element {
         "PAINEL ADMINISTRATIVO",
       ],
       image: "/example/websiteexample.png",
+      imageWidth: 1600,
+      imageHeight: 2884,
       link: `/${locale}/contact`,
     },
   ];

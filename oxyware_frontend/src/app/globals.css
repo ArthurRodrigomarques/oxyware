@@ -109,3 +109,7 @@
     font-family: var(--font-orbitron), ui-sans-serif, system-ui, sans-serif;
   }
 }
+@keyframes hero-carousel-progress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}

@@ -1,11 +1,15 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
+import type { SyntheticEvent } from "react";
 import { useTranslations, useLocale } from "next-intl";
+import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { resolveHeroMedia } from "@/lib/hero-media";
+import { useHeroPlayback } from "@/hooks/use-hero-playback";
 
 export interface HeroSlideItem {
   tag: string;
@@ -91,93 +95,72 @@ export default function HeroCarousel({
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [direction, setDirection] = useState<number>(1);
   const [isPaused, setIsPaused] = useState<boolean>(false);
-  const [progress, setProgress] = useState<number>(0);
-  const [isVideoReady, setIsVideoReady] = useState<boolean>(false);
+  const [slideCycle, setSlideCycle] = useState<number>(0);
+  const [readyToken, setReadyToken] = useState<string | null>(null);
+  const [bufferedToken, setBufferedToken] = useState<string | null>(null);
+  const [fallbackToken, setFallbackToken] = useState<string | null>(null);
 
-  const progressTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const sectionRef = useRef<HTMLElement | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
   const currentSlide = slideItems[currentIndex] || slideItems[0];
   const totalSlides = slideItems.length;
+  const currentMedia = resolveHeroMedia(currentSlide.videoSrc);
+  const nextMedia = resolveHeroMedia(slideItems[(currentIndex + 1) % totalSlides].videoSrc);
+  const playbackToken = `${currentSlide.videoSrc}:${slideCycle}`;
+  const isVideoReady = readyToken === playbackToken;
+  const { canPreloadNextVideo, isVisible, isPageVisible } = useHeroPlayback({
+    sectionRef,
+    videoRef,
+    videoSrc: playbackToken,
+  });
+  const isCarouselRunning = !isPaused && isVisible && isPageVisible &&
+    (isVideoReady || fallbackToken === playbackToken);
 
   useEffect(() => {
-    setIsVideoReady(false);
     const video = videoRef.current;
-    if (!video) return;
-
-    video.defaultMuted = true;
-    video.muted = true;
-    video.playsInline = true;
-    video.setAttribute("playsinline", "true");
-    video.setAttribute("webkit-playsinline", "true");
-
-    const playPromise = video.play();
-    if (playPromise !== undefined) {
-      playPromise.catch(() => {});
+    // Autoplay may start before hydration attaches the React playing listener.
+    if (video && !video.paused && video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) {
+      setReadyToken(playbackToken);
     }
-  }, [currentSlide.videoSrc]);
+  }, [playbackToken]);
 
   useEffect(() => {
-    const handleUnlockVideo = (): void => {
-      if (videoRef.current && videoRef.current.paused) {
-        videoRef.current.play().catch(() => {});
-      }
-    };
+    if (isVideoReady || !isVisible || !isPageVisible) return;
+    // Keep text navigation available when the browser blocks autoplay or the connection stalls.
+    const timeout = window.setTimeout((): void => setFallbackToken(playbackToken), 4000);
+    return () => window.clearTimeout(timeout);
+  }, [playbackToken, isVideoReady, isVisible, isPageVisible]);
 
-    window.addEventListener("touchstart", handleUnlockVideo, { passive: true });
-    window.addEventListener("pointerdown", handleUnlockVideo, { passive: true });
-
-    return () => {
-      window.removeEventListener("touchstart", handleUnlockVideo);
-      window.removeEventListener("pointerdown", handleUnlockVideo);
-    };
-  }, []);
-
-  const handleNext = useCallback(() => {
+  const handleNext = useCallback((): void => {
     setDirection(1);
     setCurrentIndex((prevIndex) => (prevIndex + 1) % totalSlides);
-    setProgress(0);
+    setSlideCycle((previous) => previous + 1);
   }, [totalSlides]);
 
-  const handlePrev = useCallback(() => {
+  const handlePrev = useCallback((): void => {
     setDirection(-1);
     setCurrentIndex((prevIndex) => (prevIndex - 1 + totalSlides) % totalSlides);
-    setProgress(0);
+    setSlideCycle((previous) => previous + 1);
   }, [totalSlides]);
 
-  const handleSelectSlide = (targetIndex: number) => {
+  const handleSelectSlide = (targetIndex: number): void => {
     setDirection(targetIndex > currentIndex ? 1 : -1);
     setCurrentIndex(targetIndex);
-    setProgress(0);
+    setSlideCycle((previous) => previous + 1);
   };
 
-  useEffect(() => {
-    if (isPaused) {
-      if (progressTimerRef.current) {
-        clearInterval(progressTimerRef.current);
+  const handleVideoProgress = (event: SyntheticEvent<HTMLVideoElement>): void => {
+    const video = event.currentTarget;
+    if (!Number.isFinite(video.duration)) return;
+    const bufferTarget = Math.min(video.duration, video.currentTime + autoplayIntervalMs / 1000 + 2);
+    for (let index = 0; index < video.buffered.length; index++) {
+      if (video.buffered.start(index) <= video.currentTime && video.buffered.end(index) >= bufferTarget) {
+        setBufferedToken(playbackToken);
+        return;
       }
-      return;
     }
-
-    const stepMs = 50;
-    const progressIncrement = (stepMs / autoplayIntervalMs) * 100;
-
-    progressTimerRef.current = setInterval(() => {
-      setProgress((prevProgress) => {
-        if (prevProgress >= 100) {
-          handleNext();
-          return 0;
-        }
-        return prevProgress + progressIncrement;
-      });
-    }, stepMs);
-
-    return () => {
-      if (progressTimerRef.current) {
-        clearInterval(progressTimerRef.current);
-      }
-    };
-  }, [isPaused, autoplayIntervalMs, handleNext]);
+  };
 
   const formatSlideIndex = (index: number): string => {
     return String(index + 1).padStart(2, "0");
@@ -199,6 +182,7 @@ export default function HeroCarousel({
 
   return (
     <section
+      ref={sectionRef}
       id="hero"
       aria-label="Hero Showcase"
       className="relative w-full min-h-screen bg-[#050608] text-white flex items-center overflow-hidden select-none"
@@ -208,22 +192,47 @@ export default function HeroCarousel({
       onBlur={() => setIsPaused(false)}
     >
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        {currentMedia.posterSrc && (
+          <Image
+            key={currentMedia.posterSrc}
+            src={currentMedia.posterSrc}
+            alt=""
+            fill
+            sizes="100vw"
+            priority={currentIndex === 0}
+            quality={85}
+            className="object-cover object-center contrast-[1.04] saturate-[1.12]"
+          />
+        )}
         <video
           ref={videoRef}
-          key={currentSlide.videoSrc}
-          src={currentSlide.videoSrc}
+          key={playbackToken}
+          aria-hidden="true"
           autoPlay
           muted
           loop
           playsInline
           webkit-playsinline="true"
-          preload="auto"
-          onCanPlay={(): void => setIsVideoReady(true)}
+          preload="metadata"
+          onPlaying={(): void => setReadyToken(playbackToken)}
+          onProgress={handleVideoProgress}
+          onLoadedData={handleVideoProgress}
+          onError={(): void => setFallbackToken(playbackToken)}
           className={cn(
             "absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-700 contrast-[1.04] saturate-[1.12]",
-            isVideoReady ? "opacity-100" : "opacity-90"
+            isVideoReady ? "opacity-100" : "opacity-0"
           )}
-        />
+        >
+          <source src={currentMedia.mobileSrc} media="(max-width: 767px)" type="video/mp4" />
+          <source src={currentMedia.desktopSrc} type="video/mp4" />
+        </video>
+        {totalSlides > 1 && canPreloadNextVideo && isVisible && isPageVisible &&
+          isVideoReady && bufferedToken === playbackToken && (
+          <video key={nextMedia.mobileSrc} hidden aria-hidden="true" muted playsInline preload="auto">
+            <source src={nextMedia.mobileSrc} media="(max-width: 767px)" type="video/mp4" />
+            <source src={nextMedia.desktopSrc} type="video/mp4" />
+          </video>
+        )}
 
         <div className="absolute inset-0 bg-gradient-to-t from-[#050608]/85 via-[#050608]/20 to-transparent lg:bg-gradient-to-r lg:from-[#050608]/80 lg:via-[#050608]/15 lg:to-transparent z-10 pointer-events-none" />
       </div>
@@ -321,8 +330,13 @@ export default function HeroCarousel({
               >
                 {index === currentIndex && (
                   <div
-                    className="absolute top-0 left-0 bottom-0 bg-gradient-to-r from-purple-600 via-indigo-500 to-blue-500 transition-all duration-75 ease-linear rounded-none"
-                    style={{ width: `${progress}%` }}
+                    key={slideCycle}
+                    className="absolute inset-0 origin-left bg-gradient-to-r from-purple-600 via-indigo-500 to-blue-500 rounded-none"
+                    onAnimationEnd={handleNext}
+                    style={{
+                      animation: `hero-carousel-progress ${Math.max(1000, autoplayIntervalMs)}ms linear forwards`,
+                      animationPlayState: isCarouselRunning ? "running" : "paused",
+                    }}
                   />
                 )}
                 {index < currentIndex && (

@@ -332,7 +332,14 @@
     "title": "Selected Projects",
     "description": "Engineered digital platforms built with technical precision, combining sharp aesthetics, intuitive workflows, and scalable architecture.",
     "requestProject": "Request Similar Project",
+    "visitProject": "Explore OxyFood",
     "projects": {
+      "oxyfood": {
+        "title": "OxyFood",
+        "category": "SAAS & RESTAURANT MANAGEMENT",
+        "description": "A complete restaurant platform bringing together digital menus, delivery, QR code ordering, POS, kitchen management, and online payments. A connected operation with iFood and 99Food integrations, built to sell under your own brand and track everything in real time.",
+        "tags": ["SAAS", "DELIVERY", "POS & KDS", "PIX & CARDS", "QR CODE"]
+      },
       "vitrolinha": {
         "title": "Vitrolinha Official Portal",
         "category": "POLITICAL PORTAL & CAMPAIGN PLATFORM",
