@@ -1,12 +1,13 @@
 "use client";
 
 import { JSX } from "react";
+import { CONTACT } from "@/lib/contact";
 
 export default function FloatingSocials(): JSX.Element {
   return (
-    <div className="fixed bottom-6 right-6 flex flex-col gap-4 z-50">
+    <div className="fixed flex flex-col gap-4 z-50" style={{ bottom: "calc(1.5rem + env(safe-area-inset-bottom))", right: "calc(1.5rem + env(safe-area-inset-right))" }}>
       <a
-        href="https://wa.me/13988622256"
+        href={CONTACT.whatsappHref}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="WhatsApp"
@@ -23,7 +24,7 @@ export default function FloatingSocials(): JSX.Element {
       </a>
 
       <a
-        href="https://www.instagram.com/oxyware"
+        href={CONTACT.instagramHref}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Instagram"

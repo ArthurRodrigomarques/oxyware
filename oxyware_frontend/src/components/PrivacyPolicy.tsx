@@ -1,3 +1,5 @@
+import { CONTACT } from "@/lib/contact";
+
 export default function PrivacyPolicy() {
   return (
     <div className="max-w-3xl mx-auto px-4 py-12 prose prose-zinc dark:prose-invert space-y-4 text-lg">
@@ -514,10 +516,10 @@ export default function PrivacyPolicy() {
       </p>
       <ul>
         <li>
-          <p>By email: oxywaretech@gmail.com</p>
+          <p>By email: <a href={CONTACT.emailHref}>{CONTACT.email}</a></p>
         </li>
         <li>
-          <p>By phone number: 13991908771</p>
+          <p>By phone number: <a href={CONTACT.phoneHref}>{CONTACT.phone}</a></p>
         </li>
       </ul>
     </div>

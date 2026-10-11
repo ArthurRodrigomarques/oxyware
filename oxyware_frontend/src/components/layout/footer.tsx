@@ -11,6 +11,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
+import { CONTACT } from "@/lib/contact";
 
 export default function Footer() {
   const t = useTranslations("footer");
@@ -46,12 +47,12 @@ export default function Footer() {
           </p>
 
           <div className="space-y-3 text-white">
-            <div className="flex items-center space-x-3 text-muted-foreground hover:text-primary transition-colors">
-              <Mail className="w-5 h-5" /> <span>{t("contact.email")}</span>
-            </div>
-            <div className="flex items-center space-x-3 text-muted-foreground hover:text-primary transition-colors">
-              <Phone className="w-5 h-5" /> <span>{t("contact.phone")}</span>
-            </div>
+            <a href={CONTACT.emailHref} className="flex min-h-11 items-center gap-3 rounded-md text-muted-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400">
+              <Mail className="size-5 shrink-0" aria-hidden="true" /> <span className="break-all">{CONTACT.email}</span>
+            </a>
+            <a href={CONTACT.phoneHref} className="flex min-h-11 items-center gap-3 rounded-md text-muted-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400">
+              <Phone className="size-5 shrink-0" aria-hidden="true" /> <span className="tabular-nums">{CONTACT.phone}</span>
+            </a>
             <div className="flex items-start space-x-3 text-muted-foreground hover:text-primary transition-colors">
               <MapPin className="w-5 h-5 mt-0.5" />{" "}
               <span>{t("contact.address")}</span>

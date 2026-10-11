@@ -303,14 +303,40 @@
   },
 
   "contact_section": {
-    "title": "Request a Quote",
+    "eyebrow": "LET’S BUILD TOGETHER",
+    "headline": "Your next project",
+    "headline_highlight": "starts here.",
+    "description": "An idea, a challenge, or a product ready to evolve. Tell us what you need and let’s discuss the right solution for your business.",
+    "services_label": "What we build",
+    "services": { "websites": "Websites", "apps": "Mobile apps", "systems": "Systems & SaaS" },
+    "direct_contact": "Prefer to talk directly?",
+    "whatsapp": "Talk to us on WhatsApp",
+    "process_label": "How we work",
+    "process": { "idea": "Your idea", "proposal": "Our proposal", "delivery": "Your project" },
+    "form_eyebrow": "REQUEST A QUOTE",
+    "title": "Tell us what you need.",
+    "form_description": "Fill in the fields below. We’ll review your project and get back to you using the contact details provided.",
     "name": "Name",
+    "name_placeholder": "Your full name",
     "email": "Email",
+    "email_placeholder": "you@company.com",
     "phone": "Phone",
-    "message": "Message",
-    "submit": "Send",
-    "success": "We’ve received your request! Our team will contact you shortly!",
-    "required": "Required field"
+    "phone_placeholder": "Your phone number with country code",
+    "optional": "(optional)",
+    "message": "About your project",
+    "message_placeholder": "What would you like to build or improve? Share your idea, goals, and any details you already have.",
+    "message_hint": "Include the features and preferred timeline, if you know them.",
+    "submit": "Send request",
+    "sending": "Sending request…",
+    "success": "Request sent! We’ll review your idea and get back to you using the contact details provided.",
+    "error": "We couldn’t send your request right now. Your details are still filled in. Try again or contact us on WhatsApp.",
+    "whatsapp_fallback": "Continue on WhatsApp",
+    "required": "Please fill in this field.",
+    "invalid_name": "Enter your name using at least 2 characters.",
+    "invalid_email": "Enter a valid email address.",
+    "invalid_phone": "Enter a valid phone number, including the area code.",
+    "invalid_message": "Tell us a little more about your project (at least 10 characters).",
+    "form_note": "Your name, email, and project description are required."
   },
 
   "metadata": {
@@ -414,8 +440,8 @@
     "companyName": "OxyWare",
     "companyDescription": "Turning ideas into innovative digital solutions. Smart code, real impact.",
     "contact": {
-      "email": "oxywaretech@gmail.com",
-      "phone": "+55 (13) 99654-7656",
+      "email": "oxyware.app@gmail.com",
+      "phone": "+55 (13) 98862-2256",
       "address": "São Paulo, SP\nBrazil"
     },
     "links": {

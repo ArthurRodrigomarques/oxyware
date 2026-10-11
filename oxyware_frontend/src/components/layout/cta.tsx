@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import { useTranslations } from "next-intl";
 import QuoteButton from "../QuoteButton";
+import { CONTACT } from "@/lib/contact";
 
 export default function CTA() {
   const t = useTranslations("cta_section");
@@ -42,18 +43,16 @@ export default function CTA() {
           <h2 className="text-lg font-semibold mb-4">
             {t("contact_through")}{" "}
           </h2>
-          <div className="flex justify-center gap-6 text-white">
+          <div className="flex flex-col items-center justify-center gap-4 text-white sm:flex-row sm:flex-wrap sm:gap-6">
             <a
-              href="mailto:seuemail@gmail.com"
-              target="_blank"
-              rel="noopener noreferrer"
+              href={CONTACT.emailHref}
               className="flex items-center gap-2 hover:text-blue-800"
             >
               <Mail size={20} />
-              Gmail
+              {CONTACT.email}
             </a>
             <a
-              href="https://wa.me/5513996547656"
+              href={CONTACT.whatsappHref}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 hover:text-green-600"

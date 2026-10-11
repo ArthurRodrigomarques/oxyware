@@ -47,6 +47,7 @@ export default function Navbar() {
 
   const isHomePage =
     pathname === `/${locale}` || pathname === `/${locale}/` || pathname === "/";
+  const currentSection = isHomePage ? activeSection : pathname.endsWith("/contact") ? "contact" : null;
 
   const handleScroll = useCallback((): void => {
     setIsScrolled(window.scrollY > 20);
@@ -165,11 +166,12 @@ export default function Navbar() {
 
         <nav className="hidden lg:flex items-center gap-1 border border-white/10 bg-white/[0.02] p-1 rounded-none">
           {NAV_ITEMS.map((item) => {
-            const isActive = activeSection === item.id;
+            const isActive = currentSection === item.id;
             return (
               <button
                 key={item.id}
                 type="button"
+                aria-current={isActive ? (isHomePage ? "location" : "page") : undefined}
                 onClick={(): void => handleNavigate(item.id)}
                 className={cn(
                   "relative px-3.5 py-1.5 text-xs xl:text-sm font-medium rounded-none transition-colors duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-purple-500",
@@ -257,11 +259,12 @@ export default function Navbar() {
             >
               <div className="flex flex-col gap-1.5">
                 {NAV_ITEMS.map((item, index) => {
-                  const isActive = activeSection === item.id;
+                  const isActive = currentSection === item.id;
                   return (
                     <motion.button
                       key={item.id}
                       type="button"
+                      aria-current={isActive ? (isHomePage ? "location" : "page") : undefined}
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.02, duration: 0.18 }}

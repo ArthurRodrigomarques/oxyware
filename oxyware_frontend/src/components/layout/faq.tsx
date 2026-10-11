@@ -15,6 +15,7 @@ import {
   AccordionContent,
 } from "@/components/ui/accordion";
 import { cn } from "@/lib/utils";
+import { CONTACT } from "@/lib/contact";
 
 interface FaqItem {
   readonly id: string;
@@ -177,7 +178,7 @@ export default function Faq(): React.JSX.Element {
             </p>
           </div>
           <a
-            href="https://wa.me/5513996547656"
+            href={CONTACT.whatsappHref}
             target="_blank"
             rel="noopener noreferrer"
             className={cn(
