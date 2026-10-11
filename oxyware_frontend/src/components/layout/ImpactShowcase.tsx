@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 
@@ -106,14 +107,53 @@ export default function ImpactShowcase(): React.JSX.Element {
     [0, -25]
   );
 
+  const backgroundY: MotionValue<number> = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [-48, 48]
+  );
+
+  const detailY: MotionValue<number> = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [32, -32]
+  );
+
   return (
     <section
       ref={containerRef}
       className="relative h-[280vh] bg-slate-950 text-white select-none"
       id="impact"
     >
-      <div className="sticky top-0 h-screen w-full flex flex-col justify-center overflow-hidden bg-slate-950 pt-24 pb-12">
-        <div className="absolute inset-0 bg-gradient-to-b from-purple-950/20 via-transparent to-blue-950/20 pointer-events-none" />
+      <div className="sticky top-0 h-dvh w-full flex flex-col justify-center overflow-hidden bg-slate-950 pt-24 pb-12">
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+          <motion.div
+            style={{ y: backgroundY }}
+            className="absolute -inset-y-16 inset-x-0 opacity-90 motion-reduce:!transform-none"
+          >
+            <Image
+              src="/bg3.png"
+              alt=""
+              fill
+              sizes="100vw"
+              className="object-cover object-left"
+            />
+          </motion.div>
+          <motion.div
+            style={{ y: detailY, maskImage: "linear-gradient(to right, transparent, black 65%)" }}
+            className="absolute -inset-y-16 inset-x-0 opacity-80 motion-reduce:!transform-none"
+          >
+            <Image
+              src="/bgquote2.png"
+              alt=""
+              fill
+              sizes="100vw"
+              className="object-cover object-center"
+            />
+          </motion.div>
+          <div className="absolute inset-0 bg-slate-950/35" />
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/50 via-transparent to-slate-950/60" />
+        </div>
 
         <div className="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 mb-12 sm:mb-16 relative z-10">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white">
