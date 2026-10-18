@@ -37,7 +37,7 @@ const DEFAULT_SLIDES: HeroSlideItem[] = [
       "Criamos aplicativos e websites modernos que impulsionam seu negócio para a era digital com tecnologia de ponta e design inovador.",
     ctaText: "Solicitar Orçamento",
     ctaHref: "/contact",
-    videoSrc: "/abackgroundvideo.mp4",
+    videoSrc: "/quarto.mp4",
   },
   {
     tag: "DESENVOLVIMENTO WEB & MOBILE",
@@ -70,7 +70,7 @@ const DEFAULT_SLIDES: HeroSlideItem[] = [
       "Infraestrutura escalável, microsserviços modernos e engenharia de software para negócios que buscam liderança de mercado.",
     ctaText: "Falar com Especialistas",
     ctaHref: "/contact",
-    videoSrc: "/quarto.mp4",
+    videoSrc: "/abackgroundvideo.mp4",
   },
 ];
 
